@@ -7,29 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
-		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
+		08593D587C89EB981A984D63 /* imgui_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E2BEE7E581FF71E7090AA6 /* imgui_internal.h */; };
+		0949909FA7B2191D6DB58FD0 /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB7CB4A3CD8E1D512419A4 /* ImGuiLayer.cpp */; };
+		0B3669E72154779CBD467C37 /* imconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DD3ACCF84AECEAA99F1A68 /* imconfig.h */; };
+		0D5D61E3AD0FADBA8AB072AD /* imconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DD3ACCF84AECEAA99F1A68 /* imconfig.h */; };
+		1AC6FB21180E996B004C840B /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
+		1AC6FB30180E99EB004C840B /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1E94C9A0636F87ED09292208 /* HelloWorldScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E8E148CE90F63F06E82605 /* HelloWorldScene.h */; };
+		1FE56C8BF8B568257A442955 /* imgui_impl_glfw_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33DCBAECC6762C2FF8EAC8F0 /* imgui_impl_glfw_linux.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
-		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
-		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
-		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
-		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
-		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
-		503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FF17EB989F00D1A890 /* RootViewController.mm */; };
-		503AE10517EB98FF00D1A890 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503AE10317EB98FF00D1A890 /* main.cpp */; };
+		30D21ADDD01DFB0C0A4832E6 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E46D7EF09226241FC4C79 /* stb_truetype.h */; };
+		37955D3F275D84CA5788184A /* IMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D666A21B12B3A842F280B6B6 /* IMGUIGLViewImpl.cpp */; };
+		3C62091C6215392CD5166AD6 /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA61B88F0DF8A534CE2444F /* CCIMGUI.cpp */; };
+		3F746E4112A1DAC56DE80C7A /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 311F2CFE171F6DE4B75015CD /* HelloWorld.png */; };
+		45290001B7BBB36C33F90D85 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39BFCDF71C79F6DAFC741894 /* AppDelegate.cpp */; };
+		4B60D442F97271036BC035F3 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6334A7FBC53F5C8626BDA9FF /* HelloWorldScene.cpp */; };
+		4D21EE315BD377D1D8B55C97 /* CCIMGUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8759E732ACE8BFA31BB57E31 /* CCIMGUI.h */; };
+		4D8A6CB8692C8B8911BD1122 /* HelloWorldScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E8E148CE90F63F06E82605 /* HelloWorldScene.h */; };
+		4E898174C2134724B40A1A3D /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = 139E46D7EF09226241FC4C79 /* stb_truetype.h */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -37,39 +35,51 @@
 		5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77217EB970100C73F5D /* Default-568h@2x.png */; };
-		5087E77E17EB970100C73F5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77317EB970100C73F5D /* Default.png */; };
-		5087E77F17EB970100C73F5D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77417EB970100C73F5D /* Default@2x.png */; };
-		5087E78017EB970100C73F5D /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77517EB970100C73F5D /* Icon-114.png */; };
-		5087E78117EB970100C73F5D /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77617EB970100C73F5D /* Icon-120.png */; };
-		5087E78217EB970100C73F5D /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77717EB970100C73F5D /* Icon-144.png */; };
-		5087E78317EB970100C73F5D /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77817EB970100C73F5D /* Icon-152.png */; };
-		5087E78417EB970100C73F5D /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77917EB970100C73F5D /* Icon-57.png */; };
-		5087E78517EB970100C73F5D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77A17EB970100C73F5D /* Icon-72.png */; };
-		5087E78617EB970100C73F5D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77B17EB970100C73F5D /* Icon-76.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
-		50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629217ECD46A001EB2F8 /* Icon-40.png */; };
-		50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629317ECD46A001EB2F8 /* Icon-58.png */; };
-		50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629417ECD46A001EB2F8 /* Icon-80.png */; };
-		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
-		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
-		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
-		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
-		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
-		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
-		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		5842C9369177ED14D0FAB7E8 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 447DFFE05748FAD9CDD7D116 /* imgui.cpp */; };
+		5AA425D2B6E648B9AEBA4147 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8F05AC369AF4C5AF9F0D6 /* imgui_demo.cpp */; };
+		5CD74E95A07801D04A389E60 /* imgui_impl_glfw.h in Headers */ = {isa = PBXBuildFile; fileRef = 28DA7EFE01A4DF00409C3DAE /* imgui_impl_glfw.h */; };
+		5E24FE0638AEFF93FE9A5F30 /* CCIMGUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8759E732ACE8BFA31BB57E31 /* CCIMGUI.h */; };
+		6056A043161BAF854BA9E003 /* stb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = 029BC42CA395BB4F7E4BC171 /* stb_textedit.h */; };
+		65166EB33B21B556EFC9689A /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6334A7FBC53F5C8626BDA9FF /* HelloWorldScene.cpp */; };
+		743F827130583BF35A1BE4C2 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 311F2CFE171F6DE4B75015CD /* HelloWorld.png */; };
+		78C96A03086F6AE95DED5A3E /* ImGuiLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C43FF72F37196F5CDE73FB /* ImGuiLayer.h */; };
+		7A511525668DEBC8CB5DAD22 /* imgui_impl_glfw_linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33DCBAECC6762C2FF8EAC8F0 /* imgui_impl_glfw_linux.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		827EF288CCD070294F8B20AD /* stb_rect_pack.h in Headers */ = {isa = PBXBuildFile; fileRef = CFE6E006577C0556EF37C701 /* stb_rect_pack.h */; };
+		8387456C7CF19C4F2D593918 /* CCIMGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FA61B88F0DF8A534CE2444F /* CCIMGUI.cpp */; };
+		842FCF3E2F2613705AD70BB7 /* imgui.h in Headers */ = {isa = PBXBuildFile; fileRef = 5105CACB8053B5EFF56520F0 /* imgui.h */; };
+		8A3207843DAA8411F414D146 /* imgui_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E2BEE7E581FF71E7090AA6 /* imgui_internal.h */; };
+		8AB5D81A01987FDA9292654A /* IMGUIGLViewImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F6708B00252326333D8BFF2 /* IMGUIGLViewImpl.h */; };
+		8C8E163E9CD49709EB2BF0F5 /* stb_rect_pack.h in Headers */ = {isa = PBXBuildFile; fileRef = CFE6E006577C0556EF37C701 /* stb_rect_pack.h */; };
+		8D3D09BF5F0F00671CF063D4 /* IMGUIGLViewImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F6708B00252326333D8BFF2 /* IMGUIGLViewImpl.h */; };
+		A81DE69E59364C18E51B02EF /* IMGUIGLViewImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D666A21B12B3A842F280B6B6 /* IMGUIGLViewImpl.cpp */; };
+		ACF3A323026D2EF26AF4E59E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39BFCDF71C79F6DAFC741894 /* AppDelegate.cpp */; };
+		B11485CD35D01402F43A6E12 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E818E2848DEEC93B63F899A /* imgui_draw.cpp */; };
+		B8A236A86DD6E447806ED9B4 /* ImGuiLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C43FF72F37196F5CDE73FB /* ImGuiLayer.h */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		C213A7BE8B7F2900893CD754 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 161AD78B6D2079B16B727B4D /* AppDelegate.h */; };
+		D15D7E7F9FAE2760ECA6ED2A /* imgui.h in Headers */ = {isa = PBXBuildFile; fileRef = 5105CACB8053B5EFF56520F0 /* imgui.h */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		DC6C29715276FB57CD52C21A /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E818E2848DEEC93B63F899A /* imgui_draw.cpp */; };
+		DF120BA09459D5E0B637630D /* stb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = 029BC42CA395BB4F7E4BC171 /* stb_textedit.h */; };
+		E2D07A67799722E0D0336940 /* imgui_impl_glfw.h in Headers */ = {isa = PBXBuildFile; fileRef = 28DA7EFE01A4DF00409C3DAE /* imgui_impl_glfw.h */; };
+		E53CA2BC39D6CF66D99D8D7B /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 447DFFE05748FAD9CDD7D116 /* imgui.cpp */; };
+		E5AB2B9E9610B351853A51EB /* res in Resources */ = {isa = PBXBuildFile; fileRef = F3B19EBCEF56F1244DD520A1 /* res */; };
+		E641911B91B197165EB915FF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E25A49BA1D647FD05DFD7 /* main.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		ED59B3C9D87CE962A862DCDB /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8F05AC369AF4C5AF9F0D6 /* imgui_demo.cpp */; };
+		F2DD87D9CBFEF1D03D861E96 /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB7CB4A3CD8E1D512419A4 /* ImGuiLayer.cpp */; };
+		FA06F548E3FEFE96D4DFF66E /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 161AD78B6D2079B16B727B4D /* AppDelegate.h */; };
+		FE2B4E4586EA46E8B577E80B /* res in Resources */ = {isa = PBXBuildFile; fileRef = F3B19EBCEF56F1244DD520A1 /* res */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,21 +114,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		029BC42CA395BB4F7E4BC171 /* stb_textedit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = stb_textedit.h; path = imgui/stb_textedit.h; sourceTree = "<group>"; };
+		04EB7CB4A3CD8E1D512419A4 /* ImGuiLayer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ImGuiLayer.cpp; path = imgui/ImGuiLayer.cpp; sourceTree = "<group>"; };
+		139E46D7EF09226241FC4C79 /* stb_truetype.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = imgui/stb_truetype.h; sourceTree = "<group>"; };
+		161AD78B6D2079B16B727B4D /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* imguix-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "imguix-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1E818E2848DEEC93B63F899A /* imgui_draw.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_draw.cpp; path = imgui/imgui_draw.cpp; sourceTree = "<group>"; };
+		1FA61B88F0DF8A534CE2444F /* CCIMGUI.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = CCIMGUI.cpp; path = imgui/CCIMGUI.cpp; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28DA7EFE01A4DF00409C3DAE /* imgui_impl_glfw.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = imgui_impl_glfw.h; path = imgui/imgui_impl_glfw.h; sourceTree = "<group>"; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
-		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		311F2CFE171F6DE4B75015CD /* HelloWorld.png */ = {isa = PBXFileReference; includeInIndex = 1; path = HelloWorld.png; sourceTree = "<group>"; };
+		33DCBAECC6762C2FF8EAC8F0 /* imgui_impl_glfw_linux.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_impl_glfw_linux.cpp; path = imgui/imgui_impl_glfw_linux.cpp; sourceTree = "<group>"; };
+		39BFCDF71C79F6DAFC741894 /* AppDelegate.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		3FB8F05AC369AF4C5AF9F0D6 /* imgui_demo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_demo.cpp; path = imgui/imgui_demo.cpp; sourceTree = "<group>"; };
+		40C43FF72F37196F5CDE73FB /* ImGuiLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ImGuiLayer.h; path = imgui/ImGuiLayer.h; sourceTree = "<group>"; };
+		447DFFE05748FAD9CDD7D116 /* imgui.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui.cpp; path = imgui/imgui.cpp; sourceTree = "<group>"; };
+		48DD3ACCF84AECEAA99F1A68 /* imconfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = imconfig.h; path = imgui/imconfig.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -151,20 +167,29 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		5105CACB8053B5EFF56520F0 /* imgui.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = imgui/imgui.h; sourceTree = "<group>"; };
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		5C9E25A49BA1D647FD05DFD7 /* main.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = main.cpp; path = ../proj.ios_mac/mac/main.cpp; sourceTree = "<group>"; };
+		6334A7FBC53F5C8626BDA9FF /* HelloWorldScene.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
+		74E8E148CE90F63F06E82605 /* HelloWorldScene.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
+		7F6708B00252326333D8BFF2 /* IMGUIGLViewImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IMGUIGLViewImpl.h; path = imgui/IMGUIGLViewImpl.h; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8759E732ACE8BFA31BB57E31 /* CCIMGUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CCIMGUI.h; path = imgui/CCIMGUI.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CFE6E006577C0556EF37C701 /* stb_rect_pack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = stb_rect_pack.h; path = imgui/stb_rect_pack.h; sourceTree = "<group>"; };
+		D0E2BEE7E581FF71E7090AA6 /* imgui_internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = imgui_internal.h; path = imgui/imgui_internal.h; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D666A21B12B3A842F280B6B6 /* IMGUIGLViewImpl.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = IMGUIGLViewImpl.cpp; path = imgui/IMGUIGLViewImpl.cpp; sourceTree = "<group>"; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F3B19EBCEF56F1244DD520A1 /* res */ = {isa = PBXFileReference; includeInIndex = 1; path = res; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +200,7 @@
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
-				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
+				1AC6FB30180E99EB004C840B /* ReferenceProxy in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -194,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */,
-				1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */,
+				1AC6FB21180E996B004C840B /* ReferenceProxy in Frameworks */,
 				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
 				8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */,
 				503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */,
@@ -244,7 +269,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				46880B8319C43A87006E1F66 /* Classes */,
@@ -288,11 +313,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				521A8EA819F11F5000D177D7 /* fonts */,
-				3EACC98E19EE6D4300EB3C5E /* res */,
-				46880B7619C43A67006E1F66 /* CloseNormal.png */,
-				46880B7719C43A67006E1F66 /* CloseSelected.png */,
-				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
+				F3B19EBCEF56F1244DD520A1 /* res */,
+				311F2CFE171F6DE4B75015CD /* HelloWorld.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -301,10 +323,28 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				39BFCDF71C79F6DAFC741894 /* AppDelegate.cpp */,
+				6334A7FBC53F5C8626BDA9FF /* HelloWorldScene.cpp */,
+				1FA61B88F0DF8A534CE2444F /* CCIMGUI.cpp */,
+				447DFFE05748FAD9CDD7D116 /* imgui.cpp */,
+				3FB8F05AC369AF4C5AF9F0D6 /* imgui_demo.cpp */,
+				1E818E2848DEEC93B63F899A /* imgui_draw.cpp */,
+				D666A21B12B3A842F280B6B6 /* IMGUIGLViewImpl.cpp */,
+				04EB7CB4A3CD8E1D512419A4 /* ImGuiLayer.cpp */,
+				33DCBAECC6762C2FF8EAC8F0 /* imgui_impl_glfw_linux.cpp */,
+				161AD78B6D2079B16B727B4D /* AppDelegate.h */,
+				74E8E148CE90F63F06E82605 /* HelloWorldScene.h */,
+				8759E732ACE8BFA31BB57E31 /* CCIMGUI.h */,
+				48DD3ACCF84AECEAA99F1A68 /* imconfig.h */,
+				7F6708B00252326333D8BFF2 /* IMGUIGLViewImpl.h */,
+				5105CACB8053B5EFF56520F0 /* imgui.h */,
+				28DA7EFE01A4DF00409C3DAE /* imgui_impl_glfw.h */,
+				D0E2BEE7E581FF71E7090AA6 /* imgui_internal.h */,
+				40C43FF72F37196F5CDE73FB /* ImGuiLayer.h */,
+				CFE6E006577C0556EF37C701 /* stb_rect_pack.h */,
+				029BC42CA395BB4F7E4BC171 /* stb_textedit.h */,
+				139E46D7EF09226241FC4C79 /* stb_truetype.h */,
+				5C9E25A49BA1D647FD05DFD7 /* main.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -359,6 +399,47 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		68C83EC5860690A39A15341E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA06F548E3FEFE96D4DFF66E /* AppDelegate.h in Headers */,
+				4D8A6CB8692C8B8911BD1122 /* HelloWorldScene.h in Headers */,
+				5E24FE0638AEFF93FE9A5F30 /* CCIMGUI.h in Headers */,
+				0D5D61E3AD0FADBA8AB072AD /* imconfig.h in Headers */,
+				8D3D09BF5F0F00671CF063D4 /* IMGUIGLViewImpl.h in Headers */,
+				842FCF3E2F2613705AD70BB7 /* imgui.h in Headers */,
+				E2D07A67799722E0D0336940 /* imgui_impl_glfw.h in Headers */,
+				8A3207843DAA8411F414D146 /* imgui_internal.h in Headers */,
+				B8A236A86DD6E447806ED9B4 /* ImGuiLayer.h in Headers */,
+				8C8E163E9CD49709EB2BF0F5 /* stb_rect_pack.h in Headers */,
+				6056A043161BAF854BA9E003 /* stb_textedit.h in Headers */,
+				30D21ADDD01DFB0C0A4832E6 /* stb_truetype.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9852B028C0E5CF1835C6F5CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C213A7BE8B7F2900893CD754 /* AppDelegate.h in Headers */,
+				1E94C9A0636F87ED09292208 /* HelloWorldScene.h in Headers */,
+				4D21EE315BD377D1D8B55C97 /* CCIMGUI.h in Headers */,
+				0B3669E72154779CBD467C37 /* imconfig.h in Headers */,
+				8AB5D81A01987FDA9292654A /* IMGUIGLViewImpl.h in Headers */,
+				D15D7E7F9FAE2760ECA6ED2A /* imgui.h in Headers */,
+				5CD74E95A07801D04A389E60 /* imgui_impl_glfw.h in Headers */,
+				08593D587C89EB981A984D63 /* imgui_internal.h in Headers */,
+				78C96A03086F6AE95DED5A3E /* ImGuiLayer.h in Headers */,
+				827EF288CCD070294F8B20AD /* stb_rect_pack.h in Headers */,
+				DF120BA09459D5E0B637630D /* stb_textedit.h in Headers */,
+				4E898174C2134724B40A1A3D /* stb_truetype.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		1D6058900D05DD3D006BFB54 /* imguix-mobile */ = {
 			isa = PBXNativeTarget;
@@ -367,6 +448,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				9852B028C0E5CF1835C6F5CA /* Headers */,
 			);
 			buildRules = (
 			);
@@ -385,6 +467,7 @@
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
 				5087E75C17EB910900C73F5D /* Frameworks */,
+				68C83EC5860690A39A15341E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -414,7 +497,8 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -452,29 +536,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
-				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
-				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
-				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
-				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
-				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
-				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
-				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
-				521A8EA919F11F5000D177D7 /* fonts in Resources */,
-				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
-				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
-				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
-				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
-				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
-				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				FE2B4E4586EA46E8B577E80B /* res in Resources */,
+				743F827130583BF35A1BE4C2 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,12 +545,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
-				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				3EACC99019EE6D4300EB3C5E /* res in Resources */,
-				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
-				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				E5AB2B9E9610B351853A51EB /* res in Resources */,
+				3F746E4112A1DAC56DE80C7A /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,11 +557,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
-				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				ACF3A323026D2EF26AF4E59E /* AppDelegate.cpp in Sources */,
+				4B60D442F97271036BC035F3 /* HelloWorldScene.cpp in Sources */,
+				3C62091C6215392CD5166AD6 /* CCIMGUI.cpp in Sources */,
+				E53CA2BC39D6CF66D99D8D7B /* imgui.cpp in Sources */,
+				5AA425D2B6E648B9AEBA4147 /* imgui_demo.cpp in Sources */,
+				B11485CD35D01402F43A6E12 /* imgui_draw.cpp in Sources */,
+				A81DE69E59364C18E51B02EF /* IMGUIGLViewImpl.cpp in Sources */,
+				F2DD87D9CBFEF1D03D861E96 /* ImGuiLayer.cpp in Sources */,
+				7A511525668DEBC8CB5DAD22 /* imgui_impl_glfw_linux.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,9 +573,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				E641911B91B197165EB915FF /* main.cpp in Sources */,
+				45290001B7BBB36C33F90D85 /* AppDelegate.cpp in Sources */,
+				65166EB33B21B556EFC9689A /* HelloWorldScene.cpp in Sources */,
+				8387456C7CF19C4F2D593918 /* CCIMGUI.cpp in Sources */,
+				5842C9369177ED14D0FAB7E8 /* imgui.cpp in Sources */,
+				ED59B3C9D87CE962A862DCDB /* imgui_demo.cpp in Sources */,
+				DC6C29715276FB57CD52C21A /* imgui_draw.cpp in Sources */,
+				37955D3F275D84CA5788184A /* IMGUIGLViewImpl.cpp in Sources */,
+				0949909FA7B2191D6DB58FD0 /* ImGuiLayer.cpp in Sources */,
+				1FE56C8BF8B568257A442955 /* imgui_impl_glfw_linux.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

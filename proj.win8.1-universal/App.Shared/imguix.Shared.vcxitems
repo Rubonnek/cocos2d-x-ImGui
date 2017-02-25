@@ -18,6 +18,13 @@
     </ApplicationDefinition>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\AppDelegate.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\CCIMGUI.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui_demo.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui_draw.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\IMGUIGLViewImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\ImGuiLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui_impl_glfw_linux.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
@@ -28,6 +35,16 @@
     </ClCompile>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\AppDelegate.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\CCIMGUI.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imconfig.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\IMGUIGLViewImpl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\imgui_internal.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\ImGuiLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\stb_rect_pack.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\stb_textedit.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Classes\imgui\stb_truetype.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)App.xaml.h">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClInclude>

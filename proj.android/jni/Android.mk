@@ -12,8 +12,15 @@ LOCAL_MODULE := MyGame_shared
 LOCAL_MODULE_FILENAME := libMyGame
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+	../../Classes/AppDelegate.cpp \
+	../../Classes/HelloWorldScene.cpp \
+	../../Classes/imgui/CCIMGUI.cpp \
+	../../Classes/imgui/imgui.cpp \
+	../../Classes/imgui/imgui_demo.cpp \
+	../../Classes/imgui/imgui_draw.cpp \
+	../../Classes/imgui/IMGUIGLViewImpl.cpp \
+	../../Classes/imgui/ImGuiLayer.cpp \
+	../../Classes/imgui/imgui_impl_glfw_linux.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
