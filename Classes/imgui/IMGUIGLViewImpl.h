@@ -51,6 +51,9 @@ THE SOFTWARE.
 #include "glfw3native.h"
 #endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+#include "glfw3.h"
+#endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 NS_CC_BEGIN
 
 class IMGUIGLViewImpl : public GLView
@@ -64,7 +67,6 @@ public:
     /*
      *frameZoomFactor for frame. This method is for debugging big resolution (e.g.new ipad) app on desktop.
      */
-
 
     //void resize(int width, int height);
 
@@ -85,6 +87,7 @@ public:
     virtual void swapBuffers() override;
     virtual void setFrameSize(float width, float height) override;
     virtual void setIMEKeyboardState(bool bOpen) override;
+
     /*
      * Set zoom factor for frame. This method is for debugging big resolution (e.g.new ipad) app on desktop.
      */
@@ -112,7 +115,7 @@ public:
 #endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 
 protected:
-    IMGUIGLViewImpl(bool initglfw = true);
+    IMGUIGLViewImpl();
     virtual ~IMGUIGLViewImpl();
 
     bool initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor);
@@ -145,8 +148,6 @@ protected:
 
     GLFWwindow* _mainWindow;
     GLFWmonitor* _monitor;
-
-	std::string _glfwError;
 
     float _mouseX;
     float _mouseY;

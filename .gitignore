@@ -25,8 +25,8 @@
 # The external editor projects
 !/EditorProjects/**/*
 
-# The Vim - YouCompleteMe configuration file
-!/.ycm_extra_conf.py
+# Ignore the Vim - YouCompleteMe configuration file
+/.ycm_extra_conf.py
 
 # The Android make file and related files (for building the .apk from the command line):
 !/proj.android/jni/Android.mk

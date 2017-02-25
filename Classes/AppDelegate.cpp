@@ -1,41 +1,22 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-#include "CCIMGUIGLViewImpl.h"
-#include "CCImGuiLayer.h"
-#include "CCIMGUI.h"
-
-    #ifdef IMGUI_LUA
-    #include "imgui/imgui_lua.hpp"
-    #endif // IMGUI_LUA
-
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+#include "imgui/IMGUIGLViewImpl.h"
+#include "imgui/ImGuiLayer.h"
 #endif
-
 USING_NS_CC;
 
-#if IMGUI_LUA > 0
-static int imgui_lua_test()
-{
-    static lua_State *L = luaL_newstate();
-    luaL_openlibs(L);
-    luaopen_imgui(L);
-
-    std::string fn = FileUtils::getInstance()->fullPathForFilename("res/main.lua");
-    if (luaL_dofile(L, fn.c_str()))
-    {
-        CCLOG("%s", lua_tostring(L, -1));
-    }
-
-    return 0;
-}
-#endif // IMGUI_LUA
+static cocos2d::Size designResolutionSize = cocos2d::Size(1136, 640);
+static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
+static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
+static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate() {
 
 }
 
-AppDelegate::~AppDelegate()
+AppDelegate::~AppDelegate() 
 {
 }
 
@@ -50,52 +31,53 @@ void AppDelegate::initGLContextAttrs()
     GLView::setGLContextAttrs(glContextAttrs);
 }
 
+// If you want to use packages manager to install more packages, 
+// don't modify or remove this function
+static int register_all_packages()
+{
+    return 0; //flag for packages manager
+}
+
 bool AppDelegate::applicationDidFinishLaunching() {
-    int width = 960;
-    int height = 640;
-    
     // initialize director
     auto director = Director::getInstance();
-    auto glview   = director->getOpenGLView();
-
-    if (!glview)
-    {
-        director->setOpenGLView(IMGUIGLViewImpl::createWithRect("imguix", Rect(0, 0, width, height)));
+    auto glview = director->getOpenGLView();
+    if(!glview) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+        glview = IMGUIGLViewImpl::createWithRect("HomeTown", Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+		glview = GLViewImpl::createWithRect("HomeTown", Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
+#else
+        glview = GLViewImpl::create("HomeTown");
+#endif
+        director->setOpenGLView(glview);
     }
-    
-    director->getOpenGLView()->setDesignResolutionSize(width, height, ResolutionPolicy::NO_BORDER);
 
     // turn on display FPS
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 30);
+    director->setAnimationInterval(1.0 / 60);
 
-    FileUtils::getInstance()->addSearchPath("res");
-
+    // Set the design resolution
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
+    register_all_packages();
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
-    
-    // run
+
+	auto scene = Scene::create();
+	scene->addChild(HelloWorldScene::create());
     director->runWithScene(scene);
 
+	// auto check when imGUI layer is not added yet.
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-    // ImGui is always on the top
-    Director::getInstance()->getScheduler()->schedule([](float)
-    {
-       if (!Director::getInstance()->getRunningScene()->getChildByName("ImGUILayer"))
-       {
-           Director::getInstance()->getRunningScene()->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
-       }
-    }, this, 0, false, "checkImGUI");
+	director->getScheduler()->schedule([=](float dt)
+	{
+		if(director->getRunningScene()->getChildByName("ImGUILayer") == NULL)
+		{
+			scene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
+		}
+	}, this, 0,false, "checkImGUI");
 #endif
-
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("AllSprites.plist", "AllSprites.png");
-    
-#if IMGUI_LUA > 0
-    imgui_lua_test();
-#endif // IMGUI_LUA
-
     return true;
 }
 

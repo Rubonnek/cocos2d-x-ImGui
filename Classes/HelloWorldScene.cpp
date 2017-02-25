@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "imgui/CCIMGUI.h"
+#include "imgui/ImGuiLayer.h"
 
 USING_NS_CC;
 
@@ -7,13 +8,13 @@ static bool show_test_window = true;
 static bool show_another_window = false;
 static ImVec4 clear_color = ImColor(114, 144, 154);
 
-Scene* HelloWorld::createScene()
+Scene* HelloWorldScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
 
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
+    auto layer = HelloWorldScene::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -23,7 +24,7 @@ Scene* HelloWorld::createScene()
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool HelloWorldScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -75,6 +76,8 @@ bool HelloWorld::init()
             ImGui::ShowTestWindow(&show_test_window);
         }
     }, "demoid");
+
+	this->addChild(ImGuiLayer::create(), INT_MAX,   "ImGUILayer");
 
     return true;
 }

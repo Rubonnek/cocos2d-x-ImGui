@@ -37,10 +37,9 @@ THE SOFTWARE.
 #include "base/ccUtils.h"
 #include "base/ccUTF8.h"
 #include "2d/CCCamera.h"
-#include "deprecated/CCString.h"
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
 
 NS_CC_BEGIN
 
@@ -84,7 +83,7 @@ public:
         if (_view)
         {
             _view->onGLFWKeyCallback(window, key, scancode, action, mods);
-			ImGui_ImplGlFw_KeyCallback(window, key, scancode, action, mods);
+            ImGui_ImplGlFw_KeyCallback(window, key, scancode, action, mods);
         }
     }
 
@@ -283,13 +282,12 @@ static keyCodeItem g_keyCodeStructArray[] = {
     { GLFW_KEY_LAST            , EventKeyboard::KeyCode::KEY_NONE          }
 };
 
-
 //////////////////////////////////////////////////////////////////////////
 // implement IMGUIGLViewImpl
 //////////////////////////////////////////////////////////////////////////
 
 
-IMGUIGLViewImpl::IMGUIGLViewImpl(bool initglfw)
+IMGUIGLViewImpl::IMGUIGLViewImpl()
 : _captured(false)
 , _supportTouch(false)
 , _isInRetinaMonitor(false)
@@ -309,10 +307,9 @@ IMGUIGLViewImpl::IMGUIGLViewImpl(bool initglfw)
     }
 
     GLFWEventHandler::setGLViewImpl(this);
-	if (initglfw) {
-		glfwSetErrorCallback(GLFWEventHandler::onGLFWError);
-		glfwInit();
-	}
+
+    glfwSetErrorCallback(GLFWEventHandler::onGLFWError);
+    glfwInit();
 }
 
 IMGUIGLViewImpl::~IMGUIGLViewImpl()
@@ -340,7 +337,7 @@ IMGUIGLViewImpl* IMGUIGLViewImpl::createWithRect(const std::string& viewName, Re
         ret->autorelease();
         return ret;
     }
-	CC_SAFE_DELETE(ret);
+
     return nullptr;
 }
 
@@ -351,7 +348,7 @@ IMGUIGLViewImpl* IMGUIGLViewImpl::createWithFullScreen(const std::string& viewNa
         ret->autorelease();
         return ret;
     }
-	CC_SAFE_DELETE(ret);
+
     return nullptr;
 }
 
@@ -362,98 +359,86 @@ IMGUIGLViewImpl* IMGUIGLViewImpl::createWithFullScreen(const std::string& viewNa
         ret->autorelease();
         return ret;
     }
-	CC_SAFE_DELETE(ret);
+    
     return nullptr;
 }
 
 bool IMGUIGLViewImpl::initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor)
 {
-	setViewName(viewName);
+    setViewName(viewName);
 
-	_frameZoomFactor = frameZoomFactor;
+    _frameZoomFactor = frameZoomFactor;
 
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-	glfwWindowHint(GLFW_RED_BITS, _glContextAttrs.redBits);
-	glfwWindowHint(GLFW_GREEN_BITS, _glContextAttrs.greenBits);
-	glfwWindowHint(GLFW_BLUE_BITS, _glContextAttrs.blueBits);
-	glfwWindowHint(GLFW_ALPHA_BITS, _glContextAttrs.alphaBits);
-	glfwWindowHint(GLFW_DEPTH_BITS, _glContextAttrs.depthBits);
-	glfwWindowHint(GLFW_STENCIL_BITS, _glContextAttrs.stencilBits);
+    glfwWindowHint(GLFW_RESIZABLE,GL_TRUE);
+    glfwWindowHint(GLFW_RED_BITS,_glContextAttrs.redBits);
+    glfwWindowHint(GLFW_GREEN_BITS,_glContextAttrs.greenBits);
+    glfwWindowHint(GLFW_BLUE_BITS,_glContextAttrs.blueBits);
+    glfwWindowHint(GLFW_ALPHA_BITS,_glContextAttrs.alphaBits);
+    glfwWindowHint(GLFW_DEPTH_BITS,_glContextAttrs.depthBits);
+    glfwWindowHint(GLFW_STENCIL_BITS,_glContextAttrs.stencilBits);
 
-	int needWidth = rect.size.width * _frameZoomFactor;
-	int neeHeight = rect.size.height * _frameZoomFactor;
+    int needWidth = rect.size.width * _frameZoomFactor;
+    int neeHeight = rect.size.height * _frameZoomFactor;
 
-	_mainWindow = glfwCreateWindow(needWidth, neeHeight, _viewName.c_str(), _monitor, nullptr);
+    _mainWindow = glfwCreateWindow(needWidth, neeHeight, _viewName.c_str(), _monitor, nullptr);
 
-	if (_mainWindow == nullptr)
-	{
-		std::string message = "Can't create window";
-		if (!_glfwError.empty())
-		{
-			message.append("\nMore info: \n");
-			message.append(_glfwError);
-		}
+    /*
+    *  Note that the created window and context may differ from what you requested,
+    *  as not all parameters and hints are
+    *  [hard constraints](@ref window_hints_hard).  This includes the size of the
+    *  window, especially for full screen windows.  To retrieve the actual
+    *  attributes of the created window and context, use queries like @ref
+    *  glfwGetWindowAttrib and @ref glfwGetWindowSize.
+    *
+    *  see declaration glfwCreateWindow
+    */
+    int realW = 0, realH = 0;
+    glfwGetWindowSize(_mainWindow, &realW, &realH);
+    if (realW != needWidth)
+    {
+        rect.size.width = realW / _frameZoomFactor;
+    }
+    if (realH != neeHeight)
+    {
+        rect.size.height = realH / _frameZoomFactor;
+    }
 
-		MessageBox(message.c_str(), "Error launch application");
-		return false;
-	}
+    glfwMakeContextCurrent(_mainWindow);
 
-	/*
-	*  Note that the created window and context may differ from what you requested,
-	*  as not all parameters and hints are
-	*  [hard constraints](@ref window_hints_hard).  This includes the size of the
-	*  window, especially for full screen windows.  To retrieve the actual
-	*  attributes of the created window and context, use queries like @ref
-	*  glfwGetWindowAttrib and @ref glfwGetWindowSize.
-	*
-	*  see declaration glfwCreateWindow
-	*/
-	int realW = 0, realH = 0;
-	glfwGetWindowSize(_mainWindow, &realW, &realH);
-	if (realW != needWidth)
-	{
-		rect.size.width = realW / _frameZoomFactor;
-	}
-	if (realH != neeHeight)
-	{
-		rect.size.height = realH / _frameZoomFactor;
-	}
+    glfwSetMouseButtonCallback(_mainWindow, GLFWEventHandler::onGLFWMouseCallBack);
+    glfwSetCursorPosCallback(_mainWindow, GLFWEventHandler::onGLFWMouseMoveCallBack);
+    glfwSetScrollCallback(_mainWindow, GLFWEventHandler::onGLFWMouseScrollCallback);
+    glfwSetCharCallback(_mainWindow, GLFWEventHandler::onGLFWCharCallback);
+    glfwSetKeyCallback(_mainWindow, GLFWEventHandler::onGLFWKeyCallback);
+    glfwSetWindowPosCallback(_mainWindow, GLFWEventHandler::onGLFWWindowPosCallback);
+    glfwSetFramebufferSizeCallback(_mainWindow, GLFWEventHandler::onGLFWframebuffersize);
+    glfwSetWindowSizeCallback(_mainWindow, GLFWEventHandler::onGLFWWindowSizeFunCallback);
+    glfwSetWindowIconifyCallback(_mainWindow, GLFWEventHandler::onGLFWWindowIconifyCallback);
+    glfwSetWindowSizeCallback(_mainWindow, GLFWEventHandler::onWindowResizeCallback);
 
-	glfwMakeContextCurrent(_mainWindow);
+    setFrameSize(rect.size.width, rect.size.height);
 
-	glfwSetMouseButtonCallback(_mainWindow, GLFWEventHandler::onGLFWMouseCallBack);
-	glfwSetCursorPosCallback(_mainWindow, GLFWEventHandler::onGLFWMouseMoveCallBack);
-	glfwSetScrollCallback(_mainWindow, GLFWEventHandler::onGLFWMouseScrollCallback);
-	glfwSetCharCallback(_mainWindow, GLFWEventHandler::onGLFWCharCallback);
-	glfwSetKeyCallback(_mainWindow, GLFWEventHandler::onGLFWKeyCallback);
-	glfwSetWindowPosCallback(_mainWindow, GLFWEventHandler::onGLFWWindowPosCallback);
-	glfwSetFramebufferSizeCallback(_mainWindow, GLFWEventHandler::onGLFWframebuffersize);
-	glfwSetWindowSizeCallback(_mainWindow, GLFWEventHandler::onGLFWWindowSizeFunCallback);
-	glfwSetWindowIconifyCallback(_mainWindow, GLFWEventHandler::onGLFWWindowIconifyCallback);
+    // check OpenGL version at first
+    const GLubyte* glVersion = glGetString(GL_VERSION);
 
-	setFrameSize(rect.size.width, rect.size.height);
+    if ( utils::atof((const char*)glVersion) < 1.5 )
+    {
+        char strComplain[256] = {0};
+        sprintf(strComplain,
+                "OpenGL 1.5 or higher is required (your version is %s). Please upgrade the driver of your video card.",
+                glVersion);
+        MessageBox(strComplain, "OpenGL version too old");
+        return false;
+    }
 
-	// check OpenGL version at first
-	const GLubyte* glVersion = glGetString(GL_VERSION);
+    initGlew();
 
-	if (utils::atof((const char*)glVersion) < 1.5)
-	{
-		char strComplain[256] = { 0 };
-		sprintf(strComplain,
-			"OpenGL 1.5 or higher is required (your version is %s). Please upgrade the driver of your video card.",
-			glVersion);
-		MessageBox(strComplain, "OpenGL version too old");
-		return false;
-	}
-
-	initGlew();
-
-	// Enable point size by default.
-	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
+    // Enable point size by default.
+    glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 
     // imgui
     ImGui_ImplGlfw_Init(_mainWindow, false);
-
+    
     return true;
 }
 
