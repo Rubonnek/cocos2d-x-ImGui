@@ -38,7 +38,7 @@ THE SOFTWARE.
 #include "base/ccUTF8.h"
 #include "2d/CCCamera.h"
 
-#include "imgui.h"
+#include "imgui/imgui.h"
 #include "imgui_impl_glfw.h"
 
 NS_CC_BEGIN

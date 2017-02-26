@@ -1,6 +1,6 @@
 #include "HelloWorldScene.h"
-#include "imgui/CCIMGUI.h"
-#include "imgui/ImGuiLayer.h"
+#include "CCImGui/CCIMGUI.h"
+#include "CCImGui/ImGuiLayer.h"
 
 USING_NS_CC;
 

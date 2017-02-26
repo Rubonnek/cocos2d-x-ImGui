@@ -2,7 +2,7 @@
 #define __CC_IMGUI_H__
 
 #include "cocos2d.h"
-#include "imgui.h"
+#include "imgui/imgui.h"
 
 USING_NS_CC;
 

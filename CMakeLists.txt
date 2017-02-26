@@ -126,29 +126,41 @@ endif( WIN32 )
 set(GAME_SRC
 	Classes/AppDelegate.cpp
 	Classes/HelloWorldScene.cpp
-	Classes/imgui/CCIMGUI.cpp
-	Classes/imgui/imgui.cpp
-	Classes/imgui/imgui_demo.cpp
-	Classes/imgui/imgui_draw.cpp
-	Classes/imgui/IMGUIGLViewImpl.cpp
-	Classes/imgui/ImGuiLayer.cpp
-	Classes/imgui/imgui_impl_glfw_linux.cpp
+
+	# imgui + Cocos2D-X code:
+	Classes/CCImGui/CCIMGUI.cpp
+	Classes/CCImGui/IMGUIGLViewImpl.cpp
+	Classes/CCImGui/ImGuiLayer.cpp
+
+	# imgui repo files:
+	Classes/CCImGui/imgui/imgui.cpp
+	Classes/CCImGui/imgui/imgui_demo.cpp
+	Classes/CCImGui/imgui/imgui_draw.cpp
+	Classes/CCImGui/imgui_impl_glfw_linux.cpp
+
 	${PLATFORM_SPECIFIC_SRC}
 	)
 
 set(GAME_HEADERS
 	Classes/AppDelegate.h
 	Classes/HelloWorldScene.h
-	Classes/imgui/CCIMGUI.h
-	Classes/imgui/imconfig.h
-	Classes/imgui/IMGUIGLViewImpl.h
-	Classes/imgui/imgui.h
-	Classes/imgui/imgui_impl_glfw.h
-	Classes/imgui/imgui_internal.h
-	Classes/imgui/ImGuiLayer.h
-	Classes/imgui/stb_rect_pack.h
-	Classes/imgui/stb_textedit.h
-	Classes/imgui/stb_truetype.h
+
+	# imgui + Cocos2D-X code:
+	Classes/CCImGui/CCIMGUI.h
+	Classes/CCImGui/IMGUIGLViewImpl.h
+	Classes/CCImGui/ImGuiLayer.h
+
+	# imgui repo files:
+	Classes/CCImGui/imgui/imgui.h
+	Classes/CCImGui/imgui/imconfig.h
+	Classes/CCImGui/imgui/imgui_impl_glfw.h
+	Classes/CCImGui/imgui/imgui_internal.h
+
+	# Single file C++ code from: https://github.com/nothings/stb
+	Classes/CCImGui/imgui/stb_rect_pack.h
+	Classes/CCImGui/imgui/stb_textedit.h
+	Classes/CCImGui/imgui/stb_truetype.h
+
 	${PLATFORM_SPECIFIC_HEADERS}
 	)
 
