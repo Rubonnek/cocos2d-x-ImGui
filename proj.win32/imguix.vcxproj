@@ -151,7 +151,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CCImGui\imgui\imgui.cpp" />
     <ClCompile Include="..\Classes\CCImGui\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\Classes\CCImGui\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\Classes\CCImGui\platform\imgui_impl_glfw_win32.cpp" />
+    <ClCompile Include="..\Classes\CCImGui\platform\imgui_impl_glfw_linux_mac.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

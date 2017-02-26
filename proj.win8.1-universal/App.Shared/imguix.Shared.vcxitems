@@ -24,7 +24,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\CCImGui\imgui\imgui.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\CCImGui\imgui\imgui_demo.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\CCImGui\imgui\imgui_draw.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\CCImGui\platform\imgui_impl_glfw_linux.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Classes\CCImGui\platform\imgui_impl_glfw_linux_mac.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
