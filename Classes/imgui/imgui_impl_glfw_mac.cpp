@@ -1,5 +1,5 @@
 // ImGui GLFW binding with OpenGL
-// You can copy and use unmodified imgui_impl_* files in your project. 
+// You can copy and use unmodified imgui_impl_* files in your project.
 // If you use this binding you'll need to call 4 functions: ImGui_ImplXXXX_Init(), ImGui_ImplXXXX_NewFrame(), ImGui::Render() and ImGui_ImplXXXX_Shutdown().
 // See main.cpp for an example of using this.
 // https://github.com/ocornut/imgui
@@ -261,7 +261,7 @@ void ImGui_ImplGlfw_NewFrame()
     {
     	io.MousePos = ImVec2(-1,-1);
     }
-   
+
     for (int i = 0; i < 3; i++)
     {
         io.MouseDown[i] = g_MousePressed[i] || glfwGetMouseButton(g_Window, i) != 0;    // If a mouse press event came, always pass it as "mouse held this frame", so we don't miss click-release events that are shorter than 1 frame.

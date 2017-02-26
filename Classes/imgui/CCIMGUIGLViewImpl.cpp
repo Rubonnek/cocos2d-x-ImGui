@@ -468,7 +468,7 @@ bool IMGUIGLViewImpl::initWithRect(const std::string& viewName, Rect rect, float
 
     // imgui
     ImGui_ImplGlfw_Init(_mainWindow, false);
-    
+
     return true;
 }
 
@@ -489,13 +489,13 @@ bool IMGUIGLViewImpl::initWithFullscreen(const std::string &viewname, const GLFW
     _monitor = monitor;
     if (nullptr == _monitor)
         return false;
-    
+
     //These are soft contraints. If the video mode is retrieved at runtime, the resulting window and context should match these exactly. If invalid attribs are passed (eg. from an outdated cache), window creation will NOT fail but the actual window/context may differ.
     glfwWindowHint(GLFW_REFRESH_RATE, videoMode.refreshRate);
     glfwWindowHint(GLFW_RED_BITS, videoMode.redBits);
     glfwWindowHint(GLFW_BLUE_BITS, videoMode.blueBits);
     glfwWindowHint(GLFW_GREEN_BITS, videoMode.greenBits);
-    
+
     return initWithRect(viewname, Rect(0, 0, videoMode.width, videoMode.height), 1.0f, false);
 }
 
@@ -560,7 +560,7 @@ void IMGUIGLViewImpl::setCursorVisible( bool isVisible )
 {
     if( _mainWindow == NULL )
         return;
-    
+
     if( isVisible )
         glfwSetInputMode(_mainWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     else
@@ -684,7 +684,7 @@ void IMGUIGLViewImpl::onGLFWMouseCallBack(GLFWwindow* window, int button, int ac
             }
         }
     }
-    
+
     //Because OpenGL and cocos2d-x uses different Y axis, we need to convert the coordinate here
     float cursorX = (_mouseX - _viewPortRect.origin.x) / _scaleX;
     float cursorY = (_viewPortRect.origin.y + _viewPortRect.size.height - _mouseY) / _scaleY;
@@ -740,7 +740,7 @@ void IMGUIGLViewImpl::onGLFWMouseMoveCallBack(GLFWwindow* window, double x, doub
         intptr_t id = 0;
         this->handleTouchesMove(1, &id, &_mouseX, &_mouseY);
     }
-    
+
     //Because OpenGL and cocos2d-x uses different Y axis, we need to convert the coordinate here
     float cursorX = (_mouseX - _viewPortRect.origin.x) / _scaleX;
     float cursorY = (_viewPortRect.origin.y + _viewPortRect.size.height - _mouseY) / _scaleY;
@@ -782,7 +782,7 @@ void IMGUIGLViewImpl::onGLFWKeyCallback(GLFWwindow *window, int key, int scancod
         auto dispatcher = Director::getInstance()->getEventDispatcher();
         dispatcher->dispatchEvent(&event);
     }
-    
+
     if (GLFW_RELEASE != action && g_keyCodeMap[key] == EventKeyboard::KeyCode::KEY_BACKSPACE)
     {
         IMEDispatcher::sharedDispatcher()->dispatchDeleteBackward();

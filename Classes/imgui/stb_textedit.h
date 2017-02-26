@@ -17,7 +17,7 @@
 // texts, as its performance does not scale and it has limited undo).
 //
 // Non-trivial behaviors are modelled after Windows text controls.
-// 
+//
 //
 // LICENSE
 //
@@ -196,20 +196,20 @@
 //          call this with the mouse x,y on a mouse down; it will update the cursor
 //          and reset the selection start/end to the cursor point. the x,y must
 //          be relative to the text widget, with (0,0) being the top left.
-//     
+//
 //      drag:
 //          call this with the mouse x,y on a mouse drag/up; it will update the
 //          cursor and the selection end point
-//     
+//
 //      cut:
 //          call this to delete the current selection; returns true if there was
 //          one. you should FIRST copy the current selection to the system paste buffer.
 //          (To copy, just copy the current selection out of the string yourself.)
-//     
+//
 //      paste:
 //          call this to paste text at the current cursor point or over the current
 //          selection if there is one.
-//     
+//
 //      key:
 //          call this for keyboard inputs sent to the textfield. you can use it
 //          for "key down" events or for "translated" key events. if you need to
@@ -218,7 +218,7 @@
 //          various definitions like STB_TEXTEDIT_K_LEFT have the is-key-event bit
 //          set, and make STB_TEXTEDIT_KEYTOCHAR check that the is-key-event bit is
 //          clear.
-//     
+//
 //   When rendering, you can read the cursor position and selection state from
 //   the STB_TexteditState.
 //
@@ -705,7 +705,7 @@ retry:
          state->insert_mode = !state->insert_mode;
          break;
 #endif
-         
+
       case STB_TEXTEDIT_K_UNDO:
          stb_text_undo(str, state);
          state->has_preferred_x = 0;
@@ -720,7 +720,7 @@ retry:
          // if currently there's a selection, move cursor to start of selection
          if (STB_TEXT_HAS_SELECTION(state))
             stb_textedit_move_to_first(state);
-         else 
+         else
             if (state->cursor > 0)
                --state->cursor;
          state->has_preferred_x = 0;
@@ -757,7 +757,7 @@ retry:
          break;
 
       case STB_TEXTEDIT_K_WORDRIGHT:
-         if (STB_TEXT_HAS_SELECTION(state)) 
+         if (STB_TEXT_HAS_SELECTION(state))
             stb_textedit_move_to_last(str, state);
          else {
             state->cursor = stb_textedit_move_to_word_next(str, state);
@@ -845,7 +845,7 @@ retry:
          }
          break;
       }
-         
+
       case STB_TEXTEDIT_K_UP:
       case STB_TEXTEDIT_K_UP | STB_TEXTEDIT_K_SHIFT: {
          StbFindState find;
@@ -922,7 +922,7 @@ retry:
          }
          state->has_preferred_x = 0;
          break;
-         
+
       case STB_TEXTEDIT_K_TEXTSTART:
          state->cursor = state->select_start = state->select_end = 0;
          state->has_preferred_x = 0;
@@ -933,7 +933,7 @@ retry:
          state->select_start = state->select_end = 0;
          state->has_preferred_x = 0;
          break;
-        
+
       case STB_TEXTEDIT_K_TEXTSTART | STB_TEXTEDIT_K_SHIFT:
          stb_textedit_prep_selection_at_cursor(state);
          state->cursor = state->select_end = 0;

@@ -147,7 +147,7 @@ static const char* ImGui_ImplCC_GetClipboardText()
 
 static void ImGui_ImplCC_SetClipboardText(const char* text)
 {
-    
+
 }
 
 bool ImGui_ImplCC_ProcessEvent()

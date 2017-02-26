@@ -111,7 +111,7 @@ bool ImGui::Image(cocos2d::Texture2D* texture, const cocos2d::Rect cropSize, con
 		return false;
 	const ImVec4& tint_col = ImVec4(1, 1, 1, 1);
 	const ImVec4& border_col = ImVec4(0.95f, 0.12f, 0.04f, 1);
-	
+
 	GLuint textureID = texture->getName();
 	ImRect bb(window->DC.CursorPos, window->DC.CursorPos + displaySize);
 	if (border_col.w > 0.0f)
@@ -153,7 +153,7 @@ bool ImGui::Image(cocos2d::Sprite* sprite, const cocos2d::Rect cropSize, const I
 
 bool ImGui::InputTextM(const char* label, std::string& text)
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)	
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 	bool ret = InputTextEx(label, &text[0], text.capacity(), ImVec2(0, 0), 0, 0, nullptr);
 	return ret;
 #else
@@ -231,7 +231,7 @@ bool ImGui::InputTextM(const char* label, std::string& text)
 
 bool ImGui::InputTextM2(const char* label, std::string& text)
 {
-	
+
 
 	return true;
 }
