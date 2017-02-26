@@ -220,16 +220,16 @@
   <ItemGroup>
     <ClInclude Include="..\..\Classes\AppDelegate.h" />
     <ClInclude Include="..\..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\..\Classes\imgui\CCIMGUI.h" />
-    <ClInclude Include="..\..\Classes\imgui\imconfig.h" />
-    <ClInclude Include="..\..\Classes\imgui\IMGUIGLViewImpl.h" />
-    <ClInclude Include="..\..\Classes\imgui\imgui.h" />
-    <ClInclude Include="..\..\Classes\imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="..\..\Classes\imgui\imgui_internal.h" />
-    <ClInclude Include="..\..\Classes\imgui\ImGuiLayer.h" />
-    <ClInclude Include="..\..\Classes\imgui\stb_rect_pack.h" />
-    <ClInclude Include="..\..\Classes\imgui\stb_textedit.h" />
-    <ClInclude Include="..\..\Classes\imgui\stb_truetype.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\CCIMGUI.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\IMGUIGLViewImpl.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\ImGuiLayer.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\imgui.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\imconfig.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\imgui_internal.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\stb_rect_pack.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\stb_textedit.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\imgui\stb_truetype.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
@@ -254,13 +254,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\CCIMGUI.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\imgui.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\IMGUIGLViewImpl.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\ImGuiLayer.cpp" />
-    <ClCompile Include="..\..\Classes\imgui\imgui_impl_glfw_linux.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\CCIMGUI.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\IMGUIGLViewImpl.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\platform\imgui_impl_glfw_linux.cpp" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
