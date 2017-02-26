@@ -17,16 +17,15 @@
 # The cmake configuration file:
 !/CMakeLists.txt
 
-# Vim Session and Game Notes:
-!/last_vim_session.vim
 #!/game_notes
 !/game_notes.adoc
 
 # The external editor projects
 !/EditorProjects/**/*
 
-# Ignore the Vim - YouCompleteMe configuration file
+# Ignore the Vim - YouCompleteMe configuration file and the session
 /.ycm_extra_conf.py
+/last_vim_session.vim
 
 # The Android make file and related files (for building the .apk from the command line):
 !/proj.android/jni/Android.mk

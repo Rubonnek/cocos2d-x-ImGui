@@ -136,7 +136,7 @@ set(GAME_SRC
 	Classes/CCImGui/imgui/imgui.cpp
 	Classes/CCImGui/imgui/imgui_demo.cpp
 	Classes/CCImGui/imgui/imgui_draw.cpp
-	Classes/CCImGui/imgui_impl_glfw_linux.cpp
+	Classes/CCImGui/platform/imgui_impl_glfw_linux.cpp
 
 	${PLATFORM_SPECIFIC_SRC}
 	)

@@ -4,8 +4,8 @@
 // See main.cpp for an example of using this.
 // https://github.com/ocornut/imgui
 
-#include <imgui.h>
-#include "imgui_impl_glfw.h"
+#include "../imgui/imgui.h"
+#include "../imgui/imgui_impl_glfw.h"
 #include "cocos2d.h" // opengl method
 USING_NS_CC;
 
