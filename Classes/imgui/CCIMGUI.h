@@ -23,6 +23,7 @@ private:
 	//-------------------------------------------------------
 	std::map<std::string, std::function<void()>> _callPiplines;
 	std::map<std::string, CCIMGUI_Value*> _values;
+	std::vector<std::string> _markToDelete;
 	//-------------------------------------------------------
 	bool isShowSetupStyle = false;
 	void displaySetupStyle();

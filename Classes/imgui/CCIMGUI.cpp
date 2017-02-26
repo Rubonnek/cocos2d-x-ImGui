@@ -84,13 +84,19 @@ void CCIMGUI::updateImGUI()
 	{
 		iter->second();
 	}
+	//===========================================
+	for (int i = 0; i < _markToDelete.size(); i++)
+	{
+		_callPiplines.erase(_markToDelete[i]);
+	}
+	_markToDelete.clear();
 }
 
 void CCIMGUI::removeImGUI(std::string name)
 {
 	auto iter = _callPiplines.find(name);
 	if (iter != _callPiplines.end())
-		_callPiplines.erase(iter);
+		_markToDelete.push_back(name);
 }
 
 void CCIMGUI::setValue(bool value, std::string uid)
