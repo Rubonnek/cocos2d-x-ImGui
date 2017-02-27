@@ -51,9 +51,6 @@ THE SOFTWARE.
 #include "glfw3native.h"
 #endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-#include "glfw3.h"
-#endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 NS_CC_BEGIN
 
 class IMGUIGLViewImpl : public GLView
