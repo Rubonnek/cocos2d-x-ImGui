@@ -59,11 +59,11 @@ NS_CC_BEGIN
 class IMGUIGLViewImpl : public GLView
 {
 public:
-    static IMGUIGLViewImpl* create(const std::string& viewName);
-    static IMGUIGLViewImpl* createWithRect(const std::string& viewName, Rect size, float frameZoomFactor = 1.0f);
+    static IMGUIGLViewImpl* create(const std::string& viewName, bool resizable = false);
+    static IMGUIGLViewImpl* createWithRect(const std::string& viewName, Rect size, float frameZoomFactor = 1.0f, bool resizable = false);
     static IMGUIGLViewImpl* createWithFullScreen(const std::string& viewName);
     static IMGUIGLViewImpl* createWithFullScreen(const std::string& viewName, const GLFWvidmode &videoMode, GLFWmonitor *monitor);
-
+	static IMGUIGLViewImpl* create(const std::string& viewName);
     /*
      *frameZoomFactor for frame. This method is for debugging big resolution (e.g.new ipad) app on desktop.
      */
@@ -118,7 +118,7 @@ protected:
     IMGUIGLViewImpl();
     virtual ~IMGUIGLViewImpl();
 
-    bool initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor);
+    bool initWithRect(const std::string& viewName, Rect rect, float frameZoomFactor, bool resizable);
     bool initWithFullScreen(const std::string& viewName);
     bool initWithFullscreen(const std::string& viewname, const GLFWvidmode &videoMode, GLFWmonitor *monitor);
 
@@ -137,6 +137,7 @@ protected:
     void onGLFWframebuffersize(GLFWwindow* window, int w, int h);
     void onGLFWWindowSizeFunCallback(GLFWwindow *window, int width, int height);
     void onGLFWWindowIconifyCallback(GLFWwindow* window, int iconified);
+	void onGLFWWindowFocusCallback(GLFWwindow* /*window*/, int focused);
 
     bool _captured;
     bool _supportTouch;
@@ -148,11 +149,18 @@ protected:
 
     GLFWwindow* _mainWindow;
     GLFWmonitor* _monitor;
+	std::string _glfwError;
 
     float _mouseX;
     float _mouseY;
 
     friend class GLFWEventHandler;
+
+public:
+	// View will trigger an event when window is resized, gains or loses focus
+	static const std::string EVENT_WINDOW_RESIZED;
+	static const std::string EVENT_WINDOW_FOCUSED;
+	static const std::string EVENT_WINDOW_UNFOCUSED;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(IMGUIGLViewImpl);
