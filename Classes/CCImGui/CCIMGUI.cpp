@@ -1,4 +1,5 @@
 #include "CCIMGUI.h"
+//#include "imgui/imgui_internal.h"
 
 USING_NS_CC;
 static CCIMGUI* _instance = NULL;
@@ -85,7 +86,7 @@ void CCIMGUI::updateImGUI()
 		iter->second();
 	}
 	//===========================================
-	for (int i = 0; i < _markToDelete.size(); i++)
+	for (unsigned int i = 0, size = _markToDelete.size(); i < size; i++)
 	{
 		_callPiplines.erase(_markToDelete[i]);
 	}

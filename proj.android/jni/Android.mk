@@ -20,7 +20,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 	../../Classes/CCImGui/imgui/imgui.cpp \
 	../../Classes/CCImGui/imgui/imgui_demo.cpp \
 	../../Classes/CCImGui/imgui/imgui_draw.cpp \
-	../../Classes/CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
+	../../Classes/CCImGui/platform/imgui_implCC_android.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
