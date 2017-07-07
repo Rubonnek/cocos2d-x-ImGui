@@ -631,18 +631,18 @@ void IMGUIGLViewImpl::setFrameSize(float width, float height)
 void IMGUIGLViewImpl::setViewPortInPoints(float x , float y , float w , float h)
 {
 	experimental::Viewport vp((float)(x * _scaleX * _retinaFactor * _frameZoomFactor + _viewPortRect.origin.x * _retinaFactor * _frameZoomFactor),
-			(float)(y * _scaleY * _retinaFactor  * _frameZoomFactor + _viewPortRect.origin.y * _retinaFactor * _frameZoomFactor),
-			(float)(w * _scaleX * _retinaFactor * _frameZoomFactor),
-			(float)(h * _scaleY * _retinaFactor * _frameZoomFactor));
+							  (float)(y * _scaleY * _retinaFactor  * _frameZoomFactor + _viewPortRect.origin.y * _retinaFactor * _frameZoomFactor),
+							  (float)(w * _scaleX * _retinaFactor * _frameZoomFactor),
+							  (float)(h * _scaleY * _retinaFactor * _frameZoomFactor));
 	Camera::setDefaultViewport(vp);
 }
 
 void IMGUIGLViewImpl::setScissorInPoints(float x , float y , float w , float h)
 {
 	glScissor((GLint)(x * _scaleX * _retinaFactor * _frameZoomFactor + _viewPortRect.origin.x * _retinaFactor * _frameZoomFactor),
-			(GLint)(y * _scaleY * _retinaFactor  * _frameZoomFactor + _viewPortRect.origin.y * _retinaFactor * _frameZoomFactor),
-			(GLsizei)(w * _scaleX * _retinaFactor * _frameZoomFactor),
-			(GLsizei)(h * _scaleY * _retinaFactor * _frameZoomFactor));
+			  (GLint)(y * _scaleY * _retinaFactor  * _frameZoomFactor + _viewPortRect.origin.y * _retinaFactor * _frameZoomFactor),
+			  (GLsizei)(w * _scaleX * _retinaFactor * _frameZoomFactor),
+			  (GLsizei)(h * _scaleY * _retinaFactor * _frameZoomFactor));
 }
 
 Rect IMGUIGLViewImpl::getScissorRect() const
