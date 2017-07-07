@@ -28,7 +28,7 @@ CCIMGUI* CCIMGUI::getInstance()
 
 void CCIMGUI::init()
 {
-	//_callPiplines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
+	//_callPipelines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
 	ImGuiStyle& style = ImGui::GetStyle();
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
@@ -83,23 +83,23 @@ void CCIMGUI::init()
 
 void CCIMGUI::updateImGUI()
 {
-	auto iter = _callPiplines.begin();
-	for (; iter != _callPiplines.end(); ++iter)
+	auto iter = _callPipelines.begin();
+	for (; iter != _callPipelines.end(); ++iter)
 	{
 		iter->second();
 	}
 	//===========================================
 	for (unsigned int i = 0, size = _markToDelete.size(); i < size; i++)
 	{
-		_callPiplines.erase(_markToDelete[i]);
+		_callPipelines.erase(_markToDelete[i]);
 	}
 	_markToDelete.clear();
 }
 
 void CCIMGUI::removeImGUI(std::string name)
 {
-	auto iter = _callPiplines.find(name);
-	if (iter != _callPiplines.end())
+	auto iter = _callPipelines.find(name);
+	if (iter != _callPipelines.end())
 		_markToDelete.push_back(name);
 }
 

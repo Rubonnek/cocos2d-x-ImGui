@@ -21,7 +21,7 @@ class CCIMGUI
 		GLFWwindow* _window = nullptr;
 		ImVec4 _clearColor = ImColor(114, 144, 154);
 		//-------------------------------------------------------
-		std::map<std::string, std::function<void()>> _callPiplines;
+		std::map<std::string, std::function<void()>> _callPipelines;
 		std::map<std::string, CCIMGUI_Value*> _values;
 		std::vector<std::string> _markToDelete;
 		//-------------------------------------------------------
@@ -37,7 +37,7 @@ class CCIMGUI
 		//-------------------------------------------------------
 		void init();
 		void updateImGUI();
-		void addImGUI(std::function<void()> imGUICall, std::string name) {_callPiplines[name] = imGUICall;};
+		void addImGUI(std::function<void()> imGUICall, std::string name) {_callPipelines[name] = imGUICall;};
 		void removeImGUI(std::string name);
 		//-------------------------------------------------------
 		void setValue(bool value, std::string uid);
