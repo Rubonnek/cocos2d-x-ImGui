@@ -2,7 +2,6 @@
 //#include "imgui/imgui_internal.h"
 
 USING_NS_CC;
-static CCIMGUI* _instance = NULL;
 //================================================
 // style editor variables
 static int hue = 140;
@@ -15,12 +14,16 @@ static float col_back_val = 40.f / 255.f;
 
 CCIMGUI* CCIMGUI::getInstance()
 {
-	if(_instance == NULL)
+	static CCIMGUI instance;
+
+	static bool ran_once = false;
+	if ( !ran_once ) 
 	{
-		_instance = new (std::nothrow) CCIMGUI();
-		_instance->init();
+		instance.init();
+		ran_once = true;
 	}
-	return _instance;
+
+	return &instance;
 }
 
 void CCIMGUI::init()

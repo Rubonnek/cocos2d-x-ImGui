@@ -34,6 +34,7 @@ bool HelloWorldScene::init()
     auto rootNode = Sprite::create("HelloWorld.png");
     rootNode->setPosition(size.width/2, size.height/2);
     addChild(rootNode);
+
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
         CCLOG("touch bg node");
