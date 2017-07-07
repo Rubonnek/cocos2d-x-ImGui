@@ -13,26 +13,36 @@
 !/TTFs/**/*
 !/Text/**/*
 !/2DTextures/**/*
+# The external editor projects
+!/EditorProjects/**/*
 
 # The cmake configuration file:
 !/CMakeLists.txt
 
+# Vim Session and Game Notes:
+!/last_vim_session.vim
 #!/game_notes
 !/game_notes.adoc
 
-# The external editor projects
-!/EditorProjects/**/*
+# The Vim - YouCompleteMe configuration file
+!/.ycm_extra_conf.py
 
-# Ignore the Vim - YouCompleteMe configuration file and the session
-/.ycm_extra_conf.py
-/last_vim_session.vim
+# The SDKBOX auto configuration json
+!/.sdkbox_packages.json
+
+# My own sdkbox configuration file to know which plugins I want to have added previously
+!/.sdkbox_plugins
+
+# The ctags file
+!/tags
 
 # The Android make file and related files (for building the .apk from the command line):
 !/proj.android/jni/Android.mk
 !/proj.android/jni/Application.mk
 !/proj.android/AndroidManifest.xml
 !/proj.android/src/org/cocos2dx/cpp/AppActivity.java
-!/proj.android/ant.properties
+#!/proj.android/ant.properties
+!/proj.android/res/**/*
 
 # The Microsoft Visual Studio (win32):
 !/proj.win32/*.vcxproj
@@ -48,6 +58,10 @@
 
 # The Xcode project files:
 !/proj.ios_mac/*.xcodeproj/project.pbxproj
+
+# Don't ignore the README nor the LICENSE
+!/README*
+!/LICENSE*
 
 # If any of the files above are under subdirectories, don't ignore them:
 !*/
