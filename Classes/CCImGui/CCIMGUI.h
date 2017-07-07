@@ -16,17 +16,8 @@ class CCIMGUI_Value
 
 class CCIMGUI
 {
-	private:
-		//-------------------------------------------------------
-		GLFWwindow* _window = nullptr;
-		ImVec4 _clearColor = ImColor(114, 144, 154);
-		//-------------------------------------------------------
-		std::map<std::string, std::function<void()>> _callPipelines;
-		std::map<std::string, CCIMGUI_Value*> _values;
-		std::vector<std::string> _markToDelete;
-		//-------------------------------------------------------
-		bool isShowSetupStyle = false;
-		void displaySetupStyle();
+	//TODO: Implement destructor. There could be memory leaks here with each of the CCIMGUI_Value pointers
+
 	public:
 		static CCIMGUI* getInstance();
 		//-------------------------------------------------------
@@ -46,6 +37,19 @@ class CCIMGUI
 		void removeValue(std::string uid);
 		//-------------------------------------------------------
 		void setShowStyleEditor(bool show) { isShowSetupStyle = show; };
+
+	private:
+		//-------------------------------------------------------
+		GLFWwindow* _window = nullptr;
+		ImVec4 _clearColor = ImColor(114, 144, 154);
+		//-------------------------------------------------------
+		std::map<std::string, std::function<void()>> _callPipelines;
+		std::map<std::string, CCIMGUI_Value*> _values;
+		std::vector<std::string> _markToDelete;
+		//-------------------------------------------------------
+		bool isShowSetupStyle = false;
+		void displaySetupStyle();
+
 };
 
 #endif // __IMGUILAYER_H__
