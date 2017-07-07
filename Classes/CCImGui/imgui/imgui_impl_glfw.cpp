@@ -133,7 +133,7 @@ void ImGui_ImplGlfw_ScrollCallback(GLFWwindow*, double /*xoffset*/, double yoffs
     g_MouseWheel += (float)yoffset; // Use fractional mouse wheel, 1.0 unit 5 lines.
 }
 
-void ImGui_ImplGlFw_KeyCallback(GLFWwindow*, int key, int, int action, int mods)
+void ImGui_ImplGlFw_KeyCallback(GLFWwindow*, int key, int, int action, int /*mods*/)
 {
     ImGuiIO& io = ImGui::GetIO();
     if (action == GLFW_PRESS)
@@ -141,7 +141,7 @@ void ImGui_ImplGlFw_KeyCallback(GLFWwindow*, int key, int, int action, int mods)
     if (action == GLFW_RELEASE)
         io.KeysDown[key] = false;
 
-    (void)mods; // Modifiers are not reliable across systems
+    // Modifiers are not reliable across systems. Set them down manually:
     io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
     io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
     io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
