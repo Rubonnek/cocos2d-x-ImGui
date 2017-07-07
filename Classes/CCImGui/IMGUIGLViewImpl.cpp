@@ -693,14 +693,14 @@ void IMGUIGLViewImpl::onGLFWMouseCallBack(GLFWwindow* window, int button, int ac
 	{
 		EventMouse event(EventMouse::MouseEventType::MOUSE_DOWN);
 		event.setCursorPosition(cursorX, cursorY);
-		event.setMouseButton(button);
+		event.setMouseButton(static_cast<EventMouse::MouseButton>(button));
 		Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
 	}
 	else if(GLFW_RELEASE == action)
 	{
 		EventMouse event(EventMouse::MouseEventType::MOUSE_UP);
 		event.setCursorPosition(cursorX, cursorY);
-		event.setMouseButton(button);
+		event.setMouseButton(static_cast<EventMouse::MouseButton>(button));
 		Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
 	}
 }
@@ -749,15 +749,15 @@ void IMGUIGLViewImpl::onGLFWMouseMoveCallBack(GLFWwindow* window, double x, doub
 	// Set current button
 	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
 	{
-		event.setMouseButton(GLFW_MOUSE_BUTTON_LEFT);
+		event.setMouseButton(static_cast<EventMouse::MouseButton>(GLFW_MOUSE_BUTTON_LEFT));
 	}
 	else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
 	{
-		event.setMouseButton(GLFW_MOUSE_BUTTON_RIGHT);
+		event.setMouseButton(static_cast<EventMouse::MouseButton>(GLFW_MOUSE_BUTTON_RIGHT));
 	}
 	else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE) == GLFW_PRESS)
 	{
-		event.setMouseButton(GLFW_MOUSE_BUTTON_MIDDLE);
+		event.setMouseButton(static_cast<EventMouse::MouseButton>(GLFW_MOUSE_BUTTON_MIDDLE));
 	}
 	event.setCursorPosition(cursorX, cursorY);
 	Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
