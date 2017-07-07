@@ -84,14 +84,14 @@ void CCIMGUI::init()
 void CCIMGUI::updateImGUI()
 {
 	// Remove all the marked to delete callbacks.
-	for (const auto callbacks_to_delete : _markToDelete )
+	for (const auto& callbacks_to_delete : _markToDelete )
 	{
 		_callPipelines.erase(callbacks_to_delete);
 	}
 	_markToDelete.clear();
 
 	// Now run all the IMGUI callbacks:
-	for (const auto iter : _callPipelines)
+	for (const auto& iter : _callPipelines)
 	{
 		iter.second();
 	}
@@ -99,7 +99,7 @@ void CCIMGUI::updateImGUI()
 
 void CCIMGUI::removeImGUI(std::string name)
 {
-	auto iter = _callPipelines.find(name);
+	const auto& iter = _callPipelines.find(name);
 	if (iter != _callPipelines.end())
 		_markToDelete.push_back(name);
 }
