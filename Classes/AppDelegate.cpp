@@ -2,7 +2,6 @@
 #include "HelloWorldScene.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-#include "CCImGui/IMGUIGLViewImpl.h"
 #include "CCImGui/ImGuiLayer.h"
 #endif
 USING_NS_CC;
