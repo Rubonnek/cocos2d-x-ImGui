@@ -834,11 +834,11 @@ void IMGUIGLViewImpl::onGLFWframebuffersize(GLFWwindow* window, int w, int h)
 
 void IMGUIGLViewImpl::onGLFWWindowSizeFunCallback(GLFWwindow *window, int width, int height)
 {
-	/*if (_resolutionPolicy != ResolutionPolicy::UNKNOWN)
-	  {
-	  updateDesignResolutionSize();
-	  Director::getInstance()->setViewport();
-	  }*/
+	//if (_resolutionPolicy != ResolutionPolicy::UNKNOWN)
+	//{
+	//	updateDesignResolutionSize();
+	//	Director::getInstance()->setViewport();
+	//}
 
 	if (width && height && _resolutionPolicy != ResolutionPolicy::UNKNOWN)
 	{
@@ -933,7 +933,7 @@ static bool glew_dynamic_binding()
 // helper
 bool IMGUIGLViewImpl::initGlew()
 {
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
+	#if (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 	GLenum GlewInitResult = glewInit();
 	if (GLEW_OK != GlewInitResult)
 	{
@@ -959,15 +959,15 @@ bool IMGUIGLViewImpl::initGlew()
 		log("OpenGL 2.0 not supported");
 	}
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 	if(glew_dynamic_binding() == false)
 	{
 		MessageBox("No OpenGL framebuffer support. Please upgrade the driver of your video card.", "OpenGL error");
 		return false;
 	}
-#endif
+	#endif
 
-#endif // (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
+	#endif // (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 
 	return true;
 }
