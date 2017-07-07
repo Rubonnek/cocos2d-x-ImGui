@@ -231,7 +231,5 @@ bool ImGui::InputTextM(const char* label, std::string& text)
 
 bool ImGui::InputTextM2(const char* label, std::string& text)
 {
-
-
 	return true;
 }

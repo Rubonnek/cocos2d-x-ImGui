@@ -12,13 +12,7 @@ static ImVec4 clear_color = ImColor(114, 144, 154);
 Scene* HelloWorldScene::createScene()
 {
     // 'scene' is an autorelease object
-    auto scene = Scene::create();
-
-    // 'layer' is an autorelease object
-    auto layer = HelloWorldScene::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
+    auto scene = HelloWorldScene::create();
 
     // return the scene
     return scene;
@@ -29,7 +23,7 @@ bool HelloWorldScene::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
+    if ( !Scene::init() )
     {
         return false;
     }

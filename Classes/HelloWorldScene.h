@@ -5,7 +5,7 @@
 
 USING_NS_CC;
 
-class HelloWorldScene : public cocos2d::Layer
+class HelloWorldScene : public cocos2d::Scene
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
