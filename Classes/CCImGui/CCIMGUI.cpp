@@ -83,17 +83,18 @@ void CCIMGUI::init()
 
 void CCIMGUI::updateImGUI()
 {
-	auto iter = _callPipelines.begin();
-	for (; iter != _callPipelines.end(); ++iter)
-	{
-		iter->second();
-	}
-	//===========================================
+	// Remove all the marked to delete callbacks.
 	for (unsigned int i = 0, size = _markToDelete.size(); i < size; i++)
 	{
 		_callPipelines.erase(_markToDelete[i]);
 	}
 	_markToDelete.clear();
+
+	// Now run all the IMGUI callbacks:
+	for (const auto iter : _callPipelines)
+	{
+		iter.second();
+	}
 }
 
 void CCIMGUI::removeImGUI(std::string name)
@@ -133,7 +134,7 @@ void CCIMGUI::displaySetupStyle()
 		ImGui::Begin("Hue Style", &isShowSetupStyle);
 		ImGui::SliderInt("master hue", &hue, 0, 255);
 
-		float dummy;
+		float dummy; //TODO: What value is this supposed to be???
 		ImVec4 rgb;
 		ImGui::ColorEditMode(ImGuiColorEditMode_HSV);
 
