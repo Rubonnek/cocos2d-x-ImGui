@@ -84,9 +84,9 @@ void CCIMGUI::init()
 void CCIMGUI::updateImGUI()
 {
 	// Remove all the marked to delete callbacks.
-	for (unsigned int i = 0, size = _markToDelete.size(); i < size; i++)
+	for (const auto callbacks_to_delete : _markToDelete )
 	{
-		_callPipelines.erase(_markToDelete[i]);
+		_callPipelines.erase(callbacks_to_delete);
 	}
 	_markToDelete.clear();
 
