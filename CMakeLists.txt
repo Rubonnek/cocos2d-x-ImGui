@@ -129,7 +129,7 @@ set(GAME_SRC
 
 	# imgui + Cocos2D-X code:
 	Classes/CCImGui/CCIMGUI.cpp
-	Classes/CCImGui/IMGUIGLViewImpl.cpp
+	#Classes/CCImGui/IMGUIGLViewImpl.cpp
 	Classes/CCImGui/ImGuiLayer.cpp
 
 	# imgui repo files:
@@ -147,7 +147,7 @@ set(GAME_HEADERS
 
 	# imgui + Cocos2D-X code:
 	Classes/CCImGui/CCIMGUI.h
-	Classes/CCImGui/IMGUIGLViewImpl.h
+	#Classes/CCImGui/IMGUIGLViewImpl.h
 	Classes/CCImGui/ImGuiLayer.h
 
 	# imgui repo files:
