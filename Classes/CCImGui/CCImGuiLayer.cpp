@@ -10,7 +10,7 @@ bool ImGuiLayer::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
+    if ( !Scene::init() )
     {
         return false;
     }
@@ -19,7 +19,7 @@ bool ImGuiLayer::init()
 	CCIMGUI::getInstance()->setWindow(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow());
     setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
 
-	// events
+	// TODO: Fix the mouse callbacks. Don't use TouchOneByOne
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
@@ -27,7 +27,13 @@ bool ImGuiLayer::init()
         //CCLOG("touch in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
         return inImGuiWidgets;
     };
-    getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+
+	// TODO: Add the keyboard callbacks here:
+
+
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+
     return true;
 }
 

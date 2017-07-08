@@ -2,6 +2,7 @@
 //#include "imgui/imgui_internal.h"
 
 USING_NS_CC;
+
 //================================================
 // style editor variables
 static int hue = 140;
@@ -134,7 +135,7 @@ void CCIMGUI::displaySetupStyle()
 		ImGui::Begin("Hue Style", &isShowSetupStyle);
 		ImGui::SliderInt("master hue", &hue, 0, 255);
 
-		float dummy; //TODO: What value is this supposed to be???
+		float dummy = 0.f; //TODO: What value is this supposed to be???
 		ImVec4 rgb;
 		ImGui::ColorEditMode(ImGuiColorEditMode_HSV);
 

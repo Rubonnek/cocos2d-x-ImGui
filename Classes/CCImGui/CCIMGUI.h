@@ -16,7 +16,8 @@ class CCIMGUI_Value
 
 class CCIMGUI
 {
-	//TODO: Implement destructor. There could be memory leaks here with each of the CCIMGUI_Value pointers
+	//TODO: Implement destructor. There could be memory leaks here with each of
+	//the CCIMGUI_Value pointers
 
 	public:
 		static CCIMGUI* getInstance();

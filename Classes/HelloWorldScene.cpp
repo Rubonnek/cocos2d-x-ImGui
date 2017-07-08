@@ -42,7 +42,8 @@ bool HelloWorldScene::init()
 	};
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
 
-	// Create the IMGUI windows here:
+	// Create the IMGUI windows here. This is the main IMGUI Loop where you can
+	// keep adding callbacks to be added:
 	CCIMGUI::getInstance()->addImGUI([=](){
 		// 1. Show a simple window
 		// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"

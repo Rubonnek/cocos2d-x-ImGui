@@ -212,7 +212,6 @@ bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks)
 	io.ImeWindowHandle = glfwGetWin32Window(g_Window);
 	#endif
 
-
 	//TODO: Implement the mouse, scroll, key and char callbacks using cocos2d-x event dispatcher. do not use glfw directly. It might unset important engine callbacks.
 	if (install_callbacks)
 	{
