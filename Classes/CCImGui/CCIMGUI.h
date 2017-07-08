@@ -14,6 +14,9 @@ class CCIMGUI_Value
 		int getInt() { return (int)value; };
 };
 
+// CCIMGUI Gived access to the backend. The main dear imgui loop.
+// You'll want to edit this if you want to edit "dear imgui"s properties.
+// Proper class name could be: imguiBackend
 class CCIMGUI
 {
 	//TODO: Implement destructor. There could be memory leaks here with each of
@@ -50,7 +53,6 @@ class CCIMGUI
 		//-------------------------------------------------------
 		bool isShowSetupStyle = false;
 		void displaySetupStyle();
-
 };
 
 #endif // __IMGUILAYER_H__

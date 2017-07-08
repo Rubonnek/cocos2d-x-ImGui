@@ -5,21 +5,30 @@
 
 USING_NS_CC;
 
-class ImGuiLayer : public cocos2d::Layer
+class ImGuiLayer : public cocos2d::Node
 {
-public:
-    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-    virtual bool init() override;
+	public:
+		virtual bool init() override;
+		virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
+		void onDraw();
 
-    virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
+		// implement the "static create()" method manually
+		CREATE_FUNC(ImGuiLayer);
 
-    void onDraw();
+		// Add Mouse callbacks:
+		EventListenerMouse* onMouseEventListener;
+		void onMouseDown(EventMouse* event);
+		void onMouseUp(EventMouse* event);
+		void onMouseMove(EventMouse* event);
+		void onMouseScroll(EventMouse* event);
 
-    // implement the "static create()" method manually
-    CREATE_FUNC(ImGuiLayer);
+		//Add keyboard callbacks
+		EventListenerKeyboard* onKeyboardEventListener;
+		void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+		void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
 
-private:
-    CustomCommand _command;
+	private:
+		CustomCommand _command;
 };
 
 #endif // __IMGUILAYER_H__
