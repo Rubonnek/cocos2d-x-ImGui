@@ -128,14 +128,14 @@ set(GAME_SRC
 	Classes/HelloWorldScene.cpp
 
 	# imgui + Cocos2D-X code:
-	#Classes/CCImGui/CCIMGUI.cpp
-	#Classes/CCImGui/ImGuiLayer.cpp
+	Classes/CCImGui/CCIMGUI.cpp
+	Classes/CCImGui/ImGuiLayer.cpp
 
 	# imgui repo files:
-	#Classes/CCImGui/imgui/imgui.cpp
-	#Classes/CCImGui/imgui/imgui_demo.cpp
-	#Classes/CCImGui/imgui/imgui_draw.cpp
-	#Classes/CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
+	Classes/CCImGui/imgui/imgui.cpp
+	Classes/CCImGui/imgui/imgui_demo.cpp
+	Classes/CCImGui/imgui/imgui_draw.cpp
+	Classes/CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
 
 	${PLATFORM_SPECIFIC_SRC}
 	)
@@ -145,19 +145,19 @@ set(GAME_HEADERS
 	Classes/HelloWorldScene.h
 
 	# imgui + Cocos2D-X code:
-	#Classes/CCImGui/CCIMGUI.h
-	#Classes/CCImGui/ImGuiLayer.h
+	Classes/CCImGui/CCIMGUI.h
+	Classes/CCImGui/ImGuiLayer.h
 
 	# imgui repo files:
-	#Classes/CCImGui/imgui/imgui.h
-	#Classes/CCImGui/imgui/imconfig.h
-	#Classes/CCImGui/imgui/imgui_impl_glfw.h
-	#Classes/CCImGui/imgui/imgui_internal.h
+	Classes/CCImGui/imgui/imgui.h
+	Classes/CCImGui/imgui/imconfig.h
+	Classes/CCImGui/imgui/imgui_impl_glfw.h
+	Classes/CCImGui/imgui/imgui_internal.h
 
 	# Single file C++ code from: https://github.com/nothings/stb
-	#Classes/CCImGui/imgui/stb_rect_pack.h
-	#Classes/CCImGui/imgui/stb_textedit.h
-	#Classes/CCImGui/imgui/stb_truetype.h
+	Classes/CCImGui/imgui/stb_rect_pack.h
+	Classes/CCImGui/imgui/stb_textedit.h
+	Classes/CCImGui/imgui/stb_truetype.h
 
 	${PLATFORM_SPECIFIC_HEADERS}
 	)
