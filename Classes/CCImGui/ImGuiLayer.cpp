@@ -23,9 +23,6 @@ bool ImGuiLayer::init()
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
 	listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
-		bool inImGuiWidgets = ImGui::IsPosHoveringAnyWindow(ImVec2(touch->getLocationInView().x, touch->getLocationInView().y));
-		//CCLOG("touch in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
-		return inImGuiWidgets;
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
@@ -79,34 +76,39 @@ void ImGuiLayer::onDraw()
 void ImGuiLayer::onMouseDown(EventMouse* event) // A button was pressed
 {
 	CCLOG("onMouseDown: %f, %f", event->getLocation().x, event->getLocation().y);
+
+	// Determine wether an Imgui Wiget was touched or not:
+	//bool inImGuiWidgets = ImGui::IsPosHoveringAnyWindow(ImVec2(event->getLocationInView().x, event->getLocationInView().y));
+	//CCLOG("event in ImGui widgets %s", inImGuiWidgets ? "yes" : "no");
+
 	switch( event->getMouseButton() ) // check which button:
 	{
 		case EventMouse::MouseButton::BUTTON_LEFT:
-			CCLOG("LEFT mouse button pressed");
+			//CCLOG("LEFT mouse button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_MIDDLE:
-			CCLOG("MIDDLE mouse button pressed");
+			//CCLOG("MIDDLE mouse button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_RIGHT:
-			CCLOG("RIGHT mouse button pressed");
+			//CCLOG("RIGHT mouse button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_4:
-			CCLOG("BUTTON_4 button pressed");
+			//CCLOG("BUTTON_4 button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_5:
-			CCLOG("BUTTON_5 button pressed");
+			//CCLOG("BUTTON_5 button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_6:
-			CCLOG("BUTTON_6 button pressed");
+			//CCLOG("BUTTON_6 button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_7:
-			CCLOG("BUTTON_7 button pressed");
+			//CCLOG("BUTTON_7 button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_8:
-			CCLOG("BUTTON_8 button pressed");
+			//CCLOG("BUTTON_8 button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_UNSET:
-			CCLOG("BUTTON_UNSET button pressed");
+			//CCLOG("BUTTON_UNSET button pressed");
 			break;
 	}
 }
@@ -117,31 +119,31 @@ void ImGuiLayer::onMouseUp(EventMouse* event) // A button was released
 	switch( event->getMouseButton() ) // check which button:
 	{
 		case EventMouse::MouseButton::BUTTON_LEFT:
-			CCLOG("LEFT mouse button released");
+			//CCLOG("LEFT mouse button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_MIDDLE:
-			CCLOG("MIDDLE mouse button released");
+			//CCLOG("MIDDLE mouse button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_RIGHT:
-			CCLOG("RIGHT mouse button released");
+			//CCLOG("RIGHT mouse button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_4:
-			CCLOG("BUTTON_4 button released");
+			//CCLOG("BUTTON_4 button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_5:
-			CCLOG("BUTTON_5 button released");
+			//CCLOG("BUTTON_5 button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_6:
-			CCLOG("BUTTON_6 button released");
+			//CCLOG("BUTTON_6 button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_7:
-			CCLOG("BUTTON_7 button released");
+			//CCLOG("BUTTON_7 button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_8:
-			CCLOG("BUTTON_8 button released");
+			//CCLOG("BUTTON_8 button released");
 			break;
 		case EventMouse::MouseButton::BUTTON_UNSET:
-			CCLOG("BUTTON_UNSET button released");
+			//CCLOG("BUTTON_UNSET button released");
 			break;
 	}
 

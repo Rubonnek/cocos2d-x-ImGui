@@ -16,6 +16,14 @@
 #include <glfw3native.h>
 #endif
 
+//TODO: Put all of this in a namespace
+// There's no need to keep a C-like implementation for this when ImGUI is C++ itself.
+
+//TODO: We nened external acess for the following variables in order to bind them into cocos2d-x events:
+// g_MousePressed
+// g_MouseWheel
+//
+
 // Data
 static GLFWwindow* g_Window = NULL;
 static double g_Time = 0.0f;
@@ -184,6 +192,7 @@ bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks)
 {
 	g_Window = window;
 
+	// TODO: the keyboard mapping is wrong. It has to be mapped to cocos2d::EventKeyboaurd
 	ImGuiIO& io = ImGui::GetIO();
 	io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB; // Keyboard mapping. ImGui will use those indices to peek into the io.KeyDown[] array.
 	io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
