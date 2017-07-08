@@ -50,13 +50,16 @@ void ImGuiLayer::onDraw()
 {
 
 	glUseProgram(0);
-	if (CCIMGUI::getInstance()->getWindow()) {
+	if (CCIMGUI::getInstance()->getWindow())
+	{
+		// Update timestep
 		ImGuiIO& io = ImGui::GetIO();
 		io.DeltaTime = Director::getInstance()->getDeltaTime();
 
 		ImGui_ImplGlfw_NewFrame();
 		CCIMGUI::getInstance()->updateImGUI();
-		// Rendering
+
+		// Render
 		ImGui::Render();
 	}
 	glUseProgram(1);
@@ -65,7 +68,7 @@ void ImGuiLayer::onDraw()
 
 void ImGuiLayer::onMouseDown(EventMouse* event) // A button was pressed
 {
-	CCLOG("onMouseDown: %f, %f", event->getLocation().x, event->getLocation().y);
+	//CCLOG("onMouseDown: %f, %f", event->getLocation().x, event->getLocation().y);
 
 	// Determine wether an Imgui Wiget was touched or not:
 	//bool inImGuiWidgets = ImGui::IsPosHoveringAnyWindow(ImVec2(event->getLocationInView().x, event->getLocationInView().y));
@@ -74,7 +77,7 @@ void ImGuiLayer::onMouseDown(EventMouse* event) // A button was pressed
 	switch( event->getMouseButton() ) // check which button:
 	{
 		case EventMouse::MouseButton::BUTTON_LEFT:
-			//CCLOG("LEFT mouse button pressed");
+			CCLOG("LEFT mouse button pressed");
 			break;
 		case EventMouse::MouseButton::BUTTON_MIDDLE:
 			//CCLOG("MIDDLE mouse button pressed");

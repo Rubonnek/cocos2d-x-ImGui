@@ -35,12 +35,13 @@ bool HelloWorldScene::init()
 	rootNode->setPosition(size.width/2, size.height/2);
 	addChild(rootNode);
 
-	auto listener = EventListenerTouchOneByOne::create();
-	listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
-		CCLOG("touch bg node");
-		return true;
-	};
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
+	// Check if the touches or the mouse input are touching the background
+	//auto listener = EventListenerTouchOneByOne::create();
+	//listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
+	//	CCLOG("touch bg node");
+	//	return true;
+	//};
+	//Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
 
 	// Create the IMGUI windows here. This is the main IMGUI Loop where you can
 	// keep adding callbacks to be added:

@@ -33,7 +33,7 @@
 
 // Data
 static GLFWwindow* g_Window = NULL;
-static double g_Time = 0.0f;
+//static double g_Time = 0.0f; // Not needed. We will be updating the time before we draw using the cocos2d-x rendered.
 static bool g_MousePressed[3] = { false, false, false };
 static float g_MouseWheel = 0.0f;
 static GLuint g_FontTexture = 0;
@@ -265,11 +265,13 @@ void ImGui_ImplGlfw_NewFrame()
     io.DisplaySize = ImVec2((float)w, (float)h);
     io.DisplayFramebufferScale = ImVec2(w > 0 ? ((float)display_w / w) : 0, h > 0 ? ((float)display_h / h) : 0);
 
-    // Setup time step
-    double current_time =  glfwGetTime();
-    io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f/60.0f);
-    g_Time = current_time;
+	// Disable time step determination here. Cocos2D-X provides a cross-platform way of finding out the delta.
+    //// Setup time step
+    //double current_time =  glfwGetTime();
+    //io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f/60.0f);
+    //g_Time = current_time;
 
+	// PossibleTODO: If for some reason it's convenient to pass the mouse events to the event dispatcher, we have to disable this code.
     // Setup inputs
     // (we already got mouse wheel, keyboard keys & characters from glfw callbacks polled in glfwPollEvents())
     if (glfwGetWindowAttrib(g_Window, GLFW_FOCUSED))
