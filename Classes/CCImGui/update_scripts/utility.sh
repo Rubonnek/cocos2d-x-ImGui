@@ -6,5 +6,6 @@ function download ()
 	if [[ -z $directory ]]; then
 		directory="."
 	fi
+
 	wget -N "$link" -O "$directory/$(basename $link)"
 }

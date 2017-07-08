@@ -1,19 +1,26 @@
 // ImGui GLFW binding with OpenGL
-// You can copy and use unmodified imgui_impl_* files in your project.
+// In this binding, ImTextureID is used to store an OpenGL 'GLuint' texture identifier. Read the FAQ about ImTextureID in imgui.cpp.
+
+// If your context or own usage of OpenGL involve anything GL3/GL4, prefer using the code in opengl3_example.
+// If you are not sure what that means, prefer using the code in opengl3_example.
+// You *might* use this code with a GL3/GL4 context but make sure you disable the programmable pipeline by calling "glUseProgram(0)" before ImGui::Render().
+// We cannot do that from GL2 code because the function doesn't exist. Mixing GL2 calls and GL3/GL4 calls is giving trouble to many librairies/drivers.
+
+// You can copy and use unmodified imgui_impl_* files in your project. See main.cpp for an example of using this.
 // If you use this binding you'll need to call 4 functions: ImGui_ImplXXXX_Init(), ImGui_ImplXXXX_NewFrame(), ImGui::Render() and ImGui_ImplXXXX_Shutdown().
-// See main.cpp for an example of using this.
+// If you are new to ImGui, see examples/README.txt and documentation at the top of imgui.cpp.
 // https://github.com/ocornut/imgui
 
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_glfw.h"
 
 // GLFW
-#include <glfw3.h>
+#include <GLFW/glfw3.h>
 #ifdef _WIN32
 #undef APIENTRY
 #define GLFW_EXPOSE_NATIVE_WIN32
 #define GLFW_EXPOSE_NATIVE_WGL
-#include <glfw3native.h>
+#include <GLFW/glfw3native.h>
 #endif
 
 //TODO: Put all of this in a namespace
