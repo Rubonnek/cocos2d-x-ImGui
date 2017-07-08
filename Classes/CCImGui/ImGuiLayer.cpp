@@ -19,15 +19,7 @@ bool ImGuiLayer::init()
 	CCIMGUI::getInstance()->setWindow(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow());
 	setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
 	//----------------------------------------
-	// events
-	auto listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
-	listener->onTouchBegan = [](Touch* touch, Event*) -> bool {
-	};
 
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-	// Register mouse listener to swallow the touches on this layer.
 	// Setup Mouse event listeners
 	onMouseEventListener = EventListenerMouse::create();
 	onMouseEventListener->onMouseDown = CC_CALLBACK_1(ImGuiLayer::onMouseDown, this);
@@ -42,8 +34,6 @@ bool ImGuiLayer::init()
 	onKeyboardEventListener->onKeyPressed = CC_CALLBACK_2(ImGuiLayer::onKeyPressed, this);
 	onKeyboardEventListener->onKeyReleased = CC_CALLBACK_2(ImGuiLayer::onKeyReleased, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(onKeyboardEventListener, this);
-
-
 
 	return true;
 }
