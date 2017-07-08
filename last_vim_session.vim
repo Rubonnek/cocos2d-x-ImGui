@@ -2,10 +2,10 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-imap <Nul> <C-Space>
-inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
-inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
 inoremap <expr> <Down> pumvisible() ? "\" : "\<Down>"
+inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
+inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
+imap <Nul> <C-Space>
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 snoremap <silent>  c
 xnoremap <silent> 	 :call UltiSnips#SaveLastVisualSelection()gvs
@@ -98,8 +98,8 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 HelloWorldScene.cpp
-badd +23 HelloWorldScene.h
-badd +31 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.h
+badd +22 HelloWorldScene.h
+badd +58 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.h
 badd +1 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.cpp
 badd +1 CCImGui/CCImGuiLayer.cpp
 badd +1 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCImGuiLayer.h
@@ -107,9 +107,9 @@ badd +1 CCImGui/imgui/imgui_impl_glfw.cpp
 badd +13 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/imgui/imgui_impl_glfw.h
 badd +118 CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
 badd +1 ../CMakeLists.txt
-badd +20 CCImGui/ImGuiLayer.h
+badd +21 CCImGui/ImGuiLayer.h
 badd +1 CCImGui/ImGuiLayer.cpp
-badd +0 AppDelegate.cpp
+badd +96 AppDelegate.cpp
 argglobal
 silent! argdel *
 $argadd HelloWorldScene.cpp
@@ -235,11 +235,11 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 207 - ((54 * winheight(0) + 28) / 56)
+let s:l = 130 - ((6 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-207
+130
 normal! 0
 tabedit HelloWorldScene.h
 set splitbelow splitright
@@ -368,11 +368,11 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 22 - ((21 * winheight(0) + 27) / 55)
+let s:l = 23 - ((9 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
+23
 normal! 0
 wincmd w
 argglobal
@@ -491,12 +491,12 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 47 - ((14 * winheight(0) + 27) / 55)
+let s:l = 44 - ((3 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-47
-normal! 024|
+44
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 112 + 113) / 226)
 exe 'vert 2resize ' . ((&columns * 113 + 113) / 226)
@@ -622,12 +622,12 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 12) / 24)
+let s:l = 61 - ((23 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+61
+normal! 05|
 tabedit ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -755,7 +755,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 58 - ((54 * winheight(0) + 27) / 55)
+let s:l = 58 - ((22 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -878,7 +878,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 87 - ((28 * winheight(0) + 27) / 55)
+let s:l = 87 - ((29 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1014,11 +1014,11 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 20 - ((19 * winheight(0) + 27) / 55)
+let s:l = 29 - ((28 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
+29
 normal! 0
 wincmd w
 argglobal
@@ -1137,12 +1137,12 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((0 * winheight(0) + 27) / 55)
+let s:l = 108 - ((54 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 028|
+108
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 87 + 113) / 226)
 exe 'vert 2resize ' . ((&columns * 138 + 113) / 226)
@@ -1267,7 +1267,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 238 - ((55 * winheight(0) + 28) / 56)
+let s:l = 238 - ((23 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
