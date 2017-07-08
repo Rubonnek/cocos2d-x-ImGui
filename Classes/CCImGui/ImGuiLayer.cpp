@@ -21,12 +21,12 @@ bool ImGuiLayer::init()
 	//----------------------------------------
 
 	// Setup Mouse event listeners
-	onMouseEventListener = EventListenerMouse::create();
-	onMouseEventListener->onMouseDown = CC_CALLBACK_1(ImGuiLayer::onMouseDown, this);
-	onMouseEventListener->onMouseUp = CC_CALLBACK_1(ImGuiLayer::onMouseUp, this);
-	onMouseEventListener->onMouseMove = CC_CALLBACK_1(ImGuiLayer::onMouseMove, this);
-	onMouseEventListener->onMouseScroll = CC_CALLBACK_1(ImGuiLayer::onMouseScroll, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(onMouseEventListener, this);
+	//onMouseEventListener = EventListenerMouse::create();
+	//onMouseEventListener->onMouseDown = CC_CALLBACK_1(ImGuiLayer::onMouseDown, this);
+	//onMouseEventListener->onMouseUp = CC_CALLBACK_1(ImGuiLayer::onMouseUp, this);
+	//onMouseEventListener->onMouseMove = CC_CALLBACK_1(ImGuiLayer::onMouseMove, this);
+	//onMouseEventListener->onMouseScroll = CC_CALLBACK_1(ImGuiLayer::onMouseScroll, this);
+	//_eventDispatcher->addEventListenerWithSceneGraphPriority(onMouseEventListener, this);
 
 
 	// Setup the callbacks for the keyboard
@@ -108,7 +108,7 @@ void ImGuiLayer::onMouseDown(EventMouse* event) // A button was pressed
 
 void ImGuiLayer::onMouseUp(EventMouse* event) // A button was released
 {
-	CCLOG("onMouseUp: %f, %f", event->getLocation().x, event->getLocation().y);
+	//CCLOG("onMouseUp: %f, %f", event->getLocation().x, event->getLocation().y);
 	switch( event->getMouseButton() ) // check which button:
 	{
 		case EventMouse::MouseButton::BUTTON_LEFT:

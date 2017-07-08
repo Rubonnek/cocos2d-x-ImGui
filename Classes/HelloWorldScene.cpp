@@ -42,6 +42,11 @@ bool HelloWorldScene::init()
 	//	return true;
 	//};
 	//Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, rootNode);
+	auto mouse = EventListenerMouse::create();
+	mouse->onMouseDown = [](EventMouse* ) -> void {
+		CCLOG("mousedown");
+	};
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouse, rootNode);
 
 	// Create the IMGUI windows here. This is the main IMGUI Loop where you can
 	// keep adding callbacks to be added:
