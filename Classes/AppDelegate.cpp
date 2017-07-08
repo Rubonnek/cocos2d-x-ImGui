@@ -66,20 +66,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	register_all_packages();
 	// create a scene. it's an autorelease object
 
-	auto scene = Scene::create();
-	scene->addChild(HelloWorldScene::create());
+	auto scene = HelloWorldScene::create();
 	director->runWithScene(scene);
 
-	// auto check when imGUI layer is not added yet.
-	#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-	director->getScheduler()->schedule([=](float dt)
-									   {
-										   if(director->getRunningScene()->getChildByName("ImGUILayer") == NULL)
-										   {
-											   scene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
-										   }
-									   }, this, 0,false, "checkImGUI");
-	#endif
+	//// auto check when imGUI layer is not added yet.
+	//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+	//director->getScheduler()->schedule([=](float dt)
+	//								   {
+	//									   if(director->getRunningScene()->getChildByName("ImGUILayer") == NULL)
+	//									   {
+	//										   scene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
+	//									   }
+	//								   }, this, 0,false, "checkImGUI");
+	//#endif
 	return true;
 }
 
