@@ -28,12 +28,12 @@ bool HelloWorldScene::init()
 		return false;
 	}
 
-	auto director = Director::getInstance();
-	auto size = director->getWinSize();
+	//auto director = Director::getInstance();
+	//auto size = director->getWinSize();
 
-	auto rootNode = Sprite::create("HelloWorld.png");
-	rootNode->setPosition(size.width/2, size.height/2);
-	addChild(rootNode);
+	//auto rootNode = Sprite::create("HelloWorld.png");
+	//rootNode->setPosition(size.width/2, size.height/2);
+	//addChild(rootNode);
 
 	// Check if the touches or the mouse input are touching the background
 	//auto listener = EventListenerTouchOneByOne::create();
@@ -46,47 +46,47 @@ bool HelloWorldScene::init()
 	mouse->onMouseDown = [](EventMouse* ) -> void {
 		CCLOG("mousedown");
 	};
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouse, rootNode);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(mouse, this);
 
 	// Create the IMGUI windows here. This is the main IMGUI Loop where you can
 	// keep adding callbacks to be added:
-	CCIMGUI::getInstance()->addImGUI([=](){
-		// 1. Show a simple window
-		// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
-		{
-			static float f = 0.0f;
-			ImGui::Text("Hello, world!");
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-			ImGui::ColorEdit3("clear color", (float*)&clear_color);
-			if (ImGui::Button("Test Window")) show_test_window ^= 1;
-			if (ImGui::Button("Another Window")) show_another_window ^= 1;
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-		}
+	//CCIMGUI::getInstance()->addImGUI([=](){
+	//	// 1. Show a simple window
+	//	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
+	//	{
+	//		static float f = 0.0f;
+	//		ImGui::Text("Hello, world!");
+	//		ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+	//		ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	//		if (ImGui::Button("Test Window")) show_test_window ^= 1;
+	//		if (ImGui::Button("Another Window")) show_another_window ^= 1;
+	//		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	//	}
 
-		// 2. Show another simple window, this time using an explicit Begin/End pair
-		if (show_another_window)
-		{
-			ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
-			ImGui::Begin("Another Window", &show_another_window);
+	//	// 2. Show another simple window, this time using an explicit Begin/End pair
+	//	if (show_another_window)
+	//	{
+	//		ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
+	//		ImGui::Begin("Another Window", &show_another_window);
 
-			ImGui::Text("Hello");
-			ImGui::End();
-		}
+	//		ImGui::Text("Hello");
+	//		ImGui::End();
+	//	}
 
-		// 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
-		if (show_test_window)
-		{
-			ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-			ImGui::ShowTestWindow(&show_test_window);
-		}
-	}, "demoid");
+	//	// 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
+	//	if (show_test_window)
+	//	{
+	//		ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+	//		ImGui::ShowTestWindow(&show_test_window);
+	//	}
+	//}, "demoid");
 
-	//init the impl glfw
-	ImGui_ImplGlfw_Init(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow(), false);
+	////init the impl glfw
+	//ImGui_ImplGlfw_Init(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow(), false);
 
-	// Create the IMGUI cocos2d-x Layer, and add it as child.
-	auto imgui = ImGuiLayer::create();
-	this->addChild(imgui, INT_MAX,   "ImGUILayer");
+	//// Create the IMGUI cocos2d-x Layer, and add it as child.
+	//auto imgui = ImGuiLayer::create();
+	//this->addChild(imgui, INT_MAX,   "ImGUILayer");
 
 	return true;
 }
