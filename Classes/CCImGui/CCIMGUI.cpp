@@ -30,6 +30,9 @@ CCIMGUI* CCIMGUI::getInstance()
 
 void CCIMGUI::init()
 {
+	////init the impl glfw
+	ImGui_ImplGlfw_Init(static_cast<GLViewImpl*>(Director::getInstance()->getOpenGLView())->getWindow(), false);
+
 	//_callPipelines["styleEditor"] = std::bind(&CCIMGUI::displaySetupStyle, this);
 	ImGuiStyle& style = ImGui::GetStyle();
 
@@ -39,7 +42,7 @@ void CCIMGUI::init()
 	ImVec4 col_area = ImColor::HSV(hue / 255.f, col_area_sat, col_area_val);
 	style.Colors[ImGuiCol_Text] = ImVec4(col_text.x, col_text.y, col_text.z, 1.00f);
 	style.Colors[ImGuiCol_TextDisabled] = ImVec4(col_text.x, col_text.y, col_text.z, 0.58f);
-	style.Colors[ImGuiCol_WindowBg] = ImVec4(col_back.x, col_back.y, col_back.z, 1.00f);
+	style.Colors[ImGuiCol_WindowBg] = ImVec4(col_back.x, col_back.y, col_back.z, 0.90f);
 	style.Colors[ImGuiCol_ChildWindowBg] = ImVec4(col_area.x, col_area.y, col_area.z, 0.00f);
 	style.Colors[ImGuiCol_Border] = ImVec4(col_text.x, col_text.y, col_text.z, 0.30f);
 	style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
@@ -240,5 +243,3 @@ void CCIMGUI::rewireCharCallback(GLFWwindow* window, unsigned int c)
 	GLFWEventHandler::onGLFWCharCallback(window, c);
 	ImGui_ImplGlfw_CharCallback(window, c);
 }
-
-

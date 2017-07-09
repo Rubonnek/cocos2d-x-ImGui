@@ -25,8 +25,6 @@ class CCIMGUI
 	public:
 		static CCIMGUI* getInstance();
 		//-------------------------------------------------------
-		GLFWwindow* getWindow() { return _window; };
-		void setWindow(GLFWwindow* window) { _window = window; };
 		ImVec4 getClearColor() { return _clearColor; };
 		void setClearColor(ImColor color) { _clearColor = color; };
 		//-------------------------------------------------------

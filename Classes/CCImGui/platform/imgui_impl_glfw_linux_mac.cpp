@@ -24,13 +24,6 @@
 #endif
 
 #include<iostream>
-//TODO: Put all of this in a namespace
-// There's no need to keep a C-like implementation for this when ImGUI is C++ itself.
-
-//TODO: We nened external acess for the following variables in order to bind them into cocos2d-x events:
-// g_MousePressed
-// g_MouseWheel
-//
 
 // Data
 static GLFWwindow* g_Window = NULL;

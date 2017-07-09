@@ -2,6 +2,7 @@
 #define __IMGUILAYER_H__
 
 #include "cocos2d.h"
+#include "CCIMGUI.h"
 
 USING_NS_CC;
 
@@ -21,6 +22,9 @@ class ImGuiLayer : public cocos2d::Node
 
 	private:
 		CustomCommand _command;
+		Director* _director;
+		CCIMGUI* _imgui_backend;
+		GLFWwindow* _window;
 };
 
 #endif // __IMGUILAYER_H__

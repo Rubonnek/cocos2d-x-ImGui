@@ -76,10 +76,7 @@ bool HelloWorldScene::init()
 		}
 	}, "demoid");
 
-	////init the impl glfw
-	ImGui_ImplGlfw_Init(((GLViewImpl*)Director::getInstance()->getOpenGLView())->getWindow(), false);
-
-	//// Create the IMGUI cocos2d-x Layer, and add it as child.
+	//// Create the IMGUI cocos2d-x Layer to draw ImGui, and add it as child.
 	auto imgui = ImGuiLayer::create();
 	this->addChild(imgui, INT_MAX,   "ImGUILayer");
 
