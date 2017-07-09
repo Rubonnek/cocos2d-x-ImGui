@@ -128,7 +128,7 @@ set(GAME_SRC
 	Classes/HelloWorldScene.cpp
 
 	# imgui + Cocos2D-X code:
-	Classes/CCImGui/CCIMGUI.cpp
+	Classes/CCImGui/ImGuiManager.cpp
 	Classes/CCImGui/ImGuiLayer.cpp
 
 	# imgui repo files:
@@ -145,7 +145,7 @@ set(GAME_HEADERS
 	Classes/HelloWorldScene.h
 
 	# imgui + Cocos2D-X code:
-	Classes/CCImGui/CCIMGUI.h
+	Classes/CCImGui/ImGuiManager.h
 	Classes/CCImGui/ImGuiLayer.h
 
 	# imgui repo files:

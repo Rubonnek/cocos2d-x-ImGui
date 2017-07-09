@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "CCImGui/CCIMGUI.h"
+#include "CCImGui/ImGuiManager.h"
 #include "CCImGui/ImGuiLayer.h"
 #include "CCImGui/imgui/imgui_impl_glfw.h"
 
@@ -45,7 +45,7 @@ bool HelloWorldScene::init()
 
 	// Create the IMGUI windows here. This is the main IMGUI Loop where you can
 	// keep adding callbacks to be added:
-	CCIMGUI::getInstance()->addImGUI([=](){
+	ImGuiManager::getInstance()->addImGUI([=](){
 		// 1. Show a simple window
 		// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
 		{

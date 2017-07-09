@@ -6,7 +6,7 @@ USING_NS_CC;
 
 ImGuiLayer::ImGuiLayer()
 	: _director(Director::getInstance())
-	, _imgui_backend(CCIMGUI::getInstance())
+	, _imgui_backend(ImGuiManager::getInstance())
 	  , _window(static_cast<GLViewImpl*>(_director->getOpenGLView())->getWindow())
 {
 }
