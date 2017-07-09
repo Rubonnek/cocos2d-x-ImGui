@@ -122,6 +122,20 @@ void ImGuiManager::setShowStyleEditor(bool show)
 	isShowSetupStyle = show;
 }
 
+// Useful for identifying the cases when we don't want our ImGui clicks to affect the gameplay
+bool isTouchOnImGuiWindow(Touch* touch)
+{
+	CCLOG("touch in ImGui widgets %s", ImGui::IsPosHoveringAnyWindow(ImVec2(touch->getLocationInView().x, touch->getLocationInView().y)) ? "yes" : "no");
+	return ImGui::IsPosHoveringAnyWindow(ImVec2(touch->getLocationInView().x, touch->getLocationInView().y));
+}
+
+// Useful for identifying the cases when we don't want our ImGui clicks to affect the gameplay
+bool isClickOnImGuiWindow(EventMouse* click)
+{
+	CCLOG("click in ImGui widgets %s", ImGui::IsPosHoveringAnyWindow(ImVec2(click->getLocationInView().x, click->getLocationInView().y)) ? "yes" : "no");
+	return ImGui::IsPosHoveringAnyWindow(ImVec2(click->getLocationInView().x, click->getLocationInView().y));
+}
+
 void ImGuiManager::displaySetupStyle()
 {
 	if (isShowSetupStyle)

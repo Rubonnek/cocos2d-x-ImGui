@@ -16,7 +16,6 @@ class ImGuiManager
 		void addImGuiCallback(std::function<void()> callback, const std::string& name);
 		void removeImGuiCallback(const std::string& name);
 
-		//TODO: Add function to add a check if the mouse click actually touched an ImGui window.
 		//TODO: We should fire events from ImGui using cocos2d-x event dispatcher somehow. Work on that soon.
 
 		// Warning: Do not runt this outside of the onDraw Layer:
@@ -26,6 +25,9 @@ class ImGuiManager
 
 		// Utilities
 		void setShowStyleEditor(bool show);
+		static bool isTouchOnImGuiWindow(Touch* touch); // Useful for identifying the cases when we don't want our ImGui touches to affect the gameplay
+		static bool isClickOnImGuiWindow(EventMouse* click); // Useful for identifying the cases when we don't want our ImGui clicks to affect the gameplay
+
 
 		// Engine callback rewiring so that we can pass raw GLFW events to ImGui
 		// Each of these functions will first call the GLViewImpl callback
