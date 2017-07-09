@@ -220,8 +220,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Classes\AppDelegate.h" />
     <ClInclude Include="..\..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\..\Classes\CCImGui\CCIMGUI.h" />
-    <ClInclude Include="..\..\Classes\CCImGui\IMGUIGLViewImpl.h" />
+    <ClInclude Include="..\..\Classes\CCImGui\ImGuiManager.h" />
     <ClInclude Include="..\..\Classes\CCImGui\ImGuiLayer.h" />
     <ClInclude Include="..\..\Classes\CCImGui\imgui\imgui.h" />
     <ClInclude Include="..\..\Classes\CCImGui\imgui\imconfig.h" />
@@ -254,8 +253,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\..\Classes\CCImGui\CCIMGUI.cpp" />
-    <ClCompile Include="..\..\Classes\CCImGui\IMGUIGLViewImpl.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\ImGuiManager.cpp" />
     <ClCompile Include="..\..\Classes\CCImGui\ImGuiLayer.cpp" />
     <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui.cpp" />
     <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui_demo.cpp" />
