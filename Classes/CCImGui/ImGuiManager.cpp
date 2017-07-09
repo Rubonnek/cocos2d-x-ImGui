@@ -34,6 +34,7 @@ void ImGuiManager::init()
 	ImGui_ImplGlfw_Init(static_cast<GLViewImpl*>(Director::getInstance()->getOpenGLView())->getWindow(), false);
 
 	//_callPipelines["styleEditor"] = std::bind(&ImGuiManager::displaySetupStyle, this);
+	_callPipelines["styleEditor"] = CC_CALLBACK_0(ImGuiManager::displaySetupStyle, this);
 	ImGuiStyle& style = ImGui::GetStyle();
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
@@ -104,17 +105,28 @@ void ImGuiManager::updateImGUI()
 	}
 }
 
-void ImGuiManager::removeImGUI(std::string name)
+void ImGuiManager::addImGui(std::function<void()> callback,const std::string& name)
+{
+	_callPipelines[name] = callback;
+}
+
+void ImGuiManager::removeImGUI(const std::string& name)
 {
 	const auto& iter = _callPipelines.find(name);
 	if (iter != _callPipelines.end())
 		_markToDelete.push_back(name);
 }
 
+void ImGuiManager::setShowStyleEditor(bool show)
+{
+	isShowSetupStyle = show;
+}
+
 void ImGuiManager::displaySetupStyle()
 {
-	if (isShowSetupStyle) {
-		ImGui::Begin("Hue Style", &isShowSetupStyle);
+	if (isShowSetupStyle)
+	{
+		ImGui::Begin("Style Editor", &isShowSetupStyle);
 		ImGui::SliderInt("master hue", &hue, 0, 255);
 
 		float dummy = 0.f; //TODO: What value is this supposed to be???
@@ -196,7 +208,7 @@ void ImGuiManager::rewireEngineGLFWCallbacks()
 	glfwSetCharCallback(window, ImGuiManager::rewireCharCallback);
 }
 
-//void rewireMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+//void ImGuiManager::rewiredMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 //{
 //	GLFWEventHandler::onGLFWMouseCallBack(window, button, action, mods);
 //	ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);

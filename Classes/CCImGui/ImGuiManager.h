@@ -13,24 +13,30 @@ class ImGuiManager
 {
 	public:
 		static ImGuiManager* getInstance();
-		void init();
+
+		//TODO: There should not be more than two ImGuiNodes running around
+
+		// Warning: Do not runt this outside of the onDraw Layer:
 		void updateImGUI();
-		void addImGUI(std::function<void()> imGUICall, std::string name) {_callPipelines[name] = imGUICall;};
-		void removeImGUI(std::string name);
-		void setShowStyleEditor(bool show) { isShowSetupStyle = show; };
+		void addImGui(std::function<void()> callback, const std::string& name);
+		void removeImGUI(const std::string& name);
+
+		// Utilities
+		void setShowStyleEditor(bool show);
 
 		// Engine callback rewiring so that we can pass raw GLFW events to ImGui
 		// Each of these functions will first call the GLViewImpl callback
 		// such as onGLFWMouseCallBack, and afterwards they will call the ImGui_Impl callback
-        // such as ImGui_ImplGlfw_MouseButtonCallback
+		// such as ImGui_ImplGlfw_MouseButtonCallback
 
 		// Note: for some reason there's no need to rewire the mouse button callback.
-		// static void rewireMouseButtonCallback(GLFWwindow*, int button, int action, int /*mods*/);
-		static void rewireScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
-		static void rewireKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-		static void rewireCharCallback(GLFWwindow* window, unsigned int c);
+		// static void rewiredMouseButtonCallback(GLFWwindow*, int button, int action, int /*mods*/);
+		static void rewiredScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+		static void rewiredKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void rewiredCharCallback(GLFWwindow* window, unsigned int c);
 
 	private:
+		void init(); // Initialize the necessary 
 
 		// Map for storing each of the ImGui functions that can be changed at runtime.
 		std::map<std::string, std::function<void()>> _callPipelines;

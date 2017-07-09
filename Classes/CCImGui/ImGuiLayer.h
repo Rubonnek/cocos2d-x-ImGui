@@ -8,6 +8,7 @@ USING_NS_CC;
 
 class ImGuiLayer : public cocos2d::Node
 {
+		//TODO: There should not be more than two ImGuiNodes running around
 	public:
 		ImGuiLayer(); //Constructor
 		virtual bool init() override;
