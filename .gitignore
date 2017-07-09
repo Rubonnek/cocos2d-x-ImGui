@@ -45,6 +45,7 @@
 !/proj.android/res/**/*
 
 # The Microsoft Visual Studio (win32):
+!/proj.win32/*.sln
 !/proj.win32/*.vcxproj
 !/proj.win32/*.vcxproj.filters
 
@@ -53,6 +54,7 @@
 !/proj.win8.1-universal/App.Shared/*.Shared.vcxitems.filters
 
 # The Microsoft Visual Studio (win10):
+!/proj.win10/App/*.sln
 !/proj.win10/App/*.vcxproj
 !/proj.win10/App/*.vcxproj.filters
 
