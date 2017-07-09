@@ -42,6 +42,17 @@ class CCIMGUI
 		//-------------------------------------------------------
 		void setShowStyleEditor(bool show) { isShowSetupStyle = show; };
 
+		// Engine callback rewiring so that we can pass raw GLFW events to ImGui
+		// Each of these functions will first call the GLViewImpl callback
+		// such as onGLFWMouseCallBack, and afterwards they will call the ImGui_Impl callback
+        // such as ImGui_ImplGlfw_MouseButtonCallback
+
+		// Note: for some reason there's no need to rewire the mouse button callback.
+		//static void rewireMouseButtonCallback(GLFWwindow*, int button, int action, int /*mods*/);
+		static void rewireScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+		static void rewireKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void rewireCharCallback(GLFWwindow* window, unsigned int c);
+
 	private:
 		//-------------------------------------------------------
 		GLFWwindow* _window = nullptr;
@@ -53,6 +64,7 @@ class CCIMGUI
 		//-------------------------------------------------------
 		bool isShowSetupStyle = false;
 		void displaySetupStyle();
+		void rewireEngineGLFWCallbacks();
 };
 
 #endif // __IMGUILAYER_H__

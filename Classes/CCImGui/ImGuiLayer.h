@@ -8,6 +8,7 @@ USING_NS_CC;
 class ImGuiLayer : public cocos2d::Node
 {
 	public:
+		ImGuiLayer(); //Constructor
 		virtual bool init() override;
 		virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
 		void onDraw();
@@ -15,17 +16,8 @@ class ImGuiLayer : public cocos2d::Node
 		// implement the "static create()" method manually
 		CREATE_FUNC(ImGuiLayer);
 
-		// Add Mouse callbacks:
-		EventListenerMouse* onMouseEventListener;
-		void onMouseDown(EventMouse* event);
-		void onMouseUp(EventMouse* event);
-		void onMouseMove(EventMouse* event);
-		void onMouseScroll(EventMouse* event);
-
-		//Add keyboard callbacks
-		EventListenerKeyboard* onKeyboardEventListener;
-		void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
-		void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
+	protected:
+		~ImGuiLayer(); //Destructor
 
 	private:
 		CustomCommand _command;

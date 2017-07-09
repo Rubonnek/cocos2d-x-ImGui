@@ -23,6 +23,7 @@
 #include <GLFW/glfw3native.h>
 #endif
 
+#include<iostream>
 //TODO: Put all of this in a namespace
 // There's no need to keep a C-like implementation for this when ImGUI is C++ itself.
 

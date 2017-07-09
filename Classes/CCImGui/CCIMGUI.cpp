@@ -1,5 +1,6 @@
 #include "CCIMGUI.h"
 //#include "imgui/imgui_internal.h"
+#include "imgui/imgui_impl_glfw.h"
 
 USING_NS_CC;
 
@@ -79,6 +80,9 @@ void CCIMGUI::init()
 	style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(col_main.x, col_main.y, col_main.z, 0.43f);
 	style.Colors[ImGuiCol_PopupBg] = ImVec4(col_main.x, col_main.y, col_main.z, 0.92f);
 	style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.20f, 0.20f, 0.20f, 0.35f);
+
+	//Finally rewire the engine callbacks.
+	rewireEngineGLFWCallbacks();
 }
 
 void CCIMGUI::updateImGUI()
@@ -203,3 +207,38 @@ void CCIMGUI::displaySetupStyle()
 		style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.20f, 0.20f, 0.20f, 0.35f);
 	}
 }
+
+
+void CCIMGUI::rewireEngineGLFWCallbacks()
+{
+	GLFWwindow* window = static_cast<GLViewImpl*>(Director::getInstance()->getOpenGLView())->getWindow();
+	//glfwSetMouseButtonCallback(window, CCIMGUI::rewireMouseButtonCallback);
+	glfwSetScrollCallback(window, CCIMGUI::rewireScrollCallback);
+	glfwSetKeyCallback(window, CCIMGUI::rewireKeyCallback);
+	glfwSetCharCallback(window, CCIMGUI::rewireCharCallback);
+}
+//void rewireMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+//{
+//	GLFWEventHandler::onGLFWMouseCallBack(window, button, action, mods);
+//	ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
+//}
+
+void CCIMGUI::rewireScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	GLFWEventHandler::onGLFWMouseScrollCallback(window, xoffset, yoffset);
+	ImGui_ImplGlfw_ScrollCallback(window, xoffset, yoffset);
+}
+
+void CCIMGUI::rewireKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	GLFWEventHandler::onGLFWKeyCallback(window, key, scancode, action, mods);
+	ImGui_ImplGlFw_KeyCallback(window, key, scancode, action, mods);
+}
+
+void CCIMGUI::rewireCharCallback(GLFWwindow* window, unsigned int c)
+{
+	GLFWEventHandler::onGLFWCharCallback(window, c);
+	ImGui_ImplGlfw_CharCallback(window, c);
+}
+
+

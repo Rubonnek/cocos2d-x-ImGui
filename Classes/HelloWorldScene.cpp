@@ -28,12 +28,12 @@ bool HelloWorldScene::init()
 		return false;
 	}
 
-	//auto director = Director::getInstance();
-	//auto size = director->getWinSize();
+	auto director = Director::getInstance();
+	auto size = director->getWinSize();
 
-	//auto rootNode = Sprite::create("HelloWorld.png");
-	//rootNode->setPosition(size.width/2, size.height/2);
-	//addChild(rootNode);
+	auto rootNode = Sprite::create("HelloWorld.png");
+	rootNode->setPosition(size.width/2, size.height/2);
+	addChild(rootNode);
 
 	// Check if the touches or the mouse input are touching the background
 	//auto listener = EventListenerTouchOneByOne::create();
