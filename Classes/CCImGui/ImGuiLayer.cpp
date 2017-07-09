@@ -42,7 +42,6 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 
 void ImGuiLayer::onDraw()
 {
-
 	glUseProgram(0);
 	if (_window)
 	{

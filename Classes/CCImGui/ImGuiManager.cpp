@@ -105,12 +105,12 @@ void ImGuiManager::updateImGUI()
 	}
 }
 
-void ImGuiManager::addImGui(std::function<void()> callback,const std::string& name)
+void ImGuiManager::addImGuiCallback(std::function<void()> callback,const std::string& name)
 {
 	_callPipelines[name] = callback;
 }
 
-void ImGuiManager::removeImGUI(const std::string& name)
+void ImGuiManager::removeImGuiCallback(const std::string& name)
 {
 	const auto& iter = _callPipelines.find(name);
 	if (iter != _callPipelines.end())
@@ -202,31 +202,31 @@ void ImGuiManager::displaySetupStyle()
 void ImGuiManager::rewireEngineGLFWCallbacks()
 {
 	GLFWwindow* window = static_cast<GLViewImpl*>(Director::getInstance()->getOpenGLView())->getWindow();
-	//glfwSetMouseButtonCallback(window, ImGuiManager::rewireMouseButtonCallback);
-	glfwSetScrollCallback(window, ImGuiManager::rewireScrollCallback);
-	glfwSetKeyCallback(window, ImGuiManager::rewireKeyCallback);
-	glfwSetCharCallback(window, ImGuiManager::rewireCharCallback);
+	//glfwSetMouseButtonCallback(window, ImGuiManager::rewiredMouseButtonCallback);
+	glfwSetScrollCallback(window, ImGuiManager::rewiredScrollCallback);
+	glfwSetKeyCallback(window, ImGuiManager::rewiredKeyCallback);
+	glfwSetCharCallback(window, ImGuiManager::rewiredCharCallback);
 }
 
-//void ImGuiManager::rewiredMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+//void ImGuiManager::rewireddMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 //{
 //	GLFWEventHandler::onGLFWMouseCallBack(window, button, action, mods);
 //	ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
 //}
 
-void ImGuiManager::rewireScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+void ImGuiManager::rewiredScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	GLFWEventHandler::onGLFWMouseScrollCallback(window, xoffset, yoffset);
 	ImGui_ImplGlfw_ScrollCallback(window, xoffset, yoffset);
 }
 
-void ImGuiManager::rewireKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void ImGuiManager::rewiredKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	GLFWEventHandler::onGLFWKeyCallback(window, key, scancode, action, mods);
 	ImGui_ImplGlFw_KeyCallback(window, key, scancode, action, mods);
 }
 
-void ImGuiManager::rewireCharCallback(GLFWwindow* window, unsigned int c)
+void ImGuiManager::rewiredCharCallback(GLFWwindow* window, unsigned int c)
 {
 	GLFWEventHandler::onGLFWCharCallback(window, c);
 	ImGui_ImplGlfw_CharCallback(window, c);

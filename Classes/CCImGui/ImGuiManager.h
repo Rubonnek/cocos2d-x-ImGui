@@ -13,13 +13,15 @@ class ImGuiManager
 {
 	public:
 		static ImGuiManager* getInstance();
+		void addImGuiCallback(std::function<void()> callback, const std::string& name);
+		void removeImGuiCallback(const std::string& name);
 
-		//TODO: There should not be more than two ImGuiNodes running around
+		//TODO: Add function to add a check if the mouse click actually touched an ImGui window.
 
 		// Warning: Do not runt this outside of the onDraw Layer:
+		// Note: There should not be more than 2 ImGui nodes due to this.
+		//       But the performance hit is barely noticeable.
 		void updateImGUI();
-		void addImGui(std::function<void()> callback, const std::string& name);
-		void removeImGUI(const std::string& name);
 
 		// Utilities
 		void setShowStyleEditor(bool show);
