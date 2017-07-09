@@ -17,6 +17,7 @@ class ImGuiManager
 		void removeImGuiCallback(const std::string& name);
 
 		//TODO: Add function to add a check if the mouse click actually touched an ImGui window.
+		//TODO: We should fire events from ImGui using cocos2d-x event dispatcher somehow. Work on that soon.
 
 		// Warning: Do not runt this outside of the onDraw Layer:
 		// Note: There should not be more than 2 ImGui nodes due to this.
