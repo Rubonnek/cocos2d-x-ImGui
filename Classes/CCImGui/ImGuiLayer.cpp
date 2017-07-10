@@ -42,6 +42,7 @@ void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentT
 
 void ImGuiLayer::onDraw()
 {
+	glUseProgram(0);
 	if (_window)
 	{
 		// Update timestep
@@ -51,10 +52,7 @@ void ImGuiLayer::onDraw()
 		ImGui_ImplGlfw_NewFrame();
 		_imgui_backend->updateImGUI();
 
-        // Rendering
-        int display_w, display_h;
-        glfwGetFramebufferSize(_window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
+		// Render
 		ImGui::Render();
 	}
 	glUseProgram(1);
