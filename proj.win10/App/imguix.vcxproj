@@ -258,7 +258,7 @@
     <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui.cpp" />
     <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\..\Classes\CCImGui\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\..\Classes\CCImGui\platform\imgui_impl_glfw_linux_mac.cpp" />
+    <ClCompile Include="..\..\Classes\CCImGui\platform\imgui_impl_cocos2d_x.cpp" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
