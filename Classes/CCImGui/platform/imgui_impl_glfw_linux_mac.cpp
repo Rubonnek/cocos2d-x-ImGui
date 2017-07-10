@@ -15,7 +15,6 @@
 #include "../imgui/imgui_impl_glfw.h"
 
 // GLFW
-#include <GL/glew.h>
 #include <glfw3.h>
 #ifdef _WIN32
 #undef APIENTRY
