@@ -42,6 +42,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 void ImGuiLayer::onDraw()
 {
 	glUseProgram(0);
+	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 	if (_window)
 	{
 		// Update timestep
@@ -56,6 +57,9 @@ void ImGuiLayer::onDraw()
 
 		// Render:
 		ImGui::Render();
+		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
+
 	}
 	glUseProgram(1);
+	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 }
