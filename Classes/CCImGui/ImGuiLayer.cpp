@@ -62,6 +62,7 @@ void ImGuiLayer::onDraw()
 
 	}
 	GL::useProgram(GL::VERTEX_ATTRIB_FLAG_POSITION);
+	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 	/** 
 	 * Invalidates the default StateBlock.
@@ -77,6 +78,5 @@ void ImGuiLayer::onDraw()
 			RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_CULL_FACE |
 			RenderState::StateBlock::RS_BLEND);
-
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 }
