@@ -6,7 +6,7 @@ USING_NS_CC;
 
 ImGuiLayer::ImGuiLayer()
 	: _director(Director::getInstance())
-	, _imgui_backend(ImGuiManager::getInstance())
+	, _imgui_manager(ImGuiManager::getInstance())
 	  , _window(static_cast<GLViewImpl*>(_director->getOpenGLView())->getWindow())
 {
 }
@@ -35,7 +35,7 @@ bool ImGuiLayer::init()
 void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags)
 {
 	Node::visit(renderer, parentTransform, parentFlags);
-	_command.init(_globalZOrder);
+	_command.init(_globalZOrder, parentTransform, parentFlags);
 	_command.func = CC_CALLBACK_0(ImGuiLayer::onDraw, this);
 	Director::getInstance()->getRenderer()->addCommand(&_command);
 }
@@ -53,7 +53,7 @@ void ImGuiLayer::onDraw()
 		ImGui_ImplGlfw_NewFrame();
 
 		// Render the remaining ImGui windows:
-		_imgui_backend->updateImGUI();
+		_imgui_manager->updateImGUI();
 
 		// Render:
 		ImGui::Render();
