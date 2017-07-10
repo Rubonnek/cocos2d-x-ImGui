@@ -15,6 +15,7 @@
 #include "../imgui/imgui_impl_glfw.h"
 
 // GLFW
+#include <GL/glew.h>
 #include <glfw3.h>
 #ifdef _WIN32
 #undef APIENTRY
@@ -60,7 +61,9 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnable(GL_TEXTURE_2D);
-    //glUseProgram(0); // You may want this if using this code in an OpenGL 3+ context
+	// Enable the OpenGL Fixed Function Pipeline
+	// This is a legacy mode that makes the code compatible with older openGL implementations
+    glUseProgram(0); // You may want this if using this code in an OpenGL 3+ context
 
     // Setup viewport, orthographic projection matrix
     glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
