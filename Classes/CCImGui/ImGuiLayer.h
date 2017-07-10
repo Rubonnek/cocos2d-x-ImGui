@@ -11,7 +11,7 @@ class ImGuiLayer : public cocos2d::Node
 	public:
 		ImGuiLayer(); //Constructor
 		virtual bool init() override;
-		virtual void visit(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
+		virtual void draw(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
 		void onDraw();
 
 		// implement the "static create()" method manually

@@ -32,12 +32,11 @@ bool ImGuiLayer::init()
 	return true;
 }
 
-void ImGuiLayer::visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags)
+void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transform, uint32_t flags)
 {
-	Node::visit(renderer, parentTransform, parentFlags);
-	_command.init(_globalZOrder, parentTransform, parentFlags);
+	_command.init(_globalZOrder, transform, flags);
 	_command.func = CC_CALLBACK_0(ImGuiLayer::onDraw, this);
-	Director::getInstance()->getRenderer()->addCommand(&_command);
+	renderer->addCommand(&_command);
 }
 
 void ImGuiLayer::onDraw()
