@@ -49,10 +49,13 @@ void ImGuiLayer::onDraw()
 		ImGuiIO& io = ImGui::GetIO();
 		io.DeltaTime = _director->getDeltaTime();
 
+		// Prepare ImGui for a new frame:
 		ImGui_ImplGlfw_NewFrame();
+
+		// Render the remaining ImGui windows:
 		_imgui_backend->updateImGUI();
 
-		// Render
+		// Render:
 		ImGui::Render();
 	}
 	glUseProgram(1);
