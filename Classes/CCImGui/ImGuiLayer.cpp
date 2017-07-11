@@ -42,7 +42,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 
 void ImGuiLayer::onDraw()
 {
-	GL::useProgram(GL::VERTEX_ATTRIB_FLAG_NONE);
+	GL::useProgram(0); // Disable GLSL shaders. Only vertex information will be processed for this node.
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 	if (_window)
 	{
@@ -61,7 +61,7 @@ void ImGuiLayer::onDraw()
 		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 	}
-	GL::useProgram(GL::VERTEX_ATTRIB_FLAG_POSITION);
+	//GL::useProgram(GL::VERTEX_ATTRIB_FLAG_POSITION);
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 	/** 
