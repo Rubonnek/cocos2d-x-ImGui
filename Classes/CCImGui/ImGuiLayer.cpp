@@ -141,11 +141,13 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 
 				// Start by transforming the vertices:
 				//Tex Coords
+				Vec2 vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].uv.x, vtx_buffer[index].uv.y));
 				_vertices_map[n][index].texCoords = Tex2F(vtx_buffer[index].uv.x, vtx_buffer[index].uv.y);
 
 				// Texture Position Diff
 				//TODO: we need to convert GL coordinates to cocos2d-x coordinates
-				_vertices_map[n][index].vertices = Vec3(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y,0);
+				vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
+				_vertices_map[n][index].vertices = Vec3(vector_in_cocos2d_x_coordinates.x,vector_in_cocos2d_x_coordinates.y,0);
 				GLubyte r = (vtx_buffer[index].col >> (8*0)) & 0xff;
 				GLubyte g = (vtx_buffer[index].col >> (8*1)) & 0xff;
 				GLubyte b = (vtx_buffer[index].col >> (8*2)) & 0xff;
