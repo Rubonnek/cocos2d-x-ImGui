@@ -15,6 +15,8 @@
 #include "../imgui/imgui_impl_glfw.h"
 #include <cocos2d.h>
 
+USING_NS_CC;
+
 // GLFW
 #include <glfw3.h>
 #ifdef _WIN32
@@ -51,67 +53,33 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 	GLint last_texture; glGetIntegerv(GL_TEXTURE_BINDING_2D, &last_texture);
 	GLint last_viewport[4]; glGetIntegerv(GL_VIEWPORT, last_viewport);
 	GLint last_scissor_box[4]; glGetIntegerv(GL_SCISSOR_BOX, last_scissor_box); 
-
-	glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
+	glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT); // There's cocos2d-x no equivalent for this
 	glEnable(GL_BLEND);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
+	RenderState::StateBlock::_defaultState->setBlend(true);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
+	RenderState::StateBlock::_defaultState->setBlendFunc(BlendFunc::ALPHA_NON_PREMULTIPLIED);
 	glDisable(GL_CULL_FACE);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
+	RenderState::StateBlock::_defaultState->setCullFace(false);
 	glDisable(GL_DEPTH_TEST);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
-	glEnable(GL_SCISSOR_TEST);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
+	RenderState::StateBlock::_defaultState->setDepthTest(false);
+	glEnable(GL_SCISSOR_TEST); // There's cocos2d-x no equivalent for this
 	glEnableClientState(GL_VERTEX_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glEnableClientState(GL_COLOR_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glEnable(GL_TEXTURE_2D);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
-
 	// glUseProgram(0) enables the OpenGL Fixed Function Pipeline
 	// This is a legacy mode that makes the code compatible with older OpenGL implementations
 	//glUseProgram(0); // You may want this if using this code in an OpenGL 3+ context
 
 	// Setup viewport, orthographic projection matrix
 	glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glMatrixMode(GL_PROJECTION);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glPushMatrix();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glLoadIdentity();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glOrtho(0.0f, io.DisplaySize.x, io.DisplaySize.y, 0.0f, -1.0f, +1.0f);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glMatrixMode(GL_MODELVIEW);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glPushMatrix();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glLoadIdentity();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 
 	// Render command lists
 	#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
@@ -121,14 +89,8 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 		const ImDrawVert* vtx_buffer = cmd_list->VtxBuffer.Data;
 		const ImDrawIdx* idx_buffer = cmd_list->IdxBuffer.Data;
 		glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, pos)));
-		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 		glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, uv)));
-		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, col)));
-		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 
 		for (int cmd_i = 0; cmd_i < cmd_list->CmdBuffer.Size; cmd_i++)
 		{
@@ -140,14 +102,8 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 			else
 			{
 				glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
-				CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 				glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-				CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 				glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer);
-				CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 			}
 			idx_buffer += pcmd->ElemCount;
 		}
@@ -156,37 +112,16 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 
 	// Restore modified state
 	glDisableClientState(GL_COLOR_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glDisableClientState(GL_VERTEX_ARRAY);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glBindTexture(GL_TEXTURE_2D, (GLuint)last_texture);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glMatrixMode(GL_MODELVIEW);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glPopMatrix();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glMatrixMode(GL_PROJECTION);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glPopMatrix();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glPopAttrib();
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glViewport(last_viewport[0], last_viewport[1], (GLsizei)last_viewport[2], (GLsizei)last_viewport[3]);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glScissor(last_scissor_box[0], last_scissor_box[1], (GLsizei)last_scissor_box[2], (GLsizei)last_scissor_box[3]);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 }
 
 static const char* ImGui_ImplGlfw_GetClipboardText(void* user_data)
@@ -243,30 +178,17 @@ bool ImGui_ImplGlfw_CreateDeviceObjects()
 	// Upload texture to graphics system
 	GLint last_texture;
 	glGetIntegerv(GL_TEXTURE_BINDING_2D, &last_texture);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glGenTextures(1, &g_FontTexture);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glBindTexture(GL_TEXTURE_2D, g_FontTexture);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-
 
 	// Store our identifier
 	io.Fonts->TexID = (void *)(intptr_t)g_FontTexture;
 
 	// Restore state
 	glBindTexture(GL_TEXTURE_2D, last_texture);
-	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 
 	return true;
@@ -277,7 +199,6 @@ void    ImGui_ImplGlfw_InvalidateDeviceObjects()
 	if (g_FontTexture)
 	{
 		glDeleteTextures(1, &g_FontTexture);
-		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 		ImGui::GetIO().Fonts->TexID = 0;
 		g_FontTexture = 0;
