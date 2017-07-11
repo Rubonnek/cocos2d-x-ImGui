@@ -25,7 +25,8 @@ class ImGuiLayer : public cocos2d::Node
 		ImGuiManager* _imgui_manager;
 
 		// Necessary variables for rendering:
-		std::map<int, V3F_C4B_T2F> _vertices_map;
+		V3F_C4B_T2F* _vertex_array;
+		std::map<int, V3F_C4B_T2F*> _vertices_map;
 		Texture2D* _texture;
 		std::map<int, TrianglesCommand> _triangles_command_map;
 		std::map<int, TrianglesCommand::Triangles> _triangles_map;

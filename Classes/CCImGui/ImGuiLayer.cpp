@@ -104,49 +104,57 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			const ImDrawVert* vtx_buffer = cmd_list->VtxBuffer.Data; //Complete buffer
 			const ImDrawIdx* idx_buffer = cmd_list->IdxBuffer.Data; //Complete buffer
 
-			//TODO: Translate this into cocos2d-x:
-
+			//TODO: Translate this code block into cocos2d-x:
+			//      Here we pass full vertex, textures and color arrays to OpenGL
 			//glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, pos)));
 			//glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, uv)));
 			//glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, col)));
 
-			//Update the vertices:
+			//TODO: So here we have to transform each of those arrays into cocos2d-x Triangles:
+			//TODO: We have to use malloc here. We want a continuous buffer
+			CC_SAFE_DELETE_ARRAY(_vertices_map[n]);
+			_vertices_map[n] = new V3F_C4B_T2F[cmd_list->VtxBuffer.Size];
+			for ( int index = 0; index < cmd_list->VtxBuffer.Size; index += 3 )
+			{
+				// First off, lets translate the vertices pointer:
 
-			// Transofrm this ImDrawVert:
-			//struct ImDrawVert
-			//{
-			//	ImVec2  pos; // Texture position
-			//	ImVec2  uv; // Texture position diff
-			//	ImU32   col; // Color
-			//};
+				// We need to transofrm this ImGui ImDrawVert:
+				//struct ImDrawVert
+				//{
+				//	ImVec2  pos; // Texture position
+				//	ImVec2  uv; // Texture position diff
+				//	ImU32   col; // Color
+				//};
 
-			// Into the cocos2d-x vertex:
-			//struct CC_DLL V3F_C4B_T2F
-			//{
-			//    /// vertices (3F)
-			//    Vec3     vertices;            // 12 bytes
-			//
-			//    /// colors (4B)
-			//    Color4B      colors;              // 4 bytes
-			//
-			//    // tex coords (2F)
-			//    Tex2F        texCoords;           // 8 bytes
-			//};
+				// Into the cocos2d-x vertex ( reorganized to match order):
+				//struct CC_DLL V3F_C4B_T2F
+				//{
+				//    // tex coords (2F)
+				//    Tex2F        texCoords;           // 8 bytes
+				//
+				//    /// vertices (3F)
+				//    Vec3     vertices;            // 12 bytes
+				//
+				//    /// colors (4B)
+				//    Color4B      colors;              // 4 bytes
+				//};
 
-			// We need to transform the ImGui vertex buffer into a compatible buffer for cocos2d-x:
+				// Start by transforming the vertices:
+				//Tex Coords
+				_vertices_map[n][index].texCoords = Tex2F(vtx_buffer[index].uv.x, vtx_buffer[index].uv.y);
 
+				// Texture Position Diff
+				//TODO: we need to convert GL coordinates to cocos2d-x coordinates
+				_vertices_map[n][index].vertices = Vec3(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y,0);
+				GLubyte r = (vtx_buffer[index].col >> (8*0)) & 0xff;
+				GLubyte g = (vtx_buffer[index].col >> (8*1)) & 0xff;
+				GLubyte b = (vtx_buffer[index].col >> (8*2)) & 0xff;
+				GLubyte a = (vtx_buffer[index].col >> (8*3)) & 0xff;
 
-			_vertices_map[n].vertices = Vec3(vtx_buffer->uv.x,vtx_buffer->uv.y,0);
-
-			//Extract the color from the ImGui buffer:
-			GLubyte r = (vtx_buffer->col >> (8*0)) & 0xff;
-			GLubyte g = (vtx_buffer->col >> (8*1)) & 0xff;
-			GLubyte b = (vtx_buffer->col >> (8*2)) & 0xff;
-			GLubyte a = (vtx_buffer->col >> (8*3)) & 0xff;
-			_vertices_map[n].colors = Color4B(r,g,b,a); 
-			//CCLOG("Colors r g b a: %d %d %d %d", r, g, b ,a); // Color looks good
-
-			_vertices_map[n].texCoords = Tex2F(vtx_buffer->pos.x, vtx_buffer->pos.y); //FIXME this will draw everything black
+				// Colors
+				_vertices_map[n][index].colors = Color4B(r,g,b,a); 
+				//CCLOG("Colors r g b a: %d %d %d %d", r, g, b ,a); // Color looks good
+			}
 
 			// Attach it to the TrianglesCommand::Triangles :
 			//struct Triangles
@@ -163,46 +171,27 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 
 			// Update the triangles information:
 			//CCLOG("Number of commands is: %d", n);
-			_triangles_map[n].verts = &(_vertices_map[n]);
-			_triangles_map[n].indices = (unsigned short*)idx_buffer;
-			_triangles_map[n].vertCount = cmd_list->VtxBuffer.Size / 3;
-			_triangles_map[n].indexCount = cmd_list->IdxBuffer.Size;
+
+			// First of we need to displace the index pointer:
+			_triangles_map[n].verts = _vertices_map[n]; // Here we use the vertices pointer we just create. We can't use raw ImGui data here.
+			_triangles_map[n].indices = draw_data->CmdLists[n]->IdxBuffer.Data;
+			_triangles_map[n].vertCount = draw_data->CmdLists[n]->VtxBuffer.Size;
+			_triangles_map[n].indexCount = draw_data->CmdLists[n]->IdxBuffer.Size;
 			CCLOG("vertCount: %d",_triangles_map[n].vertCount);
 			CCLOG("indexCount: %d",_triangles_map[n].indexCount);
 
-			// Attach the TrianglesCommand::Triangles to the TrianglesCommand
-			//_triangles_command_map[n].setTriangles(_triangles_map[n]);
+			// The final pass to the renderer happens here:
 
+			_triangles_command_map[n].init(_globalZOrder,
+					_texture,
+					getGLProgramState(),
+					BlendFunc::ALPHA_NON_PREMULTIPLIED,
+					_triangles_map[n], 
+					transform,
+					flags);
 
-			for (int cmd_i = 0; cmd_i < cmd_list->CmdBuffer.Size; cmd_i++)
-			{
-
-				//TODO: Translate this code block into cocos2d-x
-				//      Where weare looping over the indices of the triangles we are drawing.
-				//	glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-				//	glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer);
-				//  ===> void glDrawElements(GLsizei count,  GLenum type,  const GLvoid * indices);
-				//  void glDrawElements(GLenum mode,  GLsizei count,  GLenum type,  const GLvoid * indices);
-				//  idx_buffer += pcmd->ElemCount;
-
-				const ImDrawCmd* pcmd = &cmd_list->CmdBuffer[cmd_i];
-
-				// Initialize the triangle command:
-				//void TrianglesCommand::init(float globalOrder, Texture2D* texture, GLProgramState* glProgramState, BlendFunc blendType, const Triangles& triangles, const Mat4& mv, uint32_t flags)
-
-				_triangles_command_map[cmd_i].init(_globalZOrder,
-						_texture,
-						getGLProgramState(),
-						BlendFunc::ALPHA_NON_PREMULTIPLIED,
-						_triangles_map[n], 
-						transform,
-						flags);
-
-				// Pass it to the cocos2d-x renderer:
-				renderer->addCommand(&_triangles_command_map[cmd_i]);
-
-				idx_buffer += pcmd->ElemCount;
-			}
+			// Pass it to the cocos2d-x renderer:
+			renderer->addCommand(&_triangles_command_map[n]);
 		}
 		#undef OFFSETOF
 
@@ -232,7 +221,4 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 
 	// Set the draw call and vertex count
 	//CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, draw_data->TotalVtxCount);
-
-
-
 }
