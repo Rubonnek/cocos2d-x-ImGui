@@ -28,6 +28,9 @@ USING_NS_CC;
 
 #include<iostream>
 
+//Cocos2D-X render-related variables
+static Director* g_CocosDirector = Director::getInstance();
+
 // Data
 static GLFWwindow* g_Window = NULL;
 //static double g_Time = 0.0f; // Not needed. We will be updating the time before we draw using the cocos2d-x rendered.
@@ -63,23 +66,38 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 	glDisable(GL_DEPTH_TEST);
 	RenderState::StateBlock::_defaultState->setDepthTest(false);
 	glEnable(GL_SCISSOR_TEST); // There's cocos2d-x no equivalent for this
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
+
+	// Note: the following are enabled by default. They should NOT be disabled.
+	glEnableClientState(GL_VERTEX_ARRAY);  // There's cocos2d-x no equivalent for this
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY); // There's cocos2d-x no equivalent for this
+	glEnableClientState(GL_COLOR_ARRAY); // There's cocos2d-x no equivalent for this
 	glEnable(GL_TEXTURE_2D);
-	// glUseProgram(0) enables the OpenGL Fixed Function Pipeline
-	// This is a legacy mode that makes the code compatible with older OpenGL implementations
+
+	// The following line is a legacy mode that makes the code compatible with older OpenGL implementations
 	//glUseProgram(0); // You may want this if using this code in an OpenGL 3+ context
+	// Use cocos2d-x equivalent instead:
+	GL::useProgram(0);
 
 	// Setup viewport, orthographic projection matrix
-	glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
+	glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height); // This call can be replaced with a cocos2d-x equivalent:
+	//g_CocosDirector->setViewport();
+
+	// The following two lines have a cocos2d-x equivalent:
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
+    //g_CocosDirector->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
+
+	// The following also has a cocos2d-x equivalent:
 	glLoadIdentity();
+    //g_CocosDirector->loadIdentityMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+
 	glOrtho(0.0f, io.DisplaySize.x, io.DisplaySize.y, 0.0f, -1.0f, +1.0f);
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
+    //g_CocosDirector->pushMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
+
 	glLoadIdentity();
+    //g_CocosDirector->loadIdentityMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
 
 	// Render command lists
 	#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
@@ -111,15 +129,20 @@ void ImGui_ImplGlfw_RenderDrawLists(ImDrawData* draw_data)
 	#undef OFFSETOF
 
 	// Restore modified state
-	glDisableClientState(GL_COLOR_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glDisableClientState(GL_VERTEX_ARRAY);
+	// These should NOT be disabled according from the documentation at CCNode.h
+	//glDisableClientState(GL_COLOR_ARRAY);
+	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	//glDisableClientState(GL_VERTEX_ARRAY);
 	glBindTexture(GL_TEXTURE_2D, (GLuint)last_texture);
+
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
+
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
+
 	glPopAttrib();
+
 	glViewport(last_viewport[0], last_viewport[1], (GLsizei)last_viewport[2], (GLsizei)last_viewport[3]);
 	glScissor(last_scissor_box[0], last_scissor_box[1], (GLsizei)last_scissor_box[2], (GLsizei)last_scissor_box[3]);
 }

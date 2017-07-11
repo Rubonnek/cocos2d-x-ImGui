@@ -41,7 +41,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 
 void ImGuiLayer::onDraw()
 {
-	GL::useProgram(0); // Disable GLSL shaders. Only vertex information will be processed for this node.
+	//GL::useProgram(0); // Disable GLSL shaders. Only vertex information will be processed for this node.
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
 	// Update timestep
