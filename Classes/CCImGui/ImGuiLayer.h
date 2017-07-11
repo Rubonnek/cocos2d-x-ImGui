@@ -24,7 +24,6 @@ class ImGuiLayer : public cocos2d::Node
 		CustomCommand _command;
 		Director* _director;
 		ImGuiManager* _imgui_manager;
-		//GLFWwindow* _window;
 };
 
 #endif // __IMGUILAYER_H__
