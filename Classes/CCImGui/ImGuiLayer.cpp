@@ -64,19 +64,22 @@ void ImGuiLayer::onDraw()
 	//GL::useProgram(GL::VERTEX_ATTRIB_FLAG_POSITION);
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
-	/** 
-	 * Invalidates the default StateBlock.
-	 *
-	 * Only call it if you are calling GL calls directly. Invoke this function
-	 * at the end of your custom draw call.
-	 * This function restores the default render state its defaults values.
-	 * Since this function might call GL calls, it must be called in a GL context is present.
-	 *
-	 * @param stateBits Bitwise-OR of the states that needs to be invalidated
-	 */
+	 
+	 //Invalidates the default StateBlock.
+	 //
+	 //Only call it if you are calling GL calls directly. Invoke this function
+	 //at the end of your custom draw call.
+	 //This function restores the default render state its defaults values.
+	 //Since this function might call GL calls, it must be called in a GL context is present.
+	 //
+	 //@param stateBits Bitwise-OR of the states that needs to be invalidated
+	 
 	RenderState::StateBlock::invalidate(RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_CULL_FACE |
 			RenderState::StateBlock::RS_BLEND);
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
+
+	// Increase the draw call and vertex count
+	CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 4);
 }
