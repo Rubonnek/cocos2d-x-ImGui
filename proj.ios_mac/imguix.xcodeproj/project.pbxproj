@@ -7,23 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		113EB8178B63FDE0CC3A35C4 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF79A2A591975D2F2AB3094 /* Icon-50.png */; };
-		1883518D40F2EC99574791F2 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD125E627E0135B5B7A02D /* AppController.mm */; };
-		19623AC468F5E140A88E3942 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5372AC0CEA08B00814F867 /* Icon-72.png */; };
-		1AC6FB21180E996B004C840B /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
-		1AC6FB30180E99EB004C840B /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
+		015BA5302A5BD4BBCE27C295 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DD2002F462C62D2BC18773 /* Icon-180.png */; };
+		06B9F24D64BD6F32AC6A85D0 /* ImGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0882A10D83556A60707E0E13 /* ImGuiManager.cpp */; };
+		0BC135D0F1F894FBA22F89A4 /* imgui_impl_cocos2d_x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5722A9216D8CFF08B24AB781 /* imgui_impl_cocos2d_x.cpp */; };
+		0E331FBD4639B569770C05AA /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F8320BF8717BB428242841 /* HelloWorld.png */; };
+		1545D6AA55E73AD30743D1EC /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = C659CC1C0B7D5B63C706608D /* Icon-100.png */; };
+		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
+		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
+		1D0DCEEB008C3FCCCC8367DD /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 96AD9C9442C18F2CDBB33783 /* Icon-144.png */; };
+		1D53A353FDFDA83356E9E6F1 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D251EAAB47AAE49999A8B20 /* AppDelegate.cpp */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2426A988A6A3F7798DE579BC /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 73389FB306084FB00977E43A /* RootViewController.mm */; };
-		267554EEFCC5BCF8E2F348F3 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 59CAE5F0638761C97DB2BA3D /* HelloWorld.png */; };
-		28140A281B9FAFF7DA629B5D /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3AED3B8B512A380DF42E88 /* Default-667h@2x.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
-		2E5D195CAEF0EC8C77E3B79F /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E9227881B468A0AF5347F59 /* imgui_demo.cpp */; };
-		302607A4789343F960D0764E /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A3C913643F29A9D176DABB /* Icon-29.png */; };
-		3FDF9DDE256C577648F7D561 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 2441A33C26A41378928031BD /* Icon-180.png */; };
-		42B28C84F909D5FA1E8B02C2 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB7A9411BDA58546E07C741 /* Default-736h@3x.png */; };
-		4C1C5B6C480BFD7CCA79795F /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2361EEF527BA9C5436D9A27 /* imgui_draw.cpp */; };
+		2DCE85864709E0021A1188B5 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D03396BECD4E3CAA0BFD61 /* Icon-50.png */; };
+		2E68A59A11BB2971BA974600 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9111180053741510A046E4 /* Default-568h@2x.png */; };
+		2FCE238BD4FC3621D52145A3 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = AE88AEEA8E8F715E869A32E3 /* Icon-120.png */; };
+		33E0F69B165BF16905AA39BB /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8AD632E1EA6CE69ABD10F7 /* Icon-40.png */; };
+		3507BDB1B7197039DDDEDBAA /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70FE731A0D643FC5D007AE6 /* imgui_demo.cpp */; };
+		37B80045A562DCCC80BFF816 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E434B5C1F02121FA19EE8D8 /* Default.png */; };
+		3B730DAC79DF0D81301AF7E3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FD7E43606AB49421C7C252 /* Icon-72.png */; };
+		43DA902BA5A739177E6A7DCF /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D02AD427EEB6067516C32A97 /* Icon-114.png */; };
+		48B3B933D270EB767DF5572B /* imgui_impl_cocos2d_x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5722A9216D8CFF08B24AB781 /* imgui_impl_cocos2d_x.cpp */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -33,49 +38,44 @@
 		5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
+		5252BFFFE191035DF327C859 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 7793982EDC2CBB476CC9EC64 /* Icon-29.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
-		5398C18B91C50999F42A2BE6 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BF8B0BDD001A93EDF58496 /* Icon-58.png */; };
-		55EC50F6F3ED8F039567FF21 /* ImGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC5E0B7DBB76306D98CC24A7 /* ImGuiManager.cpp */; };
-		68BEB005FF7402A15D62DB4E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 879E5A649F9F2F27604E0CBB /* Default@2x.png */; };
-		7036A8FE1DBB22F23132189B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F379C54E25FFDFFC8A56FB57 /* Default-568h@2x.png */; };
-		747C2EAE77A4ED4BEEA2DB7E /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB4DFF4B4FACB5B0D8DB0883 /* imgui.cpp */; };
-		7B2EF8E74F275BD705233A1E /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E3D1C3728E3486A475E42A /* HelloWorldScene.cpp */; };
-		7DF7AEE69508AD5DA1BCB177 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D5B1596161552FDECD6364E /* main.cpp */; };
-		7E24179E0B9ABF4BE3502A79 /* Icon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = 822438A6A020845B672FAE85 /* Icon-87.png */; };
+		58B463ABEDBE9A867A736A92 /* Icon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = 193DFB187F0672DE8B9EE960 /* Icon-87.png */; };
+		5F97AA21DF388588365FC7F3 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22005C1E87A749208ACD36CF /* imgui_draw.cpp */; };
+		6C29BC55DB8DA0F1E73BD37E /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22005C1E87A749208ACD36CF /* imgui_draw.cpp */; };
+		6C921F280CFD4DB5C533DD3A /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADC65D49A2D5774CDE9C0C83 /* imgui.cpp */; };
+		701B64431C944787229DD299 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB0A851B9FECE2AEE7C6D9C4 /* AppController.mm */; };
+		715888EDC83ED95FDAD11A70 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C047B68D4A8C02D50D023E3 /* HelloWorldScene.cpp */; };
+		736E69E7FA84F243F921CBAA /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C047B68D4A8C02D50D023E3 /* HelloWorldScene.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
-		8529165AE92D50A1DA10B250 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43CCDAC0A166252B3795A33F /* AppDelegate.cpp */; };
-		8947E824BDD885386E7796F3 /* imgui_impl_cocos2d_x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042D75E96A0CBE565D33C00A /* imgui_impl_cocos2d_x.cpp */; };
-		894F11A42E911191D5E0A0BD /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5D1917533316E427891B91CC /* ImGuiLayer.cpp */; };
-		90042532B8042C6F83B8D04D /* ImGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC5E0B7DBB76306D98CC24A7 /* ImGuiManager.cpp */; };
-		90C80258E92098D42E6D8ACC /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E9227881B468A0AF5347F59 /* imgui_demo.cpp */; };
-		9478944B104A73A6DF925BF2 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7202828DE2B6F3C03635D2 /* Icon-100.png */; };
-		9F28C041BEAFEAC1431619AD /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C921138FE50BAC5F27F9603C /* Default-Landscape~ipad.png */; };
-		A043D059C121376C4C345050 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D6470484991A9F4F8D1C46 /* Icon-114.png */; };
-		A22B2390952E4CE628C60002 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A22E92518835DB24648B5 /* Default.png */; };
-		A241A066D9D4D163FB34A148 /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5D1917533316E427891B91CC /* ImGuiLayer.cpp */; };
-		A4632B8C17CC2A165D1B4813 /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A92158E34BB94A98BFA9200 /* Icon-144.png */; };
-		A48B73F61443026E5F6300B4 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DBC926575349DD318F323E /* Icon-40.png */; };
-		A908B83D80105AD3645B84E6 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 132D9BE0B5F5816D542AD205 /* Icon-80.png */; };
-		AD2DB7D5D5005B16F3CA995A /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 59CAE5F0638761C97DB2BA3D /* HelloWorld.png */; };
-		AEFFD6A342477FDEB686DE68 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43CCDAC0A166252B3795A33F /* AppDelegate.cpp */; };
-		B979B7412B46248E576853B7 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A1007D08E2293F64055731F7 /* Icon.icns */; };
-		BA873D2E3E4897A90864BDA0 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E3D1C3728E3486A475E42A /* HelloWorldScene.cpp */; };
+		832BE979BD885CCDD08C3FD8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE570C9FF2B5CFF81FD3DD95 /* Default@2x.png */; };
+		83428AF385D2C419C419CBAC /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B2D0A1AD16F9CE36E3499C /* Icon-76.png */; };
+		83D006554398AC84A1CB2EA9 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A43C71B93ACC5AA3ED375C /* Icon-152.png */; };
+		8D09ACF172EFE8E79FA3B3E8 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADC65D49A2D5774CDE9C0C83 /* imgui.cpp */; };
+		9886049348197FD203D692F6 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70FE731A0D643FC5D007AE6 /* imgui_demo.cpp */; };
+		9AE82A6C836BC33B878089C1 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 885AC79969DC63AE44FFCA3F /* Default-667h@2x.png */; };
+		9BBFFC67B66D66A7F4607222 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = E5FF33279FB467455A78C5D0 /* Icon-57.png */; };
+		AAB91A6DB6C25337DE55A492 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6773B21F4C443965B5D51D /* Default-736h@3x.png */; };
+		AB47386DA04C9861B70A58B4 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CBDCFD5BE42E93B7CFC399 /* Icon-80.png */; };
+		B02BFC2240319D5AE9F63B96 /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A9276845C7C020D3F9052F /* ImGuiLayer.cpp */; };
+		B5265C068D8B6029417454F5 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 706440422744667588A64AF0 /* Icon-58.png */; };
+		B7545A3F36DF9BDE85FC3673 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D251EAAB47AAE49999A8B20 /* AppDelegate.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
-		C0447156EAE6003B740A4E43 /* imgui_impl_cocos2d_x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042D75E96A0CBE565D33C00A /* imgui_impl_cocos2d_x.cpp */; };
-		CAF71B181C77FAF37DF3CEAE /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7027CB813EC72D5A17C9F921 /* Icon-57.png */; };
-		CD087BC243BC6978DFBAB4AD /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA73EFE276F820F4349E8E /* Icon-152.png */; };
+		C8327782BA71CC880CDA0767 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84752F821646B6A5BEF9F45F /* RootViewController.mm */; };
+		C9D738A795556AFC408262BA /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F8320BF8717BB428242841 /* HelloWorld.png */; };
+		CA3DEA8D91B21C8348C817E0 /* ImGuiLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A9276845C7C020D3F9052F /* ImGuiLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		ECE5508640D2040A0A9693F5 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2361EEF527BA9C5436D9A27 /* imgui_draw.cpp */; };
+		DCE3E2B45BFE954662679E83 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58CD1B128AF380E303AB7F5D /* main.cpp */; };
+		DDA19300F8B7D3B63CF76270 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9BA51BABFEB7E3C62313DCF1 /* Icon.icns */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
-		EDF5FFE68D82EC1A99E20168 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB4DFF4B4FACB5B0D8DB0883 /* imgui.cpp */; };
-		F1329EC8B6B065E7B03487C3 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ACC875F42F1E57C9859A693 /* Icon-76.png */; };
-		F990B8DC81E2430F13B6574F /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 634B1C0D429F76EC0263E9BA /* Icon-120.png */; };
+		EFC29A85C2BDF0AE71F596C3 /* ImGuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0882A10D83556A60707E0E13 /* ImGuiManager.cpp */; };
+		F2C20A90542952403058012E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D5DE650E2E422DDCDA85AAC /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,22 +110,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		042D75E96A0CBE565D33C00A /* imgui_impl_cocos2d_x.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_impl_cocos2d_x.cpp; path = CCImGui/platform/imgui_impl_cocos2d_x.cpp; sourceTree = "<group>"; };
-		051A22E92518835DB24648B5 /* Default.png */ = {isa = PBXFileReference; includeInIndex = 1; name = Default.png; path = ../proj.ios_mac/ios/Default.png; sourceTree = "<group>"; };
-		0A5372AC0CEA08B00814F867 /* Icon-72.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-72.png"; path = "../proj.ios_mac/ios/Icon-72.png"; sourceTree = "<group>"; };
-		0FAD125E627E0135B5B7A02D /* AppController.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = AppController.mm; path = ../proj.ios_mac/ios/AppController.mm; sourceTree = "<group>"; };
-		132D9BE0B5F5816D542AD205 /* Icon-80.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-80.png"; path = "../proj.ios_mac/ios/Icon-80.png"; sourceTree = "<group>"; };
+		00A43C71B93ACC5AA3ED375C /* Icon-152.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-152.png"; path = "../proj.ios_mac/ios/Icon-152.png"; sourceTree = "<group>"; };
+		0882A10D83556A60707E0E13 /* ImGuiManager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ImGuiManager.cpp; path = CCImGui/ImGuiManager.cpp; sourceTree = "<group>"; };
+		193DFB187F0672DE8B9EE960 /* Icon-87.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-87.png"; path = "../proj.ios_mac/ios/Icon-87.png"; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1CCA73EFE276F820F4349E8E /* Icon-152.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-152.png"; path = "../proj.ios_mac/ios/Icon-152.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* imguix-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "imguix-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2441A33C26A41378928031BD /* Icon-180.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-180.png"; path = "../proj.ios_mac/ios/Icon-180.png"; sourceTree = "<group>"; };
+		22005C1E87A749208ACD36CF /* imgui_draw.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_draw.cpp; path = CCImGui/imgui/imgui_draw.cpp; sourceTree = "<group>"; };
+		24F8320BF8717BB428242841 /* HelloWorld.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		43CCDAC0A166252B3795A33F /* AppDelegate.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		4D5B1596161552FDECD6364E /* main.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = main.cpp; path = ../proj.ios_mac/mac/main.cpp; sourceTree = "<group>"; };
+		38D03396BECD4E3CAA0BFD61 /* Icon-50.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-50.png"; path = "../proj.ios_mac/ios/Icon-50.png"; sourceTree = "<group>"; };
+		3E434B5C1F02121FA19EE8D8 /* Default.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Default.png; path = ../proj.ios_mac/ios/Default.png; sourceTree = "<group>"; };
+		45B2D0A1AD16F9CE36E3499C /* Icon-76.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-76.png"; path = "../proj.ios_mac/ios/Icon-76.png"; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -161,41 +160,42 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		59CAE5F0638761C97DB2BA3D /* HelloWorld.png */ = {isa = PBXFileReference; includeInIndex = 1; path = HelloWorld.png; sourceTree = "<group>"; };
-		5A92158E34BB94A98BFA9200 /* Icon-144.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-144.png"; path = "../proj.ios_mac/ios/Icon-144.png"; sourceTree = "<group>"; };
-		5ACC875F42F1E57C9859A693 /* Icon-76.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-76.png"; path = "../proj.ios_mac/ios/Icon-76.png"; sourceTree = "<group>"; };
-		5D1917533316E427891B91CC /* ImGuiLayer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ImGuiLayer.cpp; path = CCImGui/ImGuiLayer.cpp; sourceTree = "<group>"; };
-		634B1C0D429F76EC0263E9BA /* Icon-120.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-120.png"; path = "../proj.ios_mac/ios/Icon-120.png"; sourceTree = "<group>"; };
-		7027CB813EC72D5A17C9F921 /* Icon-57.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-57.png"; path = "../proj.ios_mac/ios/Icon-57.png"; sourceTree = "<group>"; };
-		73389FB306084FB00977E43A /* RootViewController.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RootViewController.mm; path = ../proj.ios_mac/ios/RootViewController.mm; sourceTree = "<group>"; };
-		822438A6A020845B672FAE85 /* Icon-87.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-87.png"; path = "../proj.ios_mac/ios/Icon-87.png"; sourceTree = "<group>"; };
+		5722A9216D8CFF08B24AB781 /* imgui_impl_cocos2d_x.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_impl_cocos2d_x.cpp; path = CCImGui/platform/imgui_impl_cocos2d_x.cpp; sourceTree = "<group>"; };
+		58CD1B128AF380E303AB7F5D /* main.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = main.cpp; path = ../proj.ios_mac/mac/main.cpp; sourceTree = "<group>"; };
+		5F6773B21F4C443965B5D51D /* Default-736h@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-736h@3x.png"; path = "../proj.ios_mac/ios/Default-736h@3x.png"; sourceTree = "<group>"; };
+		63DD2002F462C62D2BC18773 /* Icon-180.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-180.png"; path = "../proj.ios_mac/ios/Icon-180.png"; sourceTree = "<group>"; };
+		6C047B68D4A8C02D50D023E3 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
+		706440422744667588A64AF0 /* Icon-58.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-58.png"; path = "../proj.ios_mac/ios/Icon-58.png"; sourceTree = "<group>"; };
+		7793982EDC2CBB476CC9EC64 /* Icon-29.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-29.png"; path = "../proj.ios_mac/ios/Icon-29.png"; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		83A3C913643F29A9D176DABB /* Icon-29.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-29.png"; path = "../proj.ios_mac/ios/Icon-29.png"; sourceTree = "<group>"; };
-		879E5A649F9F2F27604E0CBB /* Default@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Default@2x.png"; path = "../proj.ios_mac/ios/Default@2x.png"; sourceTree = "<group>"; };
-		88BF8B0BDD001A93EDF58496 /* Icon-58.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-58.png"; path = "../proj.ios_mac/ios/Icon-58.png"; sourceTree = "<group>"; };
-		8BF79A2A591975D2F2AB3094 /* Icon-50.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-50.png"; path = "../proj.ios_mac/ios/Icon-50.png"; sourceTree = "<group>"; };
-		97D6470484991A9F4F8D1C46 /* Icon-114.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-114.png"; path = "../proj.ios_mac/ios/Icon-114.png"; sourceTree = "<group>"; };
-		9E9227881B468A0AF5347F59 /* imgui_demo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_demo.cpp; path = CCImGui/imgui/imgui_demo.cpp; sourceTree = "<group>"; };
-		A1007D08E2293F64055731F7 /* Icon.icns */ = {isa = PBXFileReference; includeInIndex = 1; name = Icon.icns; path = ../proj.ios_mac/mac/Icon.icns; sourceTree = "<group>"; };
-		AC5E0B7DBB76306D98CC24A7 /* ImGuiManager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ImGuiManager.cpp; path = CCImGui/ImGuiManager.cpp; sourceTree = "<group>"; };
-		AC7202828DE2B6F3C03635D2 /* Icon-100.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-100.png"; path = "../proj.ios_mac/ios/Icon-100.png"; sourceTree = "<group>"; };
-		AEB7A9411BDA58546E07C741 /* Default-736h@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Default-736h@3x.png"; path = "../proj.ios_mac/ios/Default-736h@3x.png"; sourceTree = "<group>"; };
-		B3DBC926575349DD318F323E /* Icon-40.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Icon-40.png"; path = "../proj.ios_mac/ios/Icon-40.png"; sourceTree = "<group>"; };
+		84752F821646B6A5BEF9F45F /* RootViewController.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RootViewController.mm; path = ../proj.ios_mac/ios/RootViewController.mm; sourceTree = "<group>"; };
+		885AC79969DC63AE44FFCA3F /* Default-667h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-667h@2x.png"; path = "../proj.ios_mac/ios/Default-667h@2x.png"; sourceTree = "<group>"; };
+		96AD9C9442C18F2CDBB33783 /* Icon-144.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios_mac/ios/Icon-144.png"; sourceTree = "<group>"; };
+		97FD7E43606AB49421C7C252 /* Icon-72.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios_mac/ios/Icon-72.png"; sourceTree = "<group>"; };
+		9BA51BABFEB7E3C62313DCF1 /* Icon.icns */ = {isa = PBXFileReference; includeInIndex = 1; name = Icon.icns; path = ../proj.ios_mac/mac/Icon.icns; sourceTree = "<group>"; };
+		9D251EAAB47AAE49999A8B20 /* AppDelegate.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		9D5DE650E2E422DDCDA85AAC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../proj.ios_mac/ios/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		ADC65D49A2D5774CDE9C0C83 /* imgui.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui.cpp; path = CCImGui/imgui/imgui.cpp; sourceTree = "<group>"; };
+		AE88AEEA8E8F715E869A32E3 /* Icon-120.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-120.png"; path = "../proj.ios_mac/ios/Icon-120.png"; sourceTree = "<group>"; };
+		B8CBDCFD5BE42E93B7CFC399 /* Icon-80.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-80.png"; path = "../proj.ios_mac/ios/Icon-80.png"; sourceTree = "<group>"; };
+		BE570C9FF2B5CFF81FD3DD95 /* Default@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../proj.ios_mac/ios/Default@2x.png"; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C3E3D1C3728E3486A475E42A /* HelloWorldScene.cpp */ = {isa = PBXFileReference; includeInIndex = 1; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		C921138FE50BAC5F27F9603C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Default-Landscape~ipad.png"; path = "../proj.ios_mac/ios/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		D2361EEF527BA9C5436D9A27 /* imgui_draw.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_draw.cpp; path = CCImGui/imgui/imgui_draw.cpp; sourceTree = "<group>"; };
+		C659CC1C0B7D5B63C706608D /* Icon-100.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-100.png"; path = "../proj.ios_mac/ios/Icon-100.png"; sourceTree = "<group>"; };
+		CB0A851B9FECE2AEE7C6D9C4 /* AppController.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = AppController.mm; path = ../proj.ios_mac/ios/AppController.mm; sourceTree = "<group>"; };
+		CE8AD632E1EA6CE69ABD10F7 /* Icon-40.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-40.png"; path = "../proj.ios_mac/ios/Icon-40.png"; sourceTree = "<group>"; };
+		D02AD427EEB6067516C32A97 /* Icon-114.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-114.png"; path = "../proj.ios_mac/ios/Icon-114.png"; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D6A9276845C7C020D3F9052F /* ImGuiLayer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ImGuiLayer.cpp; path = CCImGui/ImGuiLayer.cpp; sourceTree = "<group>"; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		DF3AED3B8B512A380DF42E88 /* Default-667h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Default-667h@2x.png"; path = "../proj.ios_mac/ios/Default-667h@2x.png"; sourceTree = "<group>"; };
+		D70FE731A0D643FC5D007AE6 /* imgui_demo.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui_demo.cpp; path = CCImGui/imgui/imgui_demo.cpp; sourceTree = "<group>"; };
+		E5FF33279FB467455A78C5D0 /* Icon-57.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icon-57.png"; path = "../proj.ios_mac/ios/Icon-57.png"; sourceTree = "<group>"; };
+		EA9111180053741510A046E4 /* Default-568h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../proj.ios_mac/ios/Default-568h@2x.png"; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		F379C54E25FFDFFC8A56FB57 /* Default-568h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Default-568h@2x.png"; path = "../proj.ios_mac/ios/Default-568h@2x.png"; sourceTree = "<group>"; };
-		FB4DFF4B4FACB5B0D8DB0883 /* imgui.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = imgui.cpp; path = CCImGui/imgui/imgui.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
-				1AC6FB30180E99EB004C840B /* ReferenceProxy in Frameworks */,
+				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -225,7 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */,
-				1AC6FB21180E996B004C840B /* ReferenceProxy in Frameworks */,
+				1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */,
 				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
 				8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */,
 				503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */,
@@ -319,29 +319,29 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F379C54E25FFDFFC8A56FB57 /* Default-568h@2x.png */,
-				DF3AED3B8B512A380DF42E88 /* Default-667h@2x.png */,
-				AEB7A9411BDA58546E07C741 /* Default-736h@3x.png */,
-				C921138FE50BAC5F27F9603C /* Default-Landscape~ipad.png */,
-				051A22E92518835DB24648B5 /* Default.png */,
-				879E5A649F9F2F27604E0CBB /* Default@2x.png */,
-				AC7202828DE2B6F3C03635D2 /* Icon-100.png */,
-				97D6470484991A9F4F8D1C46 /* Icon-114.png */,
-				634B1C0D429F76EC0263E9BA /* Icon-120.png */,
-				5A92158E34BB94A98BFA9200 /* Icon-144.png */,
-				1CCA73EFE276F820F4349E8E /* Icon-152.png */,
-				2441A33C26A41378928031BD /* Icon-180.png */,
-				83A3C913643F29A9D176DABB /* Icon-29.png */,
-				B3DBC926575349DD318F323E /* Icon-40.png */,
-				8BF79A2A591975D2F2AB3094 /* Icon-50.png */,
-				7027CB813EC72D5A17C9F921 /* Icon-57.png */,
-				88BF8B0BDD001A93EDF58496 /* Icon-58.png */,
-				0A5372AC0CEA08B00814F867 /* Icon-72.png */,
-				5ACC875F42F1E57C9859A693 /* Icon-76.png */,
-				132D9BE0B5F5816D542AD205 /* Icon-80.png */,
-				822438A6A020845B672FAE85 /* Icon-87.png */,
-				59CAE5F0638761C97DB2BA3D /* HelloWorld.png */,
-				A1007D08E2293F64055731F7 /* Icon.icns */,
+				EA9111180053741510A046E4 /* Default-568h@2x.png */,
+				885AC79969DC63AE44FFCA3F /* Default-667h@2x.png */,
+				5F6773B21F4C443965B5D51D /* Default-736h@3x.png */,
+				9D5DE650E2E422DDCDA85AAC /* Default-Landscape~ipad.png */,
+				3E434B5C1F02121FA19EE8D8 /* Default.png */,
+				BE570C9FF2B5CFF81FD3DD95 /* Default@2x.png */,
+				C659CC1C0B7D5B63C706608D /* Icon-100.png */,
+				D02AD427EEB6067516C32A97 /* Icon-114.png */,
+				AE88AEEA8E8F715E869A32E3 /* Icon-120.png */,
+				96AD9C9442C18F2CDBB33783 /* Icon-144.png */,
+				00A43C71B93ACC5AA3ED375C /* Icon-152.png */,
+				63DD2002F462C62D2BC18773 /* Icon-180.png */,
+				7793982EDC2CBB476CC9EC64 /* Icon-29.png */,
+				CE8AD632E1EA6CE69ABD10F7 /* Icon-40.png */,
+				38D03396BECD4E3CAA0BFD61 /* Icon-50.png */,
+				E5FF33279FB467455A78C5D0 /* Icon-57.png */,
+				706440422744667588A64AF0 /* Icon-58.png */,
+				97FD7E43606AB49421C7C252 /* Icon-72.png */,
+				45B2D0A1AD16F9CE36E3499C /* Icon-76.png */,
+				B8CBDCFD5BE42E93B7CFC399 /* Icon-80.png */,
+				193DFB187F0672DE8B9EE960 /* Icon-87.png */,
+				24F8320BF8717BB428242841 /* HelloWorld.png */,
+				9BA51BABFEB7E3C62313DCF1 /* Icon.icns */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -350,17 +350,17 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0FAD125E627E0135B5B7A02D /* AppController.mm */,
-				73389FB306084FB00977E43A /* RootViewController.mm */,
-				43CCDAC0A166252B3795A33F /* AppDelegate.cpp */,
-				C3E3D1C3728E3486A475E42A /* HelloWorldScene.cpp */,
-				AC5E0B7DBB76306D98CC24A7 /* ImGuiManager.cpp */,
-				5D1917533316E427891B91CC /* ImGuiLayer.cpp */,
-				FB4DFF4B4FACB5B0D8DB0883 /* imgui.cpp */,
-				9E9227881B468A0AF5347F59 /* imgui_demo.cpp */,
-				D2361EEF527BA9C5436D9A27 /* imgui_draw.cpp */,
-				042D75E96A0CBE565D33C00A /* imgui_impl_cocos2d_x.cpp */,
-				4D5B1596161552FDECD6364E /* main.cpp */,
+				CB0A851B9FECE2AEE7C6D9C4 /* AppController.mm */,
+				84752F821646B6A5BEF9F45F /* RootViewController.mm */,
+				9D251EAAB47AAE49999A8B20 /* AppDelegate.cpp */,
+				6C047B68D4A8C02D50D023E3 /* HelloWorldScene.cpp */,
+				0882A10D83556A60707E0E13 /* ImGuiManager.cpp */,
+				D6A9276845C7C020D3F9052F /* ImGuiLayer.cpp */,
+				ADC65D49A2D5774CDE9C0C83 /* imgui.cpp */,
+				D70FE731A0D643FC5D007AE6 /* imgui_demo.cpp */,
+				22005C1E87A749208ACD36CF /* imgui_draw.cpp */,
+				5722A9216D8CFF08B24AB781 /* imgui_impl_cocos2d_x.cpp */,
+				58CD1B128AF380E303AB7F5D /* main.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -528,28 +528,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7036A8FE1DBB22F23132189B /* Default-568h@2x.png in Resources */,
-				28140A281B9FAFF7DA629B5D /* Default-667h@2x.png in Resources */,
-				42B28C84F909D5FA1E8B02C2 /* Default-736h@3x.png in Resources */,
-				9F28C041BEAFEAC1431619AD /* Default-Landscape~ipad.png in Resources */,
-				A22B2390952E4CE628C60002 /* Default.png in Resources */,
-				68BEB005FF7402A15D62DB4E /* Default@2x.png in Resources */,
-				9478944B104A73A6DF925BF2 /* Icon-100.png in Resources */,
-				A043D059C121376C4C345050 /* Icon-114.png in Resources */,
-				F990B8DC81E2430F13B6574F /* Icon-120.png in Resources */,
-				A4632B8C17CC2A165D1B4813 /* Icon-144.png in Resources */,
-				CD087BC243BC6978DFBAB4AD /* Icon-152.png in Resources */,
-				3FDF9DDE256C577648F7D561 /* Icon-180.png in Resources */,
-				302607A4789343F960D0764E /* Icon-29.png in Resources */,
-				A48B73F61443026E5F6300B4 /* Icon-40.png in Resources */,
-				113EB8178B63FDE0CC3A35C4 /* Icon-50.png in Resources */,
-				CAF71B181C77FAF37DF3CEAE /* Icon-57.png in Resources */,
-				5398C18B91C50999F42A2BE6 /* Icon-58.png in Resources */,
-				19623AC468F5E140A88E3942 /* Icon-72.png in Resources */,
-				F1329EC8B6B065E7B03487C3 /* Icon-76.png in Resources */,
-				A908B83D80105AD3645B84E6 /* Icon-80.png in Resources */,
-				7E24179E0B9ABF4BE3502A79 /* Icon-87.png in Resources */,
-				AD2DB7D5D5005B16F3CA995A /* HelloWorld.png in Resources */,
+				2E68A59A11BB2971BA974600 /* Default-568h@2x.png in Resources */,
+				9AE82A6C836BC33B878089C1 /* Default-667h@2x.png in Resources */,
+				AAB91A6DB6C25337DE55A492 /* Default-736h@3x.png in Resources */,
+				F2C20A90542952403058012E /* Default-Landscape~ipad.png in Resources */,
+				37B80045A562DCCC80BFF816 /* Default.png in Resources */,
+				832BE979BD885CCDD08C3FD8 /* Default@2x.png in Resources */,
+				1545D6AA55E73AD30743D1EC /* Icon-100.png in Resources */,
+				43DA902BA5A739177E6A7DCF /* Icon-114.png in Resources */,
+				2FCE238BD4FC3621D52145A3 /* Icon-120.png in Resources */,
+				1D0DCEEB008C3FCCCC8367DD /* Icon-144.png in Resources */,
+				83D006554398AC84A1CB2EA9 /* Icon-152.png in Resources */,
+				015BA5302A5BD4BBCE27C295 /* Icon-180.png in Resources */,
+				5252BFFFE191035DF327C859 /* Icon-29.png in Resources */,
+				33E0F69B165BF16905AA39BB /* Icon-40.png in Resources */,
+				2DCE85864709E0021A1188B5 /* Icon-50.png in Resources */,
+				9BBFFC67B66D66A7F4607222 /* Icon-57.png in Resources */,
+				B5265C068D8B6029417454F5 /* Icon-58.png in Resources */,
+				3B730DAC79DF0D81301AF7E3 /* Icon-72.png in Resources */,
+				83428AF385D2C419C419CBAC /* Icon-76.png in Resources */,
+				AB47386DA04C9861B70A58B4 /* Icon-80.png in Resources */,
+				58B463ABEDBE9A867A736A92 /* Icon-87.png in Resources */,
+				C9D738A795556AFC408262BA /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,8 +557,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B979B7412B46248E576853B7 /* Icon.icns in Resources */,
-				267554EEFCC5BCF8E2F348F3 /* HelloWorld.png in Resources */,
+				DDA19300F8B7D3B63CF76270 /* Icon.icns in Resources */,
+				0E331FBD4639B569770C05AA /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,16 +569,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1883518D40F2EC99574791F2 /* AppController.mm in Sources */,
-				2426A988A6A3F7798DE579BC /* RootViewController.mm in Sources */,
-				AEFFD6A342477FDEB686DE68 /* AppDelegate.cpp in Sources */,
-				7B2EF8E74F275BD705233A1E /* HelloWorldScene.cpp in Sources */,
-				90042532B8042C6F83B8D04D /* ImGuiManager.cpp in Sources */,
-				894F11A42E911191D5E0A0BD /* ImGuiLayer.cpp in Sources */,
-				747C2EAE77A4ED4BEEA2DB7E /* imgui.cpp in Sources */,
-				90C80258E92098D42E6D8ACC /* imgui_demo.cpp in Sources */,
-				4C1C5B6C480BFD7CCA79795F /* imgui_draw.cpp in Sources */,
-				C0447156EAE6003B740A4E43 /* imgui_impl_cocos2d_x.cpp in Sources */,
+				701B64431C944787229DD299 /* AppController.mm in Sources */,
+				C8327782BA71CC880CDA0767 /* RootViewController.mm in Sources */,
+				B7545A3F36DF9BDE85FC3673 /* AppDelegate.cpp in Sources */,
+				736E69E7FA84F243F921CBAA /* HelloWorldScene.cpp in Sources */,
+				06B9F24D64BD6F32AC6A85D0 /* ImGuiManager.cpp in Sources */,
+				B02BFC2240319D5AE9F63B96 /* ImGuiLayer.cpp in Sources */,
+				8D09ACF172EFE8E79FA3B3E8 /* imgui.cpp in Sources */,
+				9886049348197FD203D692F6 /* imgui_demo.cpp in Sources */,
+				5F97AA21DF388588365FC7F3 /* imgui_draw.cpp in Sources */,
+				0BC135D0F1F894FBA22F89A4 /* imgui_impl_cocos2d_x.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,15 +586,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DF7AEE69508AD5DA1BCB177 /* main.cpp in Sources */,
-				8529165AE92D50A1DA10B250 /* AppDelegate.cpp in Sources */,
-				BA873D2E3E4897A90864BDA0 /* HelloWorldScene.cpp in Sources */,
-				55EC50F6F3ED8F039567FF21 /* ImGuiManager.cpp in Sources */,
-				A241A066D9D4D163FB34A148 /* ImGuiLayer.cpp in Sources */,
-				EDF5FFE68D82EC1A99E20168 /* imgui.cpp in Sources */,
-				2E5D195CAEF0EC8C77E3B79F /* imgui_demo.cpp in Sources */,
-				ECE5508640D2040A0A9693F5 /* imgui_draw.cpp in Sources */,
-				8947E824BDD885386E7796F3 /* imgui_impl_cocos2d_x.cpp in Sources */,
+				DCE3E2B45BFE954662679E83 /* main.cpp in Sources */,
+				1D53A353FDFDA83356E9E6F1 /* AppDelegate.cpp in Sources */,
+				715888EDC83ED95FDAD11A70 /* HelloWorldScene.cpp in Sources */,
+				EFC29A85C2BDF0AE71F596C3 /* ImGuiManager.cpp in Sources */,
+				CA3DEA8D91B21C8348C817E0 /* ImGuiLayer.cpp in Sources */,
+				6C921F280CFD4DB5C533DD3A /* imgui.cpp in Sources */,
+				3507BDB1B7197039DDDEDBAA /* imgui_demo.cpp in Sources */,
+				6C29BC55DB8DA0F1E73BD37E /* imgui_draw.cpp in Sources */,
+				48B3B933D270EB767DF5572B /* imgui_impl_cocos2d_x.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
