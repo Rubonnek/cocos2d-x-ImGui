@@ -7,7 +7,6 @@ USING_NS_CC;
 ImGuiLayer::ImGuiLayer()
 	: _director(Director::getInstance())
 	, _imgui_manager(ImGuiManager::getInstance())
-	  //, _window(static_cast<GLViewImpl*>(_director->getOpenGLView())->getWindow())
 {
 }
 
@@ -67,7 +66,6 @@ void ImGuiLayer::onDraw()
 	 //Since this function might call GL calls, it must be called in a GL context is present.
 	 //
 	 //@param stateBits Bitwise-OR of the states that needs to be invalidated
-	 
 	RenderState::StateBlock::invalidate(RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_CULL_FACE |
@@ -76,8 +74,7 @@ void ImGuiLayer::onDraw()
 
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
+	// Set the draw call and vertex count
 	ImDrawData* draw_data = ImGui::GetDrawData();
-
-	// Increase the draw call and vertex count
 	CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, draw_data->TotalVtxCount);
 }
