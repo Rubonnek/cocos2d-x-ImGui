@@ -12,7 +12,6 @@ class ImGuiLayer : public cocos2d::Node
 		ImGuiLayer(); //Constructor
 		virtual bool init() override;
 		virtual void draw(Renderer *renderer, const Mat4& parentTransform, uint32_t parentFlags) override;
-		void onDraw();
 
 		// implement the "static create()" method manually
 		CREATE_FUNC(ImGuiLayer);
@@ -21,9 +20,15 @@ class ImGuiLayer : public cocos2d::Node
 		~ImGuiLayer(); //Destructor
 
 	private:
-		CustomCommand _command;
+		// Utility
 		Director* _director;
 		ImGuiManager* _imgui_manager;
+
+		// Necessary variables for rendering:
+		std::map<int, V3F_C4B_T2F> _vertices_map;
+		Texture2D* _texture;
+		std::map<int, TrianglesCommand> _triangles_command_map;
+		std::map<int, TrianglesCommand::Triangles> _triangles_map;
 };
 
 #endif // __IMGUILAYER_H__
