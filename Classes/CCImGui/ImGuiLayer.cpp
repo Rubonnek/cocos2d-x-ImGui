@@ -7,7 +7,7 @@ USING_NS_CC;
 ImGuiLayer::ImGuiLayer()
 	: _director(Director::getInstance())
 	, _imgui_manager(ImGuiManager::getInstance())
-	  , _window(static_cast<GLViewImpl*>(_director->getOpenGLView())->getWindow())
+	  //, _window(static_cast<GLViewImpl*>(_director->getOpenGLView())->getWindow())
 {
 }
 
@@ -44,27 +44,21 @@ void ImGuiLayer::onDraw()
 {
 	GL::useProgram(0); // Disable GLSL shaders. Only vertex information will be processed for this node.
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
-	if (_window)
-	{
-		// Update timestep
-		ImGuiIO& io = ImGui::GetIO();
-		io.DeltaTime = _director->getDeltaTime();
 
-		// Prepare ImGui for a new frame:
-		ImGui_ImplGlfw_NewFrame();
+	// Update timestep
+	ImGuiIO& io = ImGui::GetIO();
+	io.DeltaTime = _director->getDeltaTime();
 
-		// Render the remaining ImGui windows:
-		_imgui_manager->updateImGUI();
+	// Prepare ImGui for a new frame:
+	ImGui_ImplGlfw_NewFrame();
 
-		// Render:
-		ImGui::Render();
-		CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
+	// Render the remaining ImGui windows:
+	_imgui_manager->updateImGUI();
 
-	}
-	//GL::useProgram(GL::VERTEX_ATTRIB_FLAG_POSITION);
+	// Render:
+	ImGui::Render();
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
-	 
 	 //Invalidates the default StateBlock.
 	 //
 	 //Only call it if you are calling GL calls directly. Invoke this function
@@ -78,8 +72,12 @@ void ImGuiLayer::onDraw()
 			RenderState::StateBlock::RS_DEPTH_TEST |
 			RenderState::StateBlock::RS_CULL_FACE |
 			RenderState::StateBlock::RS_BLEND);
+	//Note: the RenderState above is the same as GL::useProgram(1), which is also basically the same as glUseProgram(1)
+
 	CHECK_GL_ERROR_DEBUG(); // whenever a GL function is exectured, check for GL errors
 
+	ImDrawData* draw_data = ImGui::GetDrawData();
+
 	// Increase the draw call and vertex count
-	CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, 4);
+	CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, draw_data->TotalVtxCount);
 }

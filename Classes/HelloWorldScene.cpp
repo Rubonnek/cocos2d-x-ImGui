@@ -83,9 +83,5 @@ bool HelloWorldScene::init()
 	auto imgui = ImGuiLayer::create();
 	this->addChild(imgui, INT_MAX,   "ImGUILayer");
 
-	auto imgui2 = ImGuiLayer::create();
-	imgui2->setPosition(Vec2(-10,10));
-	this->addChild(imgui2, INT_MAX,   "ImGUILayer");
-
 	return true;
 }
