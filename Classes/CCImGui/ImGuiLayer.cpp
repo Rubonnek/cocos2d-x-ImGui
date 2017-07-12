@@ -124,59 +124,43 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			// We need to transform this ImGui ImDrawVert:
 			//struct ImDrawVert
 			//{
-			//	ImVec2  pos; // Texture position
-			//	ImVec2  uv; // Texture on display
-			//	ImU32   col; // Color
+			//	ImVec2  pos; // Texture position 8 bytes
+			//	ImVec2  uv; // Texture on display 8 bytes
+			//	ImU32   col; // Color 4 bytes
 			//};
+
 			// Into the cocos2d-x vertex ( reorganized to match order):
 			//struct CC_DLL V3F_C4B_T2F
 			//{
-			//    // tex coords (2F)
 			//    Tex2F        texCoords;           // 8 bytes
-			//
+			//    Vec3     vertices;            // 12 bytes
+			//    Color4B      colors;              // 4 bytes
+			//};
+
+			// Since we can restructure ImDrawVert in imconfig.h, we can reorganize the original cocos2d-x verts:
+
+			//struct CC_DLL V3F_C4B_T2F
+			//{
 			//    /// vertices (3F)
 			//    Vec3     vertices;            // 12 bytes
 			//
 			//    /// colors (4B)
 			//    Color4B      colors;              // 4 bytes
+			//
+			//    // tex coords (2F)
+			//    Tex2F        texCoords;           // 8 bytes
 			//};
 
-			// Start by transforming the vertices:
-			// Tex Coords
+			// To the following:
+			//struct ImDrawVert
+			//{
+			//		ImVec2 uv;
+			//		float z = 0;
+			//		ImU32 col;
+			//	ImVec2 pos;
+			//};
 
-			// Texture position:
-			//// Note: the Y axis gets flipped if we don't convert to Cocos2D-X coordinates here:
-			//auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].uv.x, vtx_buffer[index].uv.y));
-			//// Manipulating the coordinates here displaces the image
-			//vtx_buffer[index].uv.x = vector_in_cocos2d_x_coordinates.x;
-			//vtx_buffer[index].uv.y = vector_in_cocos2d_x_coordinates.y;
-			//CCLOG("Position: %f, %f, %f", vtx_buffer[index].pos.x, vtx_buffer[index].pos.y, vtx_buffer[index].z);
-
-			// Colors:
-			// Extract each byte of the 32 bit color and pass it to the Cocos2d-X vert:
-			//CCLOG("Size of the vertex color: %lu", sizeof(vtx_buffer[index].col));
-			// We need to break down the colors and rearrange each of the 8 bits.
-			// In the col variable:
-
-			// First off, pull the colors:
-			//uint8_t r = (vtx_buffer[index].col >> (8*0)) & 0xFF;
-			//uint8_t g = (vtx_buffer[index].col >> (8*1)) & 0xFF;
-			//uint8_t b = (vtx_buffer[index].col >> (8*2)) & 0xFF;
-			//uint8_t a = (vtx_buffer[index].col >> (8*3)) & 0xFF;
-			//CCLOG("Colors: r g b a: %d %d %d %d", r, g, b ,a); // Color variables look good
-
-			///// Get the address and cast it as an 8 bits pointer:
-			///uint8_t* replace_color_at_byte = (uint8_t*) &vtx_buffer[index].col;
-			///replace_color_at_byte[0] = r;
-			///replace_color_at_byte[1] = g;
-			///replace_color_at_byte[2] = b;
-			///replace_color_at_byte[3] = a;
-
-			//// Now pass those to our remade ImDrawVert: 
-			//vtx_buffer[index].col = r;
-			//vtx_buffer[index].g = g;
-			//vtx_buffer[index].b = b;
-			//vtx_buffer[index].a = a;
+			// There fore we only need to
 		}
 
 
