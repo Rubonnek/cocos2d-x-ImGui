@@ -43,6 +43,15 @@
         operator MyVec4() const { return MyVec4(x,y,z,w); }
 */
 
+#define IMGUI_OVERRIDE_DRAWVERT_STRUCT_LAYOUT \
+struct ImDrawVert \
+{ \
+    ImVec2  pos; \
+	float z = 0; \
+    ImVec2  uv; \
+    ImU32   col; \
+};
+
 //---- Use 32-bit vertex indices (instead of default: 16-bit) to allow meshes with more than 64K vertices
 //#define ImDrawIdx unsigned int
 
