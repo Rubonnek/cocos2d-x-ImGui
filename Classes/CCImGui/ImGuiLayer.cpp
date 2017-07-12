@@ -15,8 +15,6 @@ ImGuiLayer::ImGuiLayer()
 ImGuiLayer::~ImGuiLayer()
 {
 	_texture->release();
-
-	//TODO: clear the _vertices_map
 }
 
 // on "init" you need to initialize your instance
@@ -29,13 +27,26 @@ bool ImGuiLayer::init()
 		return false;
 	}
 
-	// Render the initial frame and set the texture:
-	ImGui_ImplGlfw_NewFrame();
-	_imgui_manager->updateImGUI();
-	ImGui::Render();
+	// Render the initial frame and set the texture. There will be no need to
+	// update this texture again. It will be done automatically by ImGui with
+	// ImGui::Render()
+
+	ImGui_ImplGlfw_NewFrame();			// Start generating the new frame.
+	_imgui_manager->updateImGUI();		// Inject the user-defined callbacks
+	ImGui::Render();					// Finishe rendering 
+
 	ImGuiIO& io = ImGui::GetIO();
 	unsigned char* pixels;
 	int width, height;
+
+	// Note: Cocos2D-X cannot use Alpha8 texture the way ImGui intentds to.
+	// According to the Cocos2D-X documentation at CCTexture2D.h:
+	// - generate 32-bit textures: Texture2D::PixelFormat::RGBA8888 (default one)
+	// - generate 8-bit textures: Texture2D::PixelFormat::A8 (only use it if you use just 1 color)
+	// And A8 uses one more color in ImGui.
+	// Therefore we have to waste a bit more on GPU memory, and we can't do this:
+	//io.Fonts->GetTexDataAsAlpha8(&pixels, &width, &height);   
+
 	io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);   // Load as RGBA 32-bits (75% of the memory is wasted, but default font is so small) because it is more likely to be compatible with user's existing shaders. If your ImTextureId represent a higher-level concept than just a GL texture id, consider calling GetTexDataAsAlpha8() instead to save on GPU memory.
 	setContentSize(Size(width, height)); // Doesn't seem necessary
 	_texture->initWithData(pixels, sizeof(pixels), Texture2D::PixelFormat::RGBA8888, width, height, Size(width,height));
@@ -154,12 +165,14 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 				_vertices_map[n][index].vertices = Vec3(vector_in_cocos2d_x_coordinates.x, vector_in_cocos2d_x_coordinates.y, 0);
 
 				// Colors
-				GLubyte r = (vtx_buffer[index].col >> (8*0)) & 0xff;
-				GLubyte g = (vtx_buffer[index].col >> (8*1)) & 0xff;
-				GLubyte b = (vtx_buffer[index].col >> (8*2)) & 0xff;
-				GLubyte a = (vtx_buffer[index].col >> (8*3)) & 0xff;
+				// For 32 bit colors:
+				//CCLOG("Size of the vertex color: %lu", sizeof(vtx_buffer[index].col));
+				GLubyte r = (vtx_buffer[index].col >> (8*0)) & 0xFF;
+				GLubyte g = (vtx_buffer[index].col >> (8*1)) & 0xFF;
+				GLubyte b = (vtx_buffer[index].col >> (8*2)) & 0xFF;
+				GLubyte a = (vtx_buffer[index].col >> (8*3)) & 0xFF;
 				_vertices_map[n][index].colors = Color4B(r,g,b,a); 
-				//CCLOG("Colors r g b a: %d %d %d %d", r, g, b ,a); // Color variables look good
+				//CCLOG("Colors: r g b a: %d %d %d %d", r, g, b ,a); // Color variables look good
 			}
 
 			// Now that we ported the vertices, we have to attach it to the TrianglesCommand::Triangles:
