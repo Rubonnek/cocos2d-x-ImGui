@@ -161,6 +161,11 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			//};
 
 			// There fore we only need to
+			auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
+			// Manipulating the coordinates here displaces the image
+			vtx_buffer[index].pos.x = vector_in_cocos2d_x_coordinates.x;
+			vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
+
 		}
 
 
