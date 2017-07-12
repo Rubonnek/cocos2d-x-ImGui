@@ -43,13 +43,29 @@
         operator MyVec4() const { return MyVec4(x,y,z,w); }
 */
 
+// We need to transofrm this ImGui ImDrawVert:
+//struct ImDrawVert
+//{
+//	ImVec2  pos; // Texture position
+//	ImVec2  uv; // Display position
+//	ImU32   col; // Color
+//};
+
+// Into the cocos2d-x vertex ( reorganized to match order):
+//struct CC_DLL V3F_C4B_T2F
+//{
+//    Tex2F        texCoords;           // 8 bytes
+//    Vec3     vertices;            // 12 bytes
+//    Color4B      colors;              // 4 bytes
+//};
+
 #define IMGUI_OVERRIDE_DRAWVERT_STRUCT_LAYOUT \
 struct ImDrawVert \
 { \
-    ImVec2  pos; \
+    ImVec2 pos; \
 	float z = 0; \
-    ImVec2  uv; \
-    ImU32   col; \
+    ImU32 col; \
+    ImVec2 uv; \
 };
 
 //---- Use 32-bit vertex indices (instead of default: 16-bit) to allow meshes with more than 64K vertices
