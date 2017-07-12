@@ -15,6 +15,8 @@ ImGuiLayer::ImGuiLayer()
 ImGuiLayer::~ImGuiLayer()
 {
 	_texture->release();
+
+	//TODO: clear the _vertices_map
 }
 
 // on "init" you need to initialize your instance
@@ -35,8 +37,8 @@ bool ImGuiLayer::init()
 	unsigned char* pixels;
 	int width, height;
 	io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);   // Load as RGBA 32-bits (75% of the memory is wasted, but default font is so small) because it is more likely to be compatible with user's existing shaders. If your ImTextureId represent a higher-level concept than just a GL texture id, consider calling GetTexDataAsAlpha8() instead to save on GPU memory.
-	//setContentSize(Size(width, height)); // Doesn't seem necessary
-	_texture->initWithData(pixels, sizeof(pixels), Texture2D::PixelFormat::RGBA8888, width, height, Size::ZERO);
+	setContentSize(Size(width, height)); // Doesn't seem necessary
+	_texture->initWithData(pixels, sizeof(pixels), Texture2D::PixelFormat::RGBA8888, width, height, Size(width,height));
 
     setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR_NO_MVP, _texture));
 
@@ -93,8 +95,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		unsigned char* pixels;
 		int width, height;
 		io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);   // Load as RGBA 32-bits (75% of the memory is wasted, but default font is so small) because it is more likely to be compatible with user's existing shaders. If your ImTextureId represent a higher-level concept than just a GL texture id, consider calling GetTexDataAsAlpha8() instead to save on GPU memory.
-		//CCLOG("Width: %d, Height: %d", width, height);
-		_texture->updateWithData(pixels, 0, 0, width, height); //Update the texture
+		//_texture->updateWithData(pixels, 0, 0, width, height); //Update the texture
 
 		#define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
 		for (int n = 0; n < draw_data->CmdListsCount; n++)
@@ -104,13 +105,13 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			const ImDrawVert* vtx_buffer = cmd_list->VtxBuffer.Data; //Complete buffer
 			const ImDrawIdx* idx_buffer = cmd_list->IdxBuffer.Data; //Complete buffer
 
-			//TODO: Port this code block into cocos2d-x:
+			//TODO: Port this code block into cocos2d-x compatible code:
 			//      Here we pass full vertex, textures and color arrays to OpenGL
 			//glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, pos)));
 			//glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, uv)));
 			//glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, col)));
 
-			// Code block port notes:
+			// Port notes:
 			// Since we can pass arrays over to OpenGL, here we
 			// have to transform each of those arrays into cocos2d-x compatible
 			// arrays. Meaning, we have to transform all these vertices over to
@@ -132,11 +133,11 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 				// Into the cocos2d-x vertex ( reorganized to match order):
 				//struct CC_DLL V3F_C4B_T2F
 				//{
-				//    /// vertices (3F)
-				//    Vec3     vertices;            // 12 bytes
-				//
 				//    // tex coords (2F)
 				//    Tex2F        texCoords;           // 8 bytes
+				//
+				//    /// vertices (3F)
+				//    Vec3     vertices;            // 12 bytes
 				//
 				//    /// colors (4B)
 				//    Color4B      colors;              // 4 bytes
@@ -147,8 +148,9 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 				_vertices_map[n][index].texCoords = Tex2F(vtx_buffer[index].uv.x, vtx_buffer[index].uv.y);
 
 				// Texture position diff
-				// Note: the Y axis gets flipped if we don't convert to Cocos2D-X coordinates here:
+				// Note: the Y axis gets flipped when moving the windows if we don't convert to Cocos2D-X coordinates here:
 				auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
+				// Manipulating the coordinates here displaces the image
 				_vertices_map[n][index].vertices = Vec3(vector_in_cocos2d_x_coordinates.x, vector_in_cocos2d_x_coordinates.y, 0);
 
 				// Colors
@@ -182,6 +184,12 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			// Debug Count
 			//CCLOG("vertCount: %d",_triangles_map[n].vertCount);
 			//CCLOG("indexCount: %d",_triangles_map[n].indexCount);
+
+			// TODO: We have to port this code too
+			//glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
+			//glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
+			//glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer);
+
 
 			// Init the triangles command:
 			_triangles_command_map[n].init(_globalZOrder,
@@ -219,7 +227,6 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		//        }
 		//#endif //CC_SPRITE_DEBUG_DRAW
     }
-
 
 	// Set the draw call and vertex count
 	//CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, draw_data->TotalVtxCount);
