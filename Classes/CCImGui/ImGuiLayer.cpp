@@ -105,7 +105,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			const ImDrawVert* vtx_buffer = cmd_list->VtxBuffer.Data; //Complete buffer
 			const ImDrawIdx* idx_buffer = cmd_list->IdxBuffer.Data; //Complete buffer
 
-			//TODO: Port this code block into cocos2d-x compatible code:
+			// Port this code block into cocos2d-x compatible code:
 			//      Here we pass full vertex, textures and color arrays to OpenGL
 			//glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, pos)));
 			//glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (const GLvoid*)((const char*)vtx_buffer + OFFSETOF(ImDrawVert, uv)));
@@ -118,7 +118,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			// V3F_C4B_T2F which can be stored in a cocos2d::TrianglesCommand::Triangles
 			CC_SAFE_DELETE_ARRAY(_vertices_map[n]);
 			_vertices_map[n] = new V3F_C4B_T2F[cmd_list->VtxBuffer.Size];
-			for ( int index = 0; index < cmd_list->VtxBuffer.Size; index += 3 ) // Here we move the index 3 steps to access the next ImDrawVert on the next iteration
+			for ( int index = 0; index < cmd_list->VtxBuffer.Size; ++index) // Here we move the index 3 steps to access the next ImDrawVert on the next iteration
 			{
 				// First off, lets translate the vertices pointer:
 
@@ -186,10 +186,9 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			//CCLOG("indexCount: %d",_triangles_map[n].indexCount);
 
 			// TODO: We have to port this code too
-			//glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
-			//glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-			//glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer);
-
+			//glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId); // This is done by cocos.
+			//glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));  //
+			//glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer); // This is done by cocos
 
 			// Init the triangles command:
 			_triangles_command_map[n].init(_globalZOrder,
