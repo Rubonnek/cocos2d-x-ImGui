@@ -19,8 +19,6 @@ class ImGuiManager
 		void addImGuiCallback(std::function<void()> callback, const std::string& name);
 		void removeImGuiCallback(const std::string& name);
 
-		//TODO: We should fire events from ImGui using cocos2d-x event dispatcher somehow. Work on that soon.
-
 		// Warning: Do not runt this outside of the onDraw Layer:
 		// Note: There should not be more than 2 ImGui nodes due to this.
 		//       But the performance hit is barely noticeable.
@@ -30,7 +28,6 @@ class ImGuiManager
 		void setShowStyleEditor(bool show);
 		static bool isTouchOnImGuiWindow(Touch* touch); // Useful for identifying the cases when we don't want our ImGui touches to affect the gameplay
 		static bool isClickOnImGuiWindow(EventMouse* click); // Useful for identifying the cases when we don't want our ImGui clicks to affect the gameplay
-
 
 		// Engine callback rewiring so that we can pass raw GLFW events to ImGui
 		// Each of these functions will first call the GLViewImpl callback
