@@ -222,7 +222,7 @@ void ImGuiManager::rewireEngineGLFWCallbacks()
 	glfwSetCharCallback(window, ImGuiManager::rewiredCharCallback);
 }
 
-//void ImGuiManager::rewireddMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+//void ImGuiManager::rewiredMouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 //{
 //	GLFWEventHandler::onGLFWMouseCallBack(window, button, action, mods);
 //	ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);

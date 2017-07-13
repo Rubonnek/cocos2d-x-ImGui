@@ -26,8 +26,6 @@ USING_NS_CC;
 #include <glfw3native.h>
 #endif
 
-#include<iostream>
-
 //Cocos2D-X render-related variables
 //static Director* g_CocosDirector = Director::getInstance();
 
