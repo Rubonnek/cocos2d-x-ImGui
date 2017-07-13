@@ -93,25 +93,25 @@ set window=57
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/game_development/cocos2d-x/imguix/Classes
+cd ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 badd +1 HelloWorldScene.cpp
 badd +23 HelloWorldScene.h
-badd +1 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.h
-badd +1 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCIMGUI.cpp
+badd +1 ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/CCIMGUI.h
+badd +1 ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/CCIMGUI.cpp
 badd +1 CCImGui/CCImGuiLayer.cpp
-badd +1 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/CCImGuiLayer.h
+badd +1 ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/CCImGuiLayer.h
 badd +1 CCImGui/imgui/imgui_impl_glfw.cpp
-badd +13 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/imgui/imgui_impl_glfw.h
+badd +13 ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/imgui/imgui_impl_glfw.h
 badd +38 CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
 badd +1 ../CMakeLists.txt
 badd +27 CCImGui/ImGuiLayer.h
 badd +1 CCImGui/ImGuiLayer.cpp
 badd +78 AppDelegate.cpp
-badd +53 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
+badd +53 ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/ImGuiManager.h
 badd +1 CCImGui/ImGuiManager.cpp
 badd +1 CCImGui/platform/imgui_impl_cocos2d_x.cpp
 badd +0 CCImGui/platform/imgui_impl_desktop.cpp
@@ -1025,7 +1025,7 @@ exe '2resize ' . ((&lines * 19 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 138 + 113) / 226)
 exe '3resize ' . ((&lines * 3 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 138 + 113) / 226)
-tabedit ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
+tabedit ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/ImGuiManager.h
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -1044,7 +1044,7 @@ exe 'vert 2resize ' . ((&columns * 112 + 113) / 226)
 exe '3resize ' . ((&lines * 2 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 112 + 113) / 226)
 argglobal
-edit ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
+edit ~/game_development/cocos2d-x/cocos2d-x-imgui/Classes/CCImGui/ImGuiManager.h
 nnoremap <buffer> <silent>  
 setlocal keymap=
 setlocal noarabic
