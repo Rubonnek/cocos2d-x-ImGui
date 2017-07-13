@@ -14,6 +14,18 @@ static float col_area_val = 100.f / 255.f;
 static float col_back_sat = 59.f / 255.f;
 static float col_back_val = 40.f / 255.f;
 
+ImGuiManager::ImGuiManager()
+{
+
+}
+
+ImGuiManager::~ImGuiManager()
+{
+	// We have to shutdown ImGui. Otherwise we'll get memory leaks due to the
+	// vertex and index buffers not getting deallocated.
+	ImGui_ImplGlfw_Shutdown();
+}
+
 ImGuiManager* ImGuiManager::getInstance()
 {
 	static ImGuiManager instance;

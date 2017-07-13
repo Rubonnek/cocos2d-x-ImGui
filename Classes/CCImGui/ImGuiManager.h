@@ -12,6 +12,9 @@ USING_NS_CC;
 class ImGuiManager
 {
 	public:
+		ImGuiManager(); // Constructor
+		~ImGuiManager(); // Destructor
+
 		static ImGuiManager* getInstance();
 		void addImGuiCallback(std::function<void()> callback, const std::string& name);
 		void removeImGuiCallback(const std::string& name);

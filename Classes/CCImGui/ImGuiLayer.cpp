@@ -9,12 +9,13 @@ ImGuiLayer::ImGuiLayer()
 	, _imgui_manager(ImGuiManager::getInstance())
 	  , _texture(new Texture2D)
 {
-	_texture->retain();
+
 }
 
 ImGuiLayer::~ImGuiLayer()
 {
-	_texture->release();
+	// We used new for _texture. Therefore we have to use delete.
+	delete _texture;
 }
 
 // on "init" you need to initialize your instance
