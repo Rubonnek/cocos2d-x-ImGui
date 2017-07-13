@@ -9,7 +9,6 @@ ImGuiLayer::ImGuiLayer()
 	, _imgui_manager(ImGuiManager::getInstance())
 	  , _texture(new Texture2D)
 {
-
 }
 
 ImGuiLayer::~ImGuiLayer()
@@ -34,7 +33,7 @@ bool ImGuiLayer::init()
 	// the pointer called "pixels"
 
 	ImGui_ImplGlfw_NewFrame();			// Start generating the new frame.
-	_imgui_manager->updateImGUI();		// Inject the user-defined callbacks
+	_imgui_manager->updateImGui();		// Inject the user-defined callbacks
 	ImGui::Render();					// Finishe rendering
 
 	ImGuiIO& io = ImGui::GetIO();
@@ -76,7 +75,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 	ImGui_ImplGlfw_NewFrame();
 
 	// Stack the user-provided ImGui windows for rendering:
-	_imgui_manager->updateImGUI();
+	_imgui_manager->updateImGui();
 
 	// Render the frame internally:
 	ImGui::Render();

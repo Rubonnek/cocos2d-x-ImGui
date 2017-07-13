@@ -101,7 +101,7 @@ void ImGuiManager::init()
 	rewireEngineGLFWCallbacks();
 }
 
-void ImGuiManager::updateImGUI()
+void ImGuiManager::updateImGui()
 {
 	// Remove all the marked to delete callbacks.
 	for (const auto& callbacks_to_delete : _markToDelete )
@@ -110,7 +110,7 @@ void ImGuiManager::updateImGUI()
 	}
 	_markToDelete.clear();
 
-	// Now run all the IMGUI callbacks:
+	// Now run all the ImGui callbacks:
 	for (const auto& iter : _callPipelines)
 	{
 		iter.second();

@@ -19,10 +19,10 @@ class ImGuiManager
 		void addImGuiCallback(std::function<void()> callback, const std::string& name);
 		void removeImGuiCallback(const std::string& name);
 
-		// Warning: Do not runt this outside of the onDraw Layer:
-		// Note: There should not be more than 2 ImGui nodes due to this.
-		//       But the performance hit is barely noticeable.
-		void updateImGUI();
+		// Warning: Do not updateImGui outside of ImGuiLayer::draw
+		// Note: There should not be more than 2 ImGui nodes on a single scene
+		// due to this. But the performance hit is barely noticeable.
+		void updateImGui(); // Execute all the user defined callbacks involving ImGui
 
 		// Utilities
 		void setShowStyleEditor(bool show);
