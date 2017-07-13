@@ -143,7 +143,7 @@ void ImGuiManager::displaySetupStyle()
 		ImGui::Begin("Style Editor", &isShowSetupStyle);
 		ImGui::SliderInt("master hue", &hue, 0, 255);
 
-		float dummy = 0.f; //TODO: What value is this supposed to be???
+		float dummy = 0.f; //FIXME: What value is this supposed to be? Seems to be working well anyway as a placeholder.
 		ImVec4 rgb;
 		ImGui::ColorEditMode(ImGuiColorEditMode_HSV);
 
