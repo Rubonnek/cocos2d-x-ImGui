@@ -2,10 +2,10 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <expr> <Down> pumvisible() ? "\" : "\<Down>"
-inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
-inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
 imap <Nul> <C-Space>
+inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
+inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
+inoremap <expr> <Down> pumvisible() ? "\" : "\<Down>"
 inoremap <silent> <C-Tab> =UltiSnips#ListSnippets()
 snoremap <silent>  c
 xnoremap <silent> 	 :call UltiSnips#SaveLastVisualSelection()gvs
@@ -89,6 +89,7 @@ set tabstop=4
 set tags=./tags,./TAGS,tags,TAGS,./tags;
 set undodir=~/.vim/tmp//
 set undofile
+set window=57
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -107,12 +108,13 @@ badd +1 CCImGui/imgui/imgui_impl_glfw.cpp
 badd +13 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/imgui/imgui_impl_glfw.h
 badd +38 CCImGui/platform/imgui_impl_glfw_linux_mac.cpp
 badd +1 ../CMakeLists.txt
-badd +30 CCImGui/ImGuiLayer.h
+badd +27 CCImGui/ImGuiLayer.h
 badd +1 CCImGui/ImGuiLayer.cpp
-badd +99 AppDelegate.cpp
-badd +54 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
+badd +78 AppDelegate.cpp
+badd +53 ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
 badd +1 CCImGui/ImGuiManager.cpp
-badd +0 CCImGui/platform/imgui_impl_cocos2d_x.cpp
+badd +1 CCImGui/platform/imgui_impl_cocos2d_x.cpp
+badd +0 CCImGui/platform/imgui_impl_desktop.cpp
 argglobal
 silent! argdel *
 $argadd HelloWorldScene.cpp
@@ -381,7 +383,9 @@ wincmd w
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+exe '1resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 1resize ' . ((&columns * 112 + 113) / 226)
+exe '2resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 113 + 113) / 226)
 argglobal
 nnoremap <buffer> <silent>  
@@ -498,7 +502,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 23 - ((22 * winheight(0) + 27) / 55)
+let s:l = 23 - ((9 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -621,14 +625,16 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 84 - ((50 * winheight(0) + 27) / 55)
+let s:l = 84 - ((21 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 84
 normal! 0
 wincmd w
+exe '1resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 1resize ' . ((&columns * 112 + 113) / 226)
+exe '2resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 113 + 113) / 226)
 tabedit CCImGui/ImGuiLayer.h
 set splitbelow splitright
@@ -643,10 +649,11 @@ wincmd w
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+exe '1resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 1resize ' . ((&columns * 87 + 113) / 226)
-exe '2resize ' . ((&lines * 19 + 13) / 26)
+exe '2resize ' . ((&lines * 19 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 138 + 113) / 226)
-exe '3resize ' . ((&lines * 3 + 13) / 26)
+exe '3resize ' . ((&lines * 3 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 138 + 113) / 226)
 argglobal
 2argu
@@ -1012,10 +1019,11 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 wincmd w
+exe '1resize ' . ((&lines * 23 + 29) / 58)
 exe 'vert 1resize ' . ((&columns * 87 + 113) / 226)
-exe '2resize ' . ((&lines * 19 + 13) / 26)
+exe '2resize ' . ((&lines * 19 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 138 + 113) / 226)
-exe '3resize ' . ((&lines * 3 + 13) / 26)
+exe '3resize ' . ((&lines * 3 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 138 + 113) / 226)
 tabedit ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
 set splitbelow splitright
@@ -1031,9 +1039,9 @@ set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 exe 'vert 1resize ' . ((&columns * 113 + 113) / 226)
-exe '2resize ' . ((&lines * 20 + 13) / 26)
+exe '2resize ' . ((&lines * 52 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 112 + 113) / 226)
-exe '3resize ' . ((&lines * 2 + 13) / 26)
+exe '3resize ' . ((&lines * 2 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 112 + 113) / 226)
 argglobal
 edit ~/game_development/cocos2d-x/imguix/Classes/CCImGui/ImGuiManager.h
@@ -1151,7 +1159,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 53 - ((22 * winheight(0) + 11) / 23)
+let s:l = 53 - ((52 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1274,7 +1282,7 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 113 - ((13 * winheight(0) + 10) / 20)
+let s:l = 113 - ((34 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1397,17 +1405,17 @@ setlocal nowrap
 setlocal wrapmargin=0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 113 + 113) / 226)
-exe '2resize ' . ((&lines * 20 + 13) / 26)
+exe '2resize ' . ((&lines * 52 + 29) / 58)
 exe 'vert 2resize ' . ((&columns * 112 + 113) / 226)
-exe '3resize ' . ((&lines * 2 + 13) / 26)
+exe '3resize ' . ((&lines * 2 + 29) / 58)
 exe 'vert 3resize ' . ((&columns * 112 + 113) / 226)
-tabedit CCImGui/platform/imgui_impl_cocos2d_x.cpp
+tabedit CCImGui/platform/imgui_impl_desktop.cpp
 set splitbelow splitright
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
-edit CCImGui/platform/imgui_impl_cocos2d_x.cpp
+edit CCImGui/platform/imgui_impl_desktop.cpp
 nnoremap <buffer> <silent>  
 setlocal keymap=
 setlocal noarabic
@@ -1522,12 +1530,12 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 79 - ((11 * winheight(0) + 12) / 24)
+let s:l = 137 - ((27 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-79
-normal! 06|
+137
+normal! 010|
 tabnext 6
 set stal=1
 if exists('s:wipebuf')

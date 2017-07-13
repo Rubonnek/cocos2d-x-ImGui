@@ -29,7 +29,7 @@ USING_NS_CC;
 #include<iostream>
 
 //Cocos2D-X render-related variables
-static Director* g_CocosDirector = Director::getInstance();
+//static Director* g_CocosDirector = Director::getInstance();
 
 // Data
 static GLFWwindow* g_Window = NULL;

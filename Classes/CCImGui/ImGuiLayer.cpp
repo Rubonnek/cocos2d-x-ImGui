@@ -162,17 +162,18 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			//	ImVec2 uv;
 			//};
 
-			// Therefore we only need to rearrange the vertices:
+			// Therefore we only need to convert the OpenGL coordinates to Cocos2D-X coordinates:
 			auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
-			// Manipulating the coordinates here displaces the image
 			vtx_buffer[index].pos.x = vector_in_cocos2d_x_coordinates.x;
 			vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
+			// Note: manipulating the coordinates here displaces the ImGui image
 
 			// FIXME: currently there's a very slight memory corruption in
-			// ImGui that's not noticeable. See
+			// ImGui that's not noticeable. No segfaults occure. See
 			// https://github.com/ocornut/imgui/issues/1172
-			// Z should be 0 here but it isn't. Force it to be zero and
-			// everything will be fine.
+			
+			// The "z" variable from the struct should be 0 here but it isn't.
+			// Force it to be zero and everything will be fine.
 			//CCLOG("vtx buffer z: %f", vtx_buffer[index].z);
 			vtx_buffer[index].z = 0;
 
@@ -199,7 +200,6 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		_triangles_map[n].indices = idx_buffer;
 		_triangles_map[n].vertCount = draw_data->CmdLists[n]->VtxBuffer.Size;
 		_triangles_map[n].indexCount = draw_data->CmdLists[n]->IdxBuffer.Size;
-
 
 		// Now we have to port this ImGui rendering code over to Cocos2D-X:
 
