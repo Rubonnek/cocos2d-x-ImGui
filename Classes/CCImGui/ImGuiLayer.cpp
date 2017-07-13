@@ -94,7 +94,12 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 	int width, height;
 	io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);   // Load as RGBA 32-bits (75% of the memory is wasted, but default font is so small) because it is more likely to be compatible with user's existing shaders. If your ImTextureId represent a higher-level concept than just a GL texture id, consider calling GetTexDataAsAlpha8() instead to save on GPU memory.
 
-	for (int n = 0; n < draw_data->CmdListsCount; n++)
+	// Make sure we have enough space in memory for each of the ImGui drawing commands:
+	auto DrawingCommandCount = draw_data->CmdListsCount;
+	_triangles_vector.resize(DrawingCommandCount);
+	_triangles_command_vector.resize(DrawingCommandCount);
+
+	for (int n = 0; n < DrawingCommandCount; n++)
 	{
 		// ImGui draw data we have to pass to cocos2d-x renderer:
 		const ImDrawList* cmd_list = draw_data->CmdLists[n];
@@ -196,10 +201,10 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		//};
 
 		// Update the triangles information:
-		_triangles_map[n].verts = (V3F_C4B_T2F*) vtx_buffer; // Here we have to force-cast ImGui pointer to the Cocos2D-X pointer.
-		_triangles_map[n].indices = idx_buffer;
-		_triangles_map[n].vertCount = draw_data->CmdLists[n]->VtxBuffer.Size;
-		_triangles_map[n].indexCount = draw_data->CmdLists[n]->IdxBuffer.Size;
+		_triangles_vector[n].verts = (V3F_C4B_T2F*) vtx_buffer; // Here we have to force-cast ImGui pointer to the Cocos2D-X pointer.
+		_triangles_vector[n].indices = idx_buffer;
+		_triangles_vector[n].vertCount = draw_data->CmdLists[n]->VtxBuffer.Size;
+		_triangles_vector[n].indexCount = draw_data->CmdLists[n]->IdxBuffer.Size;
 
 		// Now we have to port this ImGui rendering code over to Cocos2D-X:
 
@@ -215,16 +220,16 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		// http://discuss.cocos2d-x.org/t/cocos2d-x-ui-is-horrible/35796/2
 
 		// Init the triangles command:
-		_triangles_command_map[n].init(_globalZOrder,
+		_triangles_command_vector[n].init(_globalZOrder,
 				_texture,
 				getGLProgramState(),
 				BlendFunc::ALPHA_NON_PREMULTIPLIED,
-				_triangles_map[n],
+				_triangles_vector[n],
 				transform,
 				flags);
 
 		// Finally pass all this information to the renderer queue here:
-		renderer->addCommand(&_triangles_command_map[n]);
+		renderer->addCommand(&_triangles_command_vector[n]);
 
 		// And done!
 	}

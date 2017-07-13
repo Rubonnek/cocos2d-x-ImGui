@@ -26,8 +26,11 @@ class ImGuiLayer : public cocos2d::Node
 
 		// Necessary variables for rendering:
 		Texture2D* _texture;
-		std::map<int, TrianglesCommand> _triangles_command_map;
-		std::map<int, TrianglesCommand::Triangles> _triangles_map;
+
+		// We don't know how many drawing command calls ImGui might do.
+		// Let's use vectos to store these:
+		std::vector<TrianglesCommand> _triangles_command_vector;
+		std::vector<TrianglesCommand::Triangles> _triangles_vector;
 };
 
 #endif // __IMGUILAYER_H__
