@@ -74,7 +74,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 	// Prepare ImGui for a new frame:
 	ImGui_ImplGlfw_NewFrame();
 
-	// Stach the remaining ImGui windows for rendering:
+	// Stack the user-provided ImGui windows for rendering:
 	_imgui_manager->updateImGUI();
 
 	// Render the frame internally:
@@ -201,7 +201,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		//};
 
 		// Update the triangles information:
-		_triangles_vector[n].verts = (V3F_C4B_T2F*) vtx_buffer; // Here we have to force-cast ImGui pointer to the Cocos2D-X pointer.
+		_triangles_vector[n].verts = (V3F_C4B_T2F*) vtx_buffer; // Here we have to force-cast ImGui pointer to the Cocos2D-X pointer. The structs are of the same size and compatible by now.
 		_triangles_vector[n].indices = idx_buffer;
 		_triangles_vector[n].vertCount = draw_data->CmdLists[n]->VtxBuffer.Size;
 		_triangles_vector[n].indexCount = draw_data->CmdLists[n]->IdxBuffer.Size;
