@@ -154,10 +154,10 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			// To the following:
 			//struct ImDrawVert
 			//{
-			//		ImVec2 uv;
+			//	ImVec2 pos;
 			//		float z = 0;
 			//		ImU32 col;
-			//	ImVec2 pos;
+			//		ImVec2 uv;
 			//};
 
 			// There fore we only need to
@@ -166,6 +166,13 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			vtx_buffer[index].pos.x = vector_in_cocos2d_x_coordinates.x;
 			vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
 
+			// FIXME: currently there's a very slight memory corruption in
+			// ImGui that's not noticeable. See
+			// https://github.com/ocornut/imgui/issues/1172
+			// Z should be 0 here but it isn't. Force it to be zero and
+			// everything will be fine.
+			//CCLOG("vtx buffer z: %f", vtx_buffer[index].z);
+			vtx_buffer[index].z = 0;
 		}
 
 
@@ -189,13 +196,6 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 		//    Color4B      colors;              // 4 bytes
 		//    Tex2F        texCoords;           // 8 bytes
 		//};
-
-		CCLOG("======= SIZE BEGIN ========= ");
-		CCLOG("Size of ImVec2 + float: %lu, Vec3:  %lu", sizeof(ImVec2) + sizeof(float), sizeof(Vec3));
-		CCLOG("Size of ImU32: %lu, Color4B:  %lu", sizeof(ImU32), sizeof(Color4B));
-		CCLOG("Size of ImVec2:  %lu Tex2F: %lu", sizeof(ImVec2), sizeof(Tex2F));
-		CCLOG("Size of ImVec2:  %lu Tex2F: %lu", sizeof(V3F_C4B_T2F), sizeof(Tex2F));
-		CCLOG("======= SIZE END ========= ");
 
 		// Now that we ported the vertices, we have to attach it to the TrianglesCommand::Triangles:
 		//struct Triangles
