@@ -168,16 +168,19 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			//};
 
 			// Therefore we only need to convert the OpenGL coordinates to Cocos2D-X coordinates:
-			auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
-			vtx_buffer[index].pos.x = vector_in_cocos2d_x_coordinates.x;
-			vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
 			// Note: manipulating the coordinates here displaces the ImGui image
+			((Vec2&)vtx_buffer[index].pos) = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
+
+			// Note: the above is equivalent to this:
+			//		auto vector_in_cocos2d_x_coordinates = _director->convertToUI(Vec2(vtx_buffer[index].pos.x, vtx_buffer[index].pos.y));
+			//		vtx_buffer[index].pos.x = vector_in_cocos2d_x_coordinates.x;
+			//		vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
 
 			// Note: ImGui does not initialize new variables added to the the
 			// ImDrawVert struct even when these values are specified in the
-			// struct. We have to force the variable we included, "z", to be 0.
-			// Otherwise "z" will contain trash. This is NOT a memory
-			// corruption problem in ImGui.
+			// struct. We have to force the variable we added, "z", to be 0.
+			// Otherwise "z" will contain trash and will turn into rendering
+			// glitches. This is NOT a memory corruption problem in ImGui.
 			//CCLOG("vtx buffer z: %f", vtx_buffer[index].z);
 			vtx_buffer[index].z = 0;
 
