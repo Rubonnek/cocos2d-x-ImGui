@@ -162,7 +162,7 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			//struct ImDrawVert
 			//{
 			//	ImVec2 pos;
-			//	float z = 0.f;
+			//	float z;
 			//	ImU32 col;
 			//	ImVec2 uv;
 			//};
@@ -173,12 +173,11 @@ void ImGuiLayer::draw(cocos2d::Renderer* renderer, const cocos2d::Mat4& transfor
 			vtx_buffer[index].pos.y = vector_in_cocos2d_x_coordinates.y;
 			// Note: manipulating the coordinates here displaces the ImGui image
 
-			// FIXME: currently there's a very slight memory corruption in
-			// ImGui that's not noticeable. No segfaults occure. See
-			// https://github.com/ocornut/imgui/issues/1172
-			
-			// The "z" variable from the struct should be 0 here but it isn't.
-			// Force it to be zero and everything will be fine.
+			// Note: ImGui does not initialize new variables added to the the
+			// ImDrawVert struct even when these values are specified in the
+			// struct. We have to force the variable we included, "z", to be 0.
+			// Otherwise "z" will contain trash. This is NOT a memory
+			// corruption problem in ImGui.
 			//CCLOG("vtx buffer z: %f", vtx_buffer[index].z);
 			vtx_buffer[index].z = 0;
 

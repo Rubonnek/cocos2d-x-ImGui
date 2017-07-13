@@ -63,7 +63,7 @@
 struct ImDrawVert \
 { \
     ImVec2 pos; \
-	float z = 0.f; \
+	float z; \
     ImU32 col; \
     ImVec2 uv; \
 };
