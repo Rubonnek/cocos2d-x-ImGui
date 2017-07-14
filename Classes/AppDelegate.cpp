@@ -7,9 +7,6 @@
 USING_NS_CC;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(1136, 640);
-static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
-static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
-static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate() {
 
@@ -45,7 +42,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	if(!glview)
 	{
 		#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-		//glview = IMGUIGLViewImpl::createWithRect("HomeTown", Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
 		glview = GLViewImpl::createWithRect("HomeTown", Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
 		#elif (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 		glview = GLViewImpl::createWithRect("HomeTown", Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
@@ -64,21 +60,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// Set the design resolution
 	glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
 	register_all_packages();
-	// create a scene. it's an autorelease object
 
+	// create a scene. it's an autorelease object
 	auto scene = HelloWorldScene::create();
 	director->runWithScene(scene);
 
-	//// auto check when imGUI layer is not added yet.
-	//#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-	//director->getScheduler()->schedule([=](float dt)
-	//								   {
-	//									   if(director->getRunningScene()->getChildByName("ImGUILayer") == NULL)
-	//									   {
-	//										   scene->addChild(ImGuiLayer::create(), INT_MAX, "ImGUILayer");
-	//									   }
-	//								   }, this, 0,false, "checkImGUI");
-	//#endif
 	return true;
 }
 
