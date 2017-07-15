@@ -29,6 +29,8 @@ class ImGuiManager
 		static bool isTouchOnImGuiWindow(Touch* touch); // Useful for identifying the cases when we don't want our ImGui touches to affect the gameplay
 		static bool isClickOnImGuiWindow(EventMouse* click); // Useful for identifying the cases when we don't want our ImGui clicks to affect the gameplay
 
+		// Only for desktops:
+		#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX || CC_TARGET_PLATFORM == CC_PLATFORM_MAC
 		// Engine callback rewiring so that we can pass raw GLFW events to ImGui
 		// Each of these functions will first call the GLViewImpl callback
 		// such as onGLFWMouseCallBack, and afterwards they will call the ImGui_Impl callback
@@ -39,6 +41,7 @@ class ImGuiManager
 		static void rewiredScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 		static void rewiredKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void rewiredCharCallback(GLFWwindow* window, unsigned int c);
+		#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX || CC_TARGET_PLATFORM == CC_PLATFORM_MAC
 
 	private:
 		void init(); // Initialize the necessary 

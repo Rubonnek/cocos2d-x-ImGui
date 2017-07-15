@@ -225,6 +225,7 @@ void ImGuiManager::displaySetupStyle()
 	}
 }
 
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX || CC_TARGET_PLATFORM == CC_PLATFORM_MAC
 void ImGuiManager::rewireEngineGLFWCallbacks()
 {
 	GLFWwindow* window = static_cast<GLViewImpl*>(Director::getInstance()->getOpenGLView())->getWindow();
@@ -257,3 +258,4 @@ void ImGuiManager::rewiredCharCallback(GLFWwindow* window, unsigned int c)
 	GLFWEventHandler::onGLFWCharCallback(window, c);
 	ImGui_ImplGlfw_CharCallback(window, c);
 }
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX || CC_TARGET_PLATFORM == CC_PLATFORM_MAC

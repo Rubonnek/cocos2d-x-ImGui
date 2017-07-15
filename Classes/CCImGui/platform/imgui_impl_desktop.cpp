@@ -17,14 +17,29 @@
 
 USING_NS_CC;
 
-// GLFW
+// GLFW -- Only desktop platforms:
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX || CC_TARGET_PLATFORM == CC_PLATFORM_MAC
 #include <glfw3.h>
+#endif
 #ifdef _WIN32
 #undef APIENTRY
 #define GLFW_EXPOSE_NATIVE_WIN32
 #define GLFW_EXPOSE_NATIVE_WGL
 #include <glfw3native.h>
 #endif
+
+// Android OpenGL ES 2 headers
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include <jni.h>
+#include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
+
+#include <android/log.h>
+//#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO,"ImguiTest", __VA_ARGS__))
+#endif  // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+
+
+// iOS headers:
 
 //Cocos2D-X render-related variables
 //static Director* g_CocosDirector = Director::getInstance();
